@@ -1873,68 +1873,109 @@ function setTyping(on) {
 }
 
 // ── Core function: call Gemini backend and render response ───────
+// Sends a POST to /.netlify/functions/chatbot with:
+//   { message: string, history: Array, topic: string }
+// Receives: { reply: string } or { error: string }
 async function callGeminiAPI(userMessage) {
   setTyping(true);
 
-  // Build history payload — last 16 turns max for efficiency
+  // Build history payload — last 16 turns max (8 exchanges)
   const historyPayload = chatHistory.slice(-16).map(h => ({
     role: h.role,
     text: h.text,
   }));
 
+  // Always use a relative URL so this works on any Netlify domain,
+  // preview deploy, or localhost without changing any config.
+  const ENDPOINT = '/.netlify/functions/chatbot';
+
   let replyText = '';
 
   try {
-    const response = await fetch(BACKEND_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    // ── Step 1: make the POST request ──────────────────────────
+    // This is the ONLY place a request is made to the backend.
+    // Method is always POST. Content-Type is always application/json.
+    // No GET requests are made anywhere in this codebase.
+    const response = await fetch(ENDPOINT, {
+      method: 'POST',                                  // always POST — never GET
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
       body: JSON.stringify({
-        message: userMessage,
+        message: userMessage.trim(),
         history: historyPayload,
         topic: selectedTopic || '',
       }),
     });
 
+    // ── Step 2: handle non-2xx HTTP responses ───────────────────
     if (!response.ok) {
-      let errMsg = 'Something went wrong on our end. Please try again.';
-      try {
-        const errData = await response.json();
-        if (errData.error) errMsg = errData.error;
-      } catch (_) {}
+      let errMsg = 'Something went wrong. Please try again in a moment.';
 
-      // Handle rate limit specifically
+      try {
+        // Try to read the structured error from the backend
+        const errData = await response.json();
+        if (errData && typeof errData.error === 'string') {
+          errMsg = errData.error;
+        }
+      } catch (_) {
+        // Backend returned non-JSON body (e.g. a Netlify 404 page)
+        // Keep the generic message
+      }
+
+      // Special-case rate limiting for a better UX message
       if (response.status === 429) {
-        errMsg = 'The AI is handling many requests right now. Please wait a moment and try again.';
+        errMsg = 'The AI is handling a lot of requests right now. Please wait a moment and try again.';
+      }
+
+      // 405 means the fetch URL or method is wrong — surface clearly in dev
+      if (response.status === 405) {
+        console.error('[chatbot] 405 Method Not Allowed — check ENDPOINT URL and that method is POST');
+        errMsg = 'There is a configuration issue with the AI connection. Please refresh and try again.';
       }
 
       setTyping(false);
-      addMsg(`<em style="color:rgba(242,237,228,0.55);">${errMsg}</em>`, 'bot');
+      addMsg(`<em style="color:rgba(242,237,228,0.52);">${errMsg}</em>`, 'bot');
       return;
     }
 
-    const data = await response.json();
+    // ── Step 3: parse the successful JSON response ──────────────
+    let data;
+    try {
+      data = await response.json();
+    } catch (jsonErr) {
+      console.error('[chatbot] Failed to parse JSON from backend:', jsonErr);
+      setTyping(false);
+      addMsg(`<em style="color:rgba(242,237,228,0.52);">I had trouble reading the response. Please try again.</em>`, 'bot');
+      return;
+    }
+
     replyText = (data.reply || '').trim();
 
     if (!replyText) {
-      throw new Error('Empty reply from server');
+      setTyping(false);
+      addMsg(`<em style="color:rgba(242,237,228,0.52);">I did not get a response there. Could you rephrase your question?</em>`, 'bot');
+      return;
     }
 
   } catch (networkErr) {
+    // ── Step 4: handle total network failure ────────────────────
+    // This block only runs if fetch() itself throws — meaning the
+    // request never reached the server (offline, DNS failure, etc).
+    // It does NOT run for HTTP error status codes (those are step 2).
     setTyping(false);
-    const isOffline = !navigator.onLine;
-    const errMsg = isOffline
+    const errMsg = !navigator.onLine
       ? 'It looks like you are offline. Please check your connection and try again.'
-      : 'I had trouble connecting to the AI. Please try again in a moment.';
-    addMsg(`<em style="color:rgba(242,237,228,0.55);">${errMsg}</em>`, 'bot');
+      : 'Could not reach the AI right now. Please try again in a moment.';
+    addMsg(`<em style="color:rgba(242,237,228,0.52);">${errMsg}</em>`, 'bot');
     return;
   }
 
+  // ── Step 5: render the reply ────────────────────────────────────
   setTyping(false);
 
-  // Format and render the AI response
   const formattedReply = formatAIText(replyText);
-
-  // Decide whether to append WhatsApp CTA
   const showWaBtn = shouldShowWA(replyText);
   const finalHTML = showWaBtn
     ? `${formattedReply}<br><br>${WA_BTN}`
@@ -1942,7 +1983,7 @@ async function callGeminiAPI(userMessage) {
 
   addMsg(finalHTML, 'bot');
 
-  // Store bot reply in history (plain text for backend context)
+  // Store bot reply in history for next request's context
   chatHistory.push({ role: 'bot', text: replyText });
 }
 
