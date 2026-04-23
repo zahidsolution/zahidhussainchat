@@ -2,741 +2,1027 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Zahid Hussain | LinkedIn Creator and Personal Branding Mentor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Zahid Hussain | AI Powered LinkedIn and Personal Branding Mentor</title>
+<meta name="description" content="Top 7% LinkedIn creator worldwide. Get personalized guidance on LinkedIn growth, personal branding, and career clarity through AI-powered chat sessions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════ */
+/* ════════════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════════════ */
 :root {
-  --black:        #060606;
-  --deep:         #030303;
-  --cr:           #8B0000;
-  --cr2:          #B20000;
-  --cr-g:         rgba(139,0,0,0.20);
+  --bg:           #050505;
+  --bg2:          #080808;
+  --bg3:          #0d0d0d;
+  --red:          #8B0000;
+  --red2:         #a80000;
+  --red3:         #c50000;
+  --red-glow:     rgba(139,0,0,0.18);
+  --red-soft:     rgba(139,0,0,0.08);
   --gold:         #C9A84C;
   --gold2:        #E8C96B;
-  --gold-p:       rgba(201,168,76,0.13);
-  --gold-b:       rgba(201,168,76,0.22);
-  --gold-lo:      rgba(201,168,76,0.10);
-  --w:            #F5F0E8;
-  --w-d:          rgba(245,240,232,0.80);
-  --w-m:          rgba(245,240,232,0.58);
-  --w-f:          rgba(245,240,232,0.20);
-  --glass:        rgba(255,255,255,0.045);
-  --sc:           0 20px 50px rgba(0,0,0,0.55), 0 4px 14px rgba(0,0,0,0.4);
-  --r:            14px;
-  --nav-h:        62px;
+  --gold-glow:    rgba(201,168,76,0.20);
+  --gold-pale:    rgba(201,168,76,0.10);
+  --gold-border:  rgba(201,168,76,0.20);
+  --gold-lo:      rgba(201,168,76,0.08);
+  --w:            #F2EDE4;
+  --w80:          rgba(242,237,228,0.80);
+  --w60:          rgba(242,237,228,0.60);
+  --w35:          rgba(242,237,228,0.35);
+  --w15:          rgba(242,237,228,0.15);
+  --w06:          rgba(242,237,228,0.06);
+  --border:       rgba(255,255,255,0.07);
+  --border-gold:  rgba(201,168,76,0.18);
+  --r-sm:         8px;
+  --r:            12px;
+  --r-lg:         18px;
+  --sh:           0 20px 60px rgba(0,0,0,0.60), 0 4px 16px rgba(0,0,0,0.40);
+  --sh-red:       0 8px 40px rgba(139,0,0,0.35);
+  --nav-h:        60px;
+  --max-w:        1140px;
+  --transition:   all 0.3s cubic-bezier(0.2,0.8,0.3,1);
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  background: var(--deep);
-  color: var(--w);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  background:var(--bg);color:var(--w);
+  font-family:'DM Sans',sans-serif;font-weight:300;
+  overflow-x:hidden;-webkit-text-size-adjust:100%;
+  line-height:1.6;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+/* ── CANVAS BACKGROUND ── */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ── GRAIN OVERLAY ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  opacity:0.45;
 }
 
-/* ── CANVAS ── */
-#bg-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; }
+/* ════════════════════════════════════════════════
+   UTILITY
+════════════════════════════════════════════════ */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 clamp(16px,4vw,40px);}
+.text-center{text-align:center;}
+.section-pad{padding:clamp(70px,9vw,120px) 0;}
 
-/* ── GRAIN ── */
-body::after {
-  content:''; position:fixed; inset:0; z-index:1; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity:0.5;
+/* Section labels */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Cinzel',serif;font-size:clamp(0.58rem,1.6vw,0.65rem);
+  letter-spacing:0.28em;color:var(--red3);margin-bottom:14px;
 }
+.eyebrow-line{width:24px;height:1px;background:var(--red3);display:inline-block;}
 
-/* ══════════════════════════════════════════
-   NAV
-══════════════════════════════════════════ */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  height:var(--nav-h);
-  padding:0 clamp(16px,4vw,48px);
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  background:rgba(3,3,3,0.95);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(201,168,76,0.09);
-  transition:box-shadow .4s;
+/* Section heading */
+.h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,5vw,3.4rem);font-weight:300;
+  line-height:1.12;margin-bottom:16px;
 }
-nav.scrolled { box-shadow:0 4px 32px rgba(0,0,0,0.65); }
+.h2 em{font-style:italic;color:var(--gold2);}
+.h2 strong{font-weight:600;}
 
-.nav-logo {
-  font-family:'Cinzel',serif; font-size:clamp(0.85rem,2.5vw,1.05rem);
-  letter-spacing:0.24em; color:var(--gold); text-decoration:none; white-space:nowrap;
-}
-.nav-cta {
-  display:flex; align-items:center; gap:7px;
-  background:linear-gradient(135deg,var(--cr),#6b0000);
-  color:var(--w); border:1px solid rgba(139,0,0,0.5);
-  padding:9px clamp(14px,3vw,22px); border-radius:4px;
-  font-family:'DM Sans',sans-serif; font-size:clamp(0.75rem,2vw,0.82rem);
-  font-weight:500; letter-spacing:0.07em; cursor:pointer;
-  transition:all .3s; text-decoration:none; white-space:nowrap;
-}
-.nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(139,0,0,0.5); }
-.nav-cta:active { transform:scale(0.97); }
-.nav-cta svg { width:15px; height:15px; fill:currentColor; flex-shrink:0; }
+/* Body text */
+.body-text{font-size:clamp(0.9rem,2vw,1rem);color:var(--w60);line-height:1.85;max-width:520px;}
 
-/* ══════════════════════════════════════════
+/* Divider */
+.divider{width:100%;height:1px;background:var(--border);margin:0;}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:0.1s;}
+.reveal-d2{transition-delay:0.2s;}
+.reveal-d3{transition-delay:0.32s;}
+.reveal-d4{transition-delay:0.44s;}
+
+/* ════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.05em;
+  border-radius:var(--r-sm);padding:13px 28px;min-height:48px;
+  font-size:clamp(0.82rem,2vw,0.88rem);
+  transition:var(--transition);touch-action:manipulation;cursor:pointer;
+  white-space:nowrap;position:relative;overflow:hidden;
+}
+.btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0;}
+
+.btn-red{
+  background:linear-gradient(135deg,var(--red),#580000);
+  color:var(--w);border:1px solid rgba(139,0,0,0.5);
+}
+.btn-red::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent 60%);
+  opacity:0;transition:opacity 0.3s;
+}
+.btn-red:hover{transform:translateY(-2px);box-shadow:var(--sh-red);}
+.btn-red:hover::before{opacity:1;}
+.btn-red:active{transform:scale(0.97);}
+
+.btn-outline{
+  background:transparent;color:var(--gold2);
+  border:1px solid var(--gold-border);
+}
+.btn-outline:hover{background:var(--gold-pale);border-color:rgba(201,168,76,0.4);transform:translateY(-2px);}
+.btn-outline:active{transform:scale(0.97);}
+
+.btn-ghost{
+  background:var(--w06);color:var(--w80);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover{background:var(--w15);transform:translateY(-2px);}
+
+.btn-green{
+  background:linear-gradient(135deg,#1a9e4a,#0e6830);
+  color:#fff;border:1px solid rgba(26,158,74,0.4);
+}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(26,158,74,0.35);}
+.btn-green:active{transform:scale(0.97);}
+
+.btn-full{width:100%;}
+.btn-lg{padding:16px 36px;font-size:clamp(0.88rem,2vw,0.96rem);}
+
+/* ════════════════════════════════════════════════
+   NAVBAR
+════════════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);
+  display:flex;align-items:center;
+  background:rgba(5,5,5,0.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow 0.4s,border-color 0.4s;
+}
+#navbar.scrolled{box-shadow:0 4px 32px rgba(0,0,0,0.7);border-color:var(--border-gold);}
+.nav-inner{
+  max-width:var(--max-w);margin:0 auto;width:100%;
+  padding:0 clamp(16px,4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-brand{
+  font-family:'Cinzel',serif;font-size:clamp(0.85rem,2.5vw,1rem);
+  letter-spacing:0.24em;color:var(--gold);white-space:nowrap;
+}
+.nav-links{
+  display:none;align-items:center;gap:clamp(18px,3vw,32px);
+  list-style:none;
+}
+@media(min-width:768px){.nav-links{display:flex;}}
+.nav-links a{
+  font-size:0.82rem;color:var(--w60);letter-spacing:0.04em;
+  transition:color 0.25s;padding:4px 0;
+  border-bottom:1px solid transparent;
+}
+.nav-links a:hover{color:var(--w);border-color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-wa{
+  display:flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--red),#580000);
+  color:var(--w);border:1px solid rgba(139,0,0,0.4);
+  padding:8px clamp(12px,2.5vw,20px);border-radius:var(--r-sm);
+  font-size:clamp(0.72rem,2vw,0.8rem);font-weight:500;letter-spacing:0.06em;
+  transition:var(--transition);white-space:nowrap;
+}
+.nav-wa svg{width:14px;height:14px;fill:currentColor;}
+.nav-wa:hover{transform:translateY(-2px);box-shadow:var(--sh-red);}
+
+/* ════════════════════════════════════════════════
    HERO
-══════════════════════════════════════════ */
-.hero {
-  position:relative; z-index:2;
-  min-height:100dvh;
-  display:flex; align-items:center; justify-content:center;
-  padding:calc(var(--nav-h) + 40px) clamp(20px,5vw,60px) 80px;
-  text-align:center; overflow:hidden;
+════════════════════════════════════════════════ */
+.hero{
+  position:relative;z-index:2;
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:calc(var(--nav-h) + clamp(40px,8vw,80px)) clamp(20px,5vw,60px) clamp(60px,8vw,100px);
+  text-align:center;overflow:hidden;
 }
-.hero-spotlight {
-  position:absolute; width:min(900px,140vw); height:min(600px,100vw);
-  top:50%; left:50%; transform:translate(-50%,-54%);
-  background:radial-gradient(ellipse at center,rgba(139,0,0,0.14) 0%,rgba(80,0,0,0.05) 40%,transparent 70%);
+.hero-spotlight{
+  position:absolute;width:min(1000px,150vw);height:min(700px,120vw);
+  top:50%;left:50%;transform:translate(-50%,-52%);
+  background:radial-gradient(ellipse at center,rgba(139,0,0,0.12) 0%,rgba(80,0,0,0.05) 38%,transparent 70%);
   pointer-events:none;
-  animation:spotPulse 7s ease-in-out infinite alternate;
+  animation:spotPulse 8s ease-in-out infinite alternate;
 }
-@keyframes spotPulse {
-  from{opacity:.7;transform:translate(-50%,-54%) scale(1)}
-  to  {opacity:1; transform:translate(-50%,-57%) scale(1.07)}
+@keyframes spotPulse{
+  from{opacity:0.7;transform:translate(-50%,-52%) scale(1);}
+  to  {opacity:1;  transform:translate(-50%,-55%) scale(1.06);}
 }
-.hero-content { max-width:860px; position:relative; z-index:2; width:100%; }
-
-.hero-badge {
-  display:inline-flex; align-items:center; gap:9px;
-  background:rgba(201,168,76,0.10); border:1px solid rgba(201,168,76,0.30);
-  padding:8px 18px; border-radius:100px;
-  font-size:clamp(0.68rem,2vw,0.76rem); letter-spacing:0.16em; color:var(--gold2);
-  margin-bottom:clamp(24px,4vw,38px);
-  animation:fadeUp 1s ease both;
+.hero-inner{max-width:820px;position:relative;z-index:2;width:100%;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-pale);border:1px solid rgba(201,168,76,0.28);
+  padding:7px 16px;border-radius:100px;
+  font-size:clamp(0.66rem,1.8vw,0.72rem);letter-spacing:0.16em;color:var(--gold2);
+  margin-bottom:clamp(22px,4vw,34px);
+  animation:fadeUp 0.9s ease both;
 }
-.badge-dot {
-  width:7px; height:7px; background:var(--gold2); border-radius:50%;
+.badge-live{
+  width:7px;height:7px;border-radius:50%;background:var(--gold2);
   animation:livePulse 2s ease-in-out infinite;
 }
-@keyframes livePulse {
-  0%,100%{opacity:1;box-shadow:0 0 6px var(--gold);transform:scale(1)}
-  50%     {opacity:.5;box-shadow:0 0 14px var(--gold2);transform:scale(.75)}
+@keyframes livePulse{
+  0%,100%{opacity:1;box-shadow:0 0 6px var(--gold);transform:scale(1);}
+  50%     {opacity:0.5;box-shadow:0 0 12px var(--gold2);transform:scale(0.75);}
 }
-
-.hero-title {
+.hero-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.8rem,9vw,7rem);
-  font-weight:300; line-height:1.05; letter-spacing:-.01em;
-  margin-bottom:clamp(18px,3vw,30px);
-  animation:fadeUp 1s ease .12s both;
+  font-size:clamp(2.8rem,9vw,6.8rem);
+  font-weight:300;line-height:1.04;letter-spacing:-0.01em;
+  margin-bottom:clamp(16px,3vw,26px);
+  animation:fadeUp 0.9s ease 0.1s both;
 }
-.hero-title em { font-style:italic; color:var(--gold2); display:block; }
-.hero-title strong { font-weight:600; display:block; }
-
-.hero-sub {
-  font-size:clamp(0.95rem,2.5vw,1.06rem); color:var(--w-d);
-  line-height:1.84; max-width:540px; margin:0 auto clamp(32px,5vw,52px);
-  animation:fadeUp 1s ease .22s both;
+.hero-title em{font-style:italic;color:var(--gold2);display:block;}
+.hero-title strong{font-weight:600;display:block;}
+.hero-sub{
+  font-size:clamp(0.96rem,2.5vw,1.08rem);color:var(--w60);
+  line-height:1.84;max-width:520px;margin:0 auto clamp(28px,5vw,46px);
+  animation:fadeUp 0.9s ease 0.2s both;
 }
-.hero-actions {
-  display:flex; gap:clamp(10px,2vw,18px); justify-content:center; flex-wrap:wrap;
-  animation:fadeUp 1s ease .34s both;
+.hero-ctas{
+  display:flex;gap:clamp(10px,2vw,16px);justify-content:center;flex-wrap:wrap;
+  animation:fadeUp 0.9s ease 0.3s both;margin-bottom:clamp(40px,6vw,64px);
 }
-.hero-scroll {
-  position:absolute; bottom:clamp(20px,4vw,36px); left:50%; transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  color:var(--w-m); font-size:0.65rem; letter-spacing:0.24em;
-  animation:fadeUp 1.3s ease .9s both;
+.hero-social-proof{
+  display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,32px);
+  flex-wrap:wrap;animation:fadeUp 0.9s ease 0.45s both;
 }
-.scroll-line {
-  width:1px; height:50px;
+.proof-item{display:flex;align-items:center;gap:8px;font-size:clamp(0.75rem,2vw,0.82rem);color:var(--w60);}
+.proof-icon{color:var(--gold2);font-size:1rem;}
+.proof-divider{width:1px;height:20px;background:var(--border);flex-shrink:0;}
+.hero-scroll{
+  position:absolute;bottom:clamp(18px,3vw,30px);left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:var(--w35);font-size:0.62rem;letter-spacing:0.24em;
+  animation:fadeUp 1.2s ease 0.9s both;
+}
+.scroll-line{
+  width:1px;height:44px;
   background:linear-gradient(to bottom,var(--gold),transparent);
   animation:scrollDrop 2.4s ease-in-out infinite;
 }
-@keyframes scrollDrop {
-  0%{transform:scaleY(0);transform-origin:top;opacity:0}
-  40%{transform:scaleY(1);transform-origin:top;opacity:1}
-  80%{transform:scaleY(1);transform-origin:bottom;opacity:1}
-  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
-}
-@keyframes fadeUp {
-  from{opacity:0;transform:translateY(30px)}
-  to  {opacity:1;transform:translateY(0)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes scrollDrop{
+  0%  {transform:scaleY(0);transform-origin:top;opacity:0;}
+  40% {transform:scaleY(1);transform-origin:top;opacity:1;}
+  80% {transform:scaleY(1);transform-origin:bottom;opacity:1;}
+  100%{transform:scaleY(0);transform-origin:bottom;opacity:0;}
 }
 
-/* ══════════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════════ */
-.btn-primary {
-  display:inline-flex; align-items:center; gap:9px;
-  background:linear-gradient(135deg,var(--cr),#6b0000);
-  color:var(--w); padding:clamp(13px,2.5vw,17px) clamp(22px,4vw,38px);
-  border-radius:4px; font-family:'DM Sans',sans-serif;
-  font-size:clamp(0.82rem,2vw,0.9rem); font-weight:500; letter-spacing:.06em;
-  text-decoration:none; border:1px solid rgba(139,0,0,0.5);
-  position:relative; overflow:hidden;
-  transition:all .35s cubic-bezier(.2,.8,.3,1);
-  min-height:48px; touch-action:manipulation;
+/* ════════════════════════════════════════════════
+   STATS STRIP
+════════════════════════════════════════════════ */
+.stats-strip{
+  position:relative;z-index:2;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--bg2);
+  padding:clamp(22px,4vw,36px) clamp(16px,4vw,40px);
+  display:grid;grid-template-columns:repeat(2,1fr);
 }
-.btn-primary:hover { transform:translateY(-3px); box-shadow:0 14px 44px rgba(139,0,0,.55); }
-.btn-primary:active { transform:scale(.97); }
-
-.btn-secondary {
-  display:inline-flex; align-items:center; gap:9px;
-  background:rgba(201,168,76,0.08); color:var(--gold2);
-  padding:clamp(13px,2.5vw,17px) clamp(22px,4vw,38px);
-  border-radius:4px; font-family:'DM Sans',sans-serif;
-  font-size:clamp(0.82rem,2vw,0.9rem); font-weight:500; letter-spacing:.06em;
-  text-decoration:none; border:1px solid rgba(201,168,76,0.28);
-  cursor:pointer; transition:all .35s; min-height:48px; touch-action:manipulation;
+@media(min-width:600px){.stats-strip{grid-template-columns:repeat(4,1fr);}}
+.stat-item{
+  text-align:center;padding:clamp(12px,2vw,18px) 8px;
+  position:relative;transition:transform 0.3s;
 }
-.btn-secondary:hover { background:rgba(201,168,76,0.15); transform:translateY(-3px); }
-.btn-secondary:active { transform:scale(.97); }
-
-/* ══════════════════════════════════════════
-   STATS
-══════════════════════════════════════════ */
-.stats-strip {
-  position:relative; z-index:2;
-  border-top:1px solid var(--gold-lo); border-bottom:1px solid var(--gold-lo);
-  background:rgba(255,255,255,0.025); backdrop-filter:blur(12px);
-  padding:clamp(24px,4vw,44px) clamp(16px,4vw,40px);
-  display:grid; grid-template-columns:repeat(2,1fr);
+.stat-item:hover{transform:translateY(-3px);}
+.stat-item:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:20%;bottom:20%;
+  width:1px;background:var(--border);
 }
-@media(min-width:600px){ .stats-strip { grid-template-columns:repeat(4,1fr); } }
-
-.stat-item {
-  text-align:center; padding:clamp(14px,2vw,20px) 10px;
-  position:relative; transition:transform .3s;
-}
-.stat-item:hover { transform:translateY(-4px); }
-.stat-num {
+@media(max-width:599px){.stat-item:nth-child(2)::after{display:none;}.stat-item:nth-child(even)::after{display:none;}}
+.stat-num{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,6vw,3rem); font-weight:600; color:var(--gold2);
-  line-height:1; display:block; margin-bottom:6px;
-  text-shadow:0 0 30px rgba(201,168,76,.3);
+  font-size:clamp(1.9rem,5vw,2.8rem);font-weight:600;color:var(--gold2);
+  line-height:1;display:block;margin-bottom:5px;
 }
-.stat-label { font-size:clamp(0.68rem,2vw,0.76rem); letter-spacing:.12em; color:var(--w-m); }
+.stat-label{font-size:clamp(0.66rem,1.8vw,0.72rem);letter-spacing:0.12em;color:var(--w60);}
 
-/* ══════════════════════════════════════════
-   SECTION COMMONS
-══════════════════════════════════════════ */
-section { position:relative; z-index:2; }
-.section-tag {
-  font-family:'Cinzel',serif; font-size:clamp(0.6rem,1.8vw,0.67rem);
-  letter-spacing:.3em; color:var(--cr2); margin-bottom:14px; display:block;
+/* ════════════════════════════════════════════════
+   VALUE PROPOSITION
+════════════════════════════════════════════════ */
+.value-section{position:relative;z-index:2;}
+.value-grid{
+  display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,60px);
+  align-items:center;
 }
-.section-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.9rem,5vw,3.7rem); font-weight:300;
-  line-height:1.12; margin-bottom:18px;
+@media(min-width:820px){.value-grid{grid-template-columns:1fr 1fr;}}
+.value-text .body-text{margin-bottom:28px;}
+.value-checklist{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.value-checklist li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:clamp(0.88rem,2vw,0.95rem);color:var(--w80);line-height:1.7;
 }
-.section-title em { font-style:italic; color:var(--gold2); }
-.section-body { font-size:clamp(0.9rem,2vw,1rem); color:var(--w-d); line-height:1.85; max-width:540px; }
-
-/* ══════════════════════════════════════════
-   ABOUT
-══════════════════════════════════════════ */
-.about {
-  padding:clamp(70px,10vw,130px) clamp(20px,5vw,60px);
-  max-width:1200px; margin:0 auto;
-  display:grid; grid-template-columns:1fr; gap:50px; align-items:center;
+.check-icon{
+  width:20px;height:20px;border-radius:50%;background:var(--red-soft);
+  border:1px solid rgba(139,0,0,0.3);display:flex;align-items:center;justify-content:center;
+  color:var(--red3);font-size:0.7rem;flex-shrink:0;margin-top:2px;
 }
-@media(min-width:860px){
-  .about { grid-template-columns:1fr 1fr; gap:100px; }
-  .about-text { order:1; } .about-visual { order:2; }
+.value-visual{position:relative;}
+.value-card{
+  background:var(--bg2);border:1px solid var(--border-gold);
+  border-radius:var(--r-lg);padding:clamp(28px,5vw,44px);
+  position:relative;overflow:hidden;
 }
-.about-visual { position:relative; }
-.about-card {
-  background:linear-gradient(160deg,rgba(255,255,255,0.055) 0%,rgba(255,255,255,0.02) 100%);
-  border:1px solid var(--gold-b); border-radius:var(--r); padding:clamp(32px,5vw,52px) clamp(24px,4vw,42px);
-  position:relative; overflow:hidden;
-  backdrop-filter:blur(24px); box-shadow:var(--sc);
-  transition:all .45s cubic-bezier(.2,.8,.3,1);
+.value-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--gold),var(--red),transparent);
 }
-.about-card:hover { transform:translateY(-6px); border-color:rgba(201,168,76,.38); }
-.about-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background:linear-gradient(to right,transparent,var(--gold2),var(--cr),transparent);
+.value-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top,rgba(201,168,76,0.04),transparent 60%);
+  pointer-events:none;
 }
-.about-avatar {
-  width:clamp(70px,15vw,96px); height:clamp(70px,15vw,96px); border-radius:50%;
+.value-avatar-wrap{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+.value-avatar{
+  width:56px;height:56px;border-radius:50%;
   background:linear-gradient(145deg,#2a0000,#0e0000);
-  border:2px solid rgba(201,168,76,.45);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Cinzel',serif; font-size:clamp(1.4rem,4vw,2.1rem); color:var(--gold2);
-  margin:0 auto 22px;
-  animation:avatarGlow 3.5s ease-in-out infinite alternate;
+  border:2px solid rgba(201,168,76,0.45);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:1.4rem;color:var(--gold2);
+  flex-shrink:0;
+  box-shadow:0 0 0 4px rgba(201,168,76,0.08),0 0 28px rgba(139,0,0,0.28);
 }
-@keyframes avatarGlow {
-  from{box-shadow:0 0 0 4px rgba(201,168,76,.08),0 0 28px rgba(139,0,0,.28)}
-  to  {box-shadow:0 0 0 9px rgba(201,168,76,.13),0 0 60px rgba(139,0,0,.44)}
+.value-av-info{}
+.value-av-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:2px;}
+.value-av-role{font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;}
+.value-quote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1rem,2.5vw,1.12rem);color:var(--w60);line-height:1.75;
+  border-left:2px solid var(--red);padding-left:16px;margin-bottom:22px;
 }
-.about-name { font-family:'Cormorant Garamond',serif; font-size:clamp(1.3rem,3vw,1.7rem); font-weight:600; text-align:center; margin-bottom:7px; }
-.about-role { text-align:center; color:var(--gold); font-size:clamp(0.68rem,2vw,0.78rem); letter-spacing:.12em; margin-bottom:22px; }
-.about-divider { width:50px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:0 auto 22px; }
-.about-quote { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(0.95rem,2.5vw,1.08rem); color:var(--w-d); text-align:center; line-height:1.72; }
-.about-badge-row { display:flex; gap:7px; flex-wrap:wrap; justify-content:center; margin-top:22px; }
-.pill {
-  font-size:clamp(0.62rem,1.8vw,0.7rem); letter-spacing:.07em;
-  padding:5px 12px; border-radius:100px;
-  background:rgba(201,168,76,.10); border:1px solid rgba(201,168,76,.25); color:var(--gold2);
-  transition:all .3s;
+.value-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.tag{
+  font-size:0.68rem;letter-spacing:0.07em;padding:5px 12px;border-radius:100px;
+  background:var(--gold-pale);border:1px solid rgba(201,168,76,0.22);color:var(--gold2);
 }
-.pill:hover { background:rgba(201,168,76,.20); }
-.about-deco {
-  position:absolute; bottom:-35px; right:-35px;
-  width:150px; height:150px; border:1px solid rgba(201,168,76,.12); border-radius:50%;
-  animation:spinSlow 30s linear infinite;
-}
-.about-deco-2 {
-  position:absolute; top:-22px; left:-22px;
-  width:90px; height:90px; border:1px solid rgba(139,0,0,.20); border-radius:50%;
-  animation:spinSlow 20s linear infinite reverse;
-}
-@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 
-/* ══════════════════════════════════════════
-   SERVICES
-══════════════════════════════════════════ */
-.services { padding:clamp(60px,8vw,100px) clamp(20px,5vw,60px); max-width:1200px; margin:0 auto; }
-.services-header { text-align:center; margin-bottom:clamp(40px,6vw,72px); }
-.services-header .section-body { margin:0 auto; }
-.services-grid {
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
+/* ════════════════════════════════════════════════
+   FEATURE CARDS
+════════════════════════════════════════════════ */
+.features-section{position:relative;z-index:2;background:var(--bg2);}
+.features-grid{
+  display:grid;grid-template-columns:1fr;gap:20px;
 }
-@media(min-width:560px){ .services-grid { grid-template-columns:repeat(2,1fr); } }
-@media(min-width:900px){ .services-grid { grid-template-columns:repeat(4,1fr); } }
+@media(min-width:560px){.features-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.features-grid{grid-template-columns:repeat(4,1fr);}}
 
-.service-card {
-  background:linear-gradient(160deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.02) 100%);
-  border:1px solid var(--gold-lo); border-radius:var(--r); padding:clamp(28px,4vw,42px) clamp(20px,3vw,32px);
-  position:relative; overflow:hidden;
-  transition:all .45s cubic-bezier(.2,.8,.3,1);
-  backdrop-filter:blur(10px);
+.feat-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:clamp(24px,4vw,36px) clamp(18px,3vw,28px);
+  position:relative;overflow:hidden;
+  transition:var(--transition);
 }
-.service-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(to right,transparent,rgba(201,168,76,.3),transparent);
+.feat-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,168,76,0.25),transparent);
+  transition:opacity 0.3s;
 }
-.service-card:hover { border-color:rgba(201,168,76,.38); transform:translateY(-8px); box-shadow:0 24px 55px rgba(0,0,0,.45); }
-.service-icon {
-  width:48px; height:48px; background:rgba(201,168,76,.08);
-  border:1px solid rgba(201,168,76,.22); border-radius:10px;
-  display:flex; align-items:center; justify-content:center;
-  margin-bottom:20px; font-size:1.4rem; transition:all .35s;
+.feat-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top left,rgba(139,0,0,0.07),transparent 60%);
+  opacity:0;transition:opacity 0.4s;pointer-events:none;
 }
-.service-card:hover .service-icon { background:rgba(201,168,76,.18); box-shadow:0 0 20px rgba(201,168,76,.18); transform:scale(1.08); }
-.service-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.2rem,2.5vw,1.4rem); font-weight:600; margin-bottom:12px; color:var(--w); }
-.service-desc { font-size:clamp(0.82rem,2vw,0.88rem); color:var(--w-d); line-height:1.77; }
+.feat-card:hover{border-color:var(--gold-border);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.45);}
+.feat-card:hover::after{opacity:1;}
 
-/* ══════════════════════════════════════════
+.feat-icon{
+  width:46px;height:46px;border-radius:var(--r-sm);
+  background:var(--red-soft);border:1px solid rgba(139,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:1.3rem;transition:var(--transition);
+}
+.feat-card:hover .feat-icon{background:rgba(139,0,0,0.15);transform:scale(1.08);}
+.feat-title{font-family:'DM Sans',sans-serif;font-size:clamp(0.95rem,2vw,1.05rem);font-weight:500;margin-bottom:10px;color:var(--w);}
+.feat-desc{font-size:clamp(0.8rem,1.8vw,0.85rem);color:var(--w60);line-height:1.75;}
+.feat-tag{
+  display:inline-block;margin-top:14px;
+  font-size:0.66rem;letter-spacing:0.08em;
+  padding:3px 10px;border-radius:100px;
+  background:var(--gold-pale);border:1px solid rgba(201,168,76,0.20);color:var(--gold2);
+}
+
+/* ════════════════════════════════════════════════
+   DEMO CHAT PREVIEW
+════════════════════════════════════════════════ */
+.demo-section{position:relative;z-index:2;}
+.demo-grid{
+  display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,64px);align-items:center;
+}
+@media(min-width:820px){.demo-grid{grid-template-columns:1fr 1fr;}}
+
+.demo-text .body-text{margin-bottom:24px;}
+.demo-steps{display:flex;flex-direction:column;gap:16px;margin-bottom:32px;}
+.demo-step{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;border-radius:var(--r-sm);
+  background:var(--bg2);border:1px solid var(--border);
+  transition:border-color 0.3s;
+}
+.demo-step:hover{border-color:var(--gold-border);}
+.step-num{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:var(--red-soft);border:1px solid rgba(139,0,0,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:0.72rem;color:var(--red3);margin-top:1px;
+}
+.step-text{font-size:clamp(0.82rem,2vw,0.88rem);color:var(--w80);line-height:1.6;}
+.step-text strong{color:var(--w);font-weight:500;}
+
+/* Demo chat window */
+.demo-chat{
+  background:var(--bg2);border:1px solid var(--border-gold);
+  border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh),0 0 60px rgba(139,0,0,0.10);
+  position:relative;
+}
+.demo-chat::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--red) 30%,var(--gold) 70%,transparent);
+}
+.demo-chat-header{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,0.3);
+}
+.demo-av{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(145deg,#3a0000,#1a0000);
+  border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold2);
+  position:relative;flex-shrink:0;
+}
+.demo-av::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:9px;height:9px;background:#22c55e;border-radius:50%;
+  border:1.5px solid var(--bg2);box-shadow:0 0 6px rgba(34,197,94,0.7);
+}
+.demo-header-info{}
+.demo-header-name{font-size:0.84rem;font-weight:500;color:var(--w);}
+.demo-header-sub{font-size:0.66rem;color:#4ade80;margin-top:1px;}
+
+.demo-msgs{padding:18px;display:flex;flex-direction:column;gap:12px;}
+.demo-msg{display:flex;gap:9px;align-items:flex-end;}
+.demo-msg.user{flex-direction:row-reverse;}
+.demo-msg-av{
+  width:26px;height:26px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.58rem;
+}
+.demo-msg-av.b{background:linear-gradient(145deg,#3a0000,#1a0000);border:1px solid rgba(201,168,76,0.3);font-family:'Cinzel',serif;color:var(--gold2);}
+.demo-msg-av.u{background:linear-gradient(145deg,#0f1a2e,#081020);border:1px solid rgba(100,130,200,0.3);color:var(--w60);}
+.demo-bubble{
+  max-width:76%;padding:10px 14px;border-radius:14px;
+  font-size:clamp(0.78rem,1.8vw,0.82rem);line-height:1.65;
+  animation:msgPop 0.4s ease both;
+}
+.demo-msg.bot .demo-bubble{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.12);
+  border-bottom-left-radius:3px;color:var(--w);
+}
+.demo-msg.user .demo-bubble{
+  background:linear-gradient(145deg,var(--red),#580000);
+  border:1px solid rgba(139,0,0,0.45);border-bottom-right-radius:3px;color:var(--w);
+}
+@keyframes msgPop{from{opacity:0;transform:translateY(10px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+.demo-typing{display:flex;gap:9px;align-items:center;padding:0 18px 14px;}
+.demo-typing-dots{
+  display:flex;gap:4px;align-items:center;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.12);
+  padding:10px 14px;border-radius:14px;border-bottom-left-radius:3px;
+}
+.demo-dot{
+  width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,0.6);
+  animation:tdot 1.3s ease-in-out infinite;
+}
+.demo-dot:nth-child(2){animation-delay:0.2s;}
+.demo-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes tdot{0%,80%,100%{transform:scale(0.6) translateY(0);opacity:0.35;}40%{transform:scale(1) translateY(-4px);opacity:1;}}
+
+/* ════════════════════════════════════════════════
+   TRUST SECTION
+════════════════════════════════════════════════ */
+.trust-section{position:relative;z-index:2;background:var(--bg2);}
+.trust-grid{
+  display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,64px);align-items:center;
+}
+@media(min-width:820px){.trust-grid{grid-template-columns:5fr 4fr;}}
+.trust-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.trust-metric{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:clamp(18px,3vw,26px);
+  transition:var(--transition);
+}
+.trust-metric:hover{border-color:var(--gold-border);transform:translateY(-4px);}
+.metric-icon{font-size:1.5rem;margin-bottom:10px;}
+.metric-num{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.4rem);
+  font-weight:600;color:var(--gold2);line-height:1;margin-bottom:4px;
+}
+.metric-label{font-size:clamp(0.72rem,1.8vw,0.78rem);color:var(--w60);line-height:1.5;}
+.trust-highlights{display:flex;flex-direction:column;gap:16px;}
+.trust-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px;background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);transition:var(--transition);
+}
+.trust-item:hover{border-color:var(--red);transform:translateX(4px);}
+.trust-item-icon{
+  width:38px;height:38px;border-radius:var(--r-sm);
+  background:var(--red-soft);border:1px solid rgba(139,0,0,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.trust-item-text strong{display:block;font-size:0.88rem;font-weight:500;color:var(--w);margin-bottom:4px;}
+.trust-item-text span{font-size:0.8rem;color:var(--w60);line-height:1.6;}
+
+/* ════════════════════════════════════════════════
+   WHY CHAT SECTION
+════════════════════════════════════════════════ */
+.why-section{position:relative;z-index:2;}
+.why-cards{
+  display:grid;grid-template-columns:1fr;gap:16px;margin-top:clamp(32px,5vw,50px);
+}
+@media(min-width:640px){.why-cards{grid-template-columns:repeat(3,1fr);}}
+.why-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:clamp(22px,3vw,32px);
+  position:relative;transition:var(--transition);
+  display:flex;flex-direction:column;gap:12px;
+}
+.why-card:hover{border-color:var(--border-gold);transform:translateY(-5px);}
+.why-card-icon{font-size:1.6rem;}
+.why-card-title{font-size:clamp(0.95rem,2vw,1rem);font-weight:500;color:var(--w);}
+.why-card-body{font-size:clamp(0.8rem,1.8vw,0.85rem);color:var(--w60);line-height:1.72;}
+.why-card-vs{
+  display:flex;align-items:center;gap:8px;font-size:0.72rem;
+  padding:6px 10px;background:var(--red-soft);border-radius:4px;
+  color:var(--red3);margin-top:4px;letter-spacing:0.04em;
+}
+
+/* ════════════════════════════════════════════════
+   SESSION LAUNCH SECTION
+════════════════════════════════════════════════ */
+.session-launch{
+  position:relative;z-index:2;
+  background:var(--bg2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.session-launch-inner{
+  max-width:760px;margin:0 auto;text-align:center;
+}
+.session-launch .h2{margin-bottom:12px;}
+.session-launch .body-text{margin:0 auto 32px;}
+.session-options{
+  display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:28px;
+}
+@media(min-width:560px){.session-options{grid-template-columns:1fr 1fr;}}
+.session-opt{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px 22px;
+  display:flex;align-items:flex-start;gap:14px;
+  cursor:pointer;transition:var(--transition);text-align:left;
+}
+.session-opt:hover{border-color:var(--gold-border);transform:translateY(-3px);}
+.session-opt.active{border-color:var(--red);background:var(--red-soft);}
+.session-opt-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.session-opt-title{font-size:0.9rem;font-weight:500;color:var(--w);margin-bottom:3px;}
+.session-opt-sub{font-size:0.78rem;color:var(--w60);line-height:1.5;}
+.session-launch-note{
+  font-size:0.8rem;color:var(--w35);line-height:1.6;
+  padding:12px;background:var(--bg3);border-radius:var(--r-sm);
+  border:1px solid var(--border);
+}
+
+/* ════════════════════════════════════════════════
    SCHEDULE SECTION
-══════════════════════════════════════════ */
-.schedule-section {
-  padding:clamp(50px,7vw,90px) clamp(20px,5vw,60px);
-  max-width:680px; margin:0 auto; text-align:center;
+════════════════════════════════════════════════ */
+.schedule-section{position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center;}
+.schedule-card{
+  background:var(--bg2);border:1px solid var(--border-gold);
+  border-radius:var(--r-lg);padding:clamp(28px,5vw,44px) clamp(20px,4vw,36px);
+  box-shadow:var(--sh);position:relative;overflow:hidden;
 }
-.schedule-card {
-  background:linear-gradient(160deg,rgba(255,255,255,0.055) 0%,rgba(255,255,255,0.02) 100%);
-  border:1px solid var(--gold-b); border-radius:var(--r);
-  padding:clamp(28px,5vw,48px) clamp(20px,4vw,40px);
-  backdrop-filter:blur(24px); box-shadow:var(--sc);
-  position:relative; overflow:hidden;
-}
-.schedule-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+.schedule-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(to right,transparent,var(--gold),transparent);
 }
-.schedule-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,4vw,2rem); font-weight:300; margin-bottom:10px; }
-.schedule-title em { font-style:italic; color:var(--gold2); }
-.schedule-sub { font-size:clamp(0.85rem,2vw,0.9rem); color:var(--w-d); margin-bottom:28px; line-height:1.7; }
-
-.schedule-inputs {
-  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:22px;
+.schedule-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:300;margin-bottom:8px;}
+.schedule-title em{font-style:italic;color:var(--gold2);}
+.schedule-sub{font-size:clamp(0.82rem,2vw,0.88rem);color:var(--w60);margin-bottom:24px;line-height:1.7;}
+.schedule-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+@media(max-width:440px){.schedule-inputs{grid-template-columns:1fr;}}
+.sch-group{display:flex;flex-direction:column;gap:5px;text-align:left;}
+.sch-label{font-size:0.68rem;letter-spacing:0.14em;color:var(--gold);font-family:'Cinzel',serif;}
+.sch-input{
+  background:rgba(255,255,255,0.05);border:1px solid var(--gold-border);
+  border-radius:var(--r-sm);padding:11px 13px;
+  color:var(--w);font-family:'DM Sans',sans-serif;font-size:0.88rem;
+  outline:none;width:100%;transition:border-color 0.3s,box-shadow 0.3s;
+  color-scheme:dark;
 }
-@media(max-width:420px){ .schedule-inputs { grid-template-columns:1fr; } }
-
-.sch-group { display:flex; flex-direction:column; gap:6px; text-align:left; }
-.sch-label { font-size:0.72rem; letter-spacing:.12em; color:var(--gold); font-family:'Cinzel',serif; }
-.sch-input {
-  background:rgba(255,255,255,0.06); border:1px solid rgba(201,168,76,.22);
-  border-radius:8px; padding:12px 14px;
-  color:var(--w); font-family:'DM Sans',sans-serif; font-size:0.9rem;
-  outline:none; width:100%;
-  transition:border-color .3s, box-shadow .3s;
-  color-scheme: dark;
+.sch-input:focus{border-color:rgba(201,168,76,0.5);box-shadow:0 0 0 3px rgba(201,168,76,0.06);}
+.sch-input::-webkit-calendar-picker-indicator{filter:invert(0.7) sepia(1) saturate(2) hue-rotate(5deg);cursor:pointer;}
+.schedule-note{
+  margin-top:14px;font-size:0.78rem;color:var(--w60);line-height:1.6;
+  padding:10px 14px;background:var(--gold-pale);border-radius:var(--r-sm);
+  border:1px solid rgba(201,168,76,0.14);
 }
-.sch-input:focus { border-color:rgba(201,168,76,.55); box-shadow:0 0 0 3px rgba(201,168,76,.07); }
-.sch-input::-webkit-calendar-picker-indicator { filter:invert(0.7) sepia(1) saturate(2) hue-rotate(5deg); cursor:pointer; }
+.schedule-note strong{color:var(--gold2);}
 
-.schedule-note {
-  font-size:clamp(0.75rem,2vw,0.82rem); color:var(--w-m);
-  margin-top:16px; line-height:1.6;
-  padding:12px 16px; background:rgba(201,168,76,0.06);
-  border:1px solid rgba(201,168,76,0.14); border-radius:8px;
-}
-.schedule-note strong { color:var(--gold2); }
-
-/* ══════════════════════════════════════════
+/* ════════════════════════════════════════════════
    CHATBOT SECTION
-══════════════════════════════════════════ */
-.chat-section {
-  padding:clamp(50px,7vw,90px) clamp(12px,4vw,40px);
-  max-width:980px; margin:0 auto;
-}
-.chat-section-header { text-align:center; margin-bottom:clamp(28px,4vw,50px); }
-.chat-section-header .section-body { margin:0 auto; }
+════════════════════════════════════════════════ */
+.chat-section{position:relative;z-index:2;max-width:960px;margin:0 auto;}
+.chat-section-header{text-align:center;margin-bottom:clamp(28px,4vw,44px);}
+.chat-section-header .body-text{margin:0 auto;}
 
-.chat-container {
-  background:linear-gradient(170deg,rgba(10,3,3,0.97) 0%,rgba(5,2,2,0.99) 100%);
-  border:1px solid var(--gold-b); border-radius:var(--r); overflow:hidden;
-  box-shadow:var(--sc), 0 0 70px rgba(139,0,0,.12), 0 0 35px rgba(201,168,76,.05);
+.chat-wrap{
+  background:var(--bg2);border:1px solid var(--border-gold);
+  border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh),0 0 80px rgba(139,0,0,0.10);
+  display:flex;flex-direction:column;
   position:relative;
-  display:flex; flex-direction:column;
 }
-.chat-container::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background:linear-gradient(to right,transparent,var(--cr) 25%,var(--gold) 50%,var(--cr) 75%,transparent);
-  z-index:1;
+.chat-wrap::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;z-index:1;
+  background:linear-gradient(to right,transparent,var(--red) 28%,var(--gold) 55%,var(--red) 80%,transparent);
 }
+
+/* PRE-CHAT SCREEN */
+.pre-chat{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(32px,6vw,52px) clamp(20px,4vw,36px);text-align:center;
+  min-height:320px;gap:8px;
+}
+.pre-chat-av{
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(145deg,#3a0000,#1a0000);
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold2);
+  margin-bottom:16px;
+  box-shadow:0 0 0 6px rgba(201,168,76,0.08),0 0 30px rgba(139,0,0,0.35);
+  animation:avatarGlow 3s ease-in-out infinite alternate;
+}
+@keyframes avatarGlow{
+  from{box-shadow:0 0 0 4px rgba(201,168,76,0.08),0 0 24px rgba(139,0,0,0.28);}
+  to  {box-shadow:0 0 0 9px rgba(201,168,76,0.12),0 0 50px rgba(139,0,0,0.42);}
+}
+.pre-chat-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:300;margin-bottom:6px;}
+.pre-chat-sub{font-size:clamp(0.82rem,2vw,0.88rem);color:var(--w60);margin-bottom:28px;max-width:420px;line-height:1.7;}
+.pre-chat-question{font-size:clamp(0.85rem,2vw,0.92rem);color:var(--w80);margin-bottom:16px;font-weight:500;}
+.pre-chat-opts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.pre-opt{
+  padding:9px 18px;border-radius:100px;font-size:clamp(0.76rem,2vw,0.82rem);
+  border:1px solid var(--border);background:var(--bg3);color:var(--w80);
+  cursor:pointer;transition:var(--transition);
+}
+.pre-opt:hover{border-color:var(--red);background:var(--red-soft);color:var(--w);}
+.pre-opt:active{transform:scale(0.96);}
+
+/* ACTIVE CHAT UI */
+.chat-ui{display:none;flex-direction:column;}
+.chat-ui.active{display:flex;}
 
 /* Chat header */
-.chat-header {
-  display:flex; align-items:center; gap:12px;
-  padding:clamp(14px,2.5vw,20px) clamp(14px,3vw,24px);
-  border-bottom:1px solid rgba(201,168,76,.10);
-  background:linear-gradient(to right,rgba(28,4,4,0.85),rgba(12,4,4,0.65));
-  flex-shrink:0;
+.chat-header{
+  display:flex;align-items:center;gap:12px;
+  padding:clamp(12px,2vw,17px) clamp(14px,2.5vw,20px);
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,0.35);flex-shrink:0;
 }
-.chat-avatar {
-  width:clamp(38px,8vw,48px); height:clamp(38px,8vw,48px); border-radius:50%;
+.chat-av{
+  width:clamp(36px,7vw,44px);height:clamp(36px,7vw,44px);border-radius:50%;
   background:linear-gradient(145deg,#3a0000,#1a0000);
-  border:2px solid var(--gold); flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Cinzel',serif; font-size:clamp(0.85rem,2.5vw,1rem); color:var(--gold2);
-  position:relative; box-shadow:0 0 18px rgba(139,0,0,.45);
+  border:1.5px solid var(--gold);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:clamp(0.8rem,2vw,0.95rem);color:var(--gold2);
+  position:relative;box-shadow:0 0 16px rgba(139,0,0,0.4);
 }
-.chat-avatar::before {
-  content:''; position:absolute; inset:-5px; border-radius:50%;
-  border:1.5px solid rgba(201,168,76,.35);
-  animation:ringPulse 2.4s ease-in-out infinite;
+.chat-av::before{
+  content:'';position:absolute;inset:-5px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,0.32);
+  animation:ringP 2.4s ease-in-out infinite;
 }
-.chat-avatar::after {
-  content:''; position:absolute; bottom:1px; right:1px;
-  width:10px; height:10px; background:#22c55e; border-radius:50%;
-  border:2px solid #0a0202; box-shadow:0 0 8px rgba(34,197,94,.7);
-  animation:statusGlow 2.5s ease-in-out infinite; z-index:2;
+.chat-av::after{
+  content:'';position:absolute;bottom:1px;right:1px;
+  width:9px;height:9px;background:#22c55e;border-radius:50%;
+  border:2px solid var(--bg2);box-shadow:0 0 7px rgba(34,197,94,0.7);
+  animation:sG 2.5s ease-in-out infinite;z-index:2;
 }
-@keyframes ringPulse { 0%,100%{transform:scale(1);opacity:.6} 50%{transform:scale(1.18);opacity:.18} }
-@keyframes statusGlow { 0%,100%{box-shadow:0 0 6px rgba(34,197,94,.5)} 50%{box-shadow:0 0 15px rgba(34,197,94,.95)} }
+@keyframes ringP{0%,100%{transform:scale(1);opacity:0.6;}50%{transform:scale(1.17);opacity:0.18;}}
+@keyframes sG{0%,100%{box-shadow:0 0 6px rgba(34,197,94,0.5);}50%{box-shadow:0 0 14px rgba(34,197,94,0.9);}}
+.chat-header-info{flex:1;min-width:0;}
+.chat-hname{font-weight:500;font-size:clamp(0.8rem,2vw,0.92rem);color:var(--w);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.chat-hstatus{font-size:0.66rem;color:#4ade80;display:flex;align-items:center;gap:5px;margin-top:2px;}
+.sdot{width:5px;height:5px;background:#22c55e;border-radius:50%;box-shadow:0 0 6px #22c55e;animation:sG 2.5s ease-in-out infinite;flex-shrink:0;}
+.chat-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.hbadge{font-size:clamp(0.56rem,1.5vw,0.62rem);padding:2px 8px;border-radius:100px;background:var(--gold-pale);border:1px solid rgba(201,168,76,0.2);color:var(--gold2);}
 
-.chat-header-info { flex:1; min-width:0; }
-.chat-header-name { font-weight:500; font-size:clamp(0.82rem,2.5vw,0.95rem); color:var(--w); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.chat-header-status { font-size:clamp(0.62rem,1.8vw,0.7rem); color:#4ade80; display:flex; align-items:center; gap:5px; margin-top:2px; }
-.status-dot { width:6px; height:6px; background:#22c55e; border-radius:50%; box-shadow:0 0 6px #22c55e; animation:statusGlow 2.5s ease-in-out infinite; flex-shrink:0; }
-
-.chat-header-right { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0; }
-.chat-header-badge {
-  font-size:clamp(0.58rem,1.6vw,0.63rem); letter-spacing:.07em;
-  padding:3px 9px; border-radius:100px;
-  background:rgba(201,168,76,.09); border:1px solid rgba(201,168,76,.22); color:var(--gold2);
-  white-space:nowrap;
+/* Timer */
+.timer-wrap{
+  display:none;align-items:center;gap:5px;
+  background:rgba(139,0,0,0.18);border:1px solid rgba(139,0,0,0.36);
+  border-radius:100px;padding:3px 9px;
 }
+.timer-wrap.on{display:flex;}
+.timer-wrap.warn{background:rgba(200,60,0,0.28);border-color:rgba(200,80,0,0.55);animation:twarn 0.9s ease-in-out infinite alternate;}
+@keyframes twarn{from{opacity:1}to{opacity:0.55}}
+.timer-val{font-family:'Cinzel',serif;font-size:clamp(0.6rem,1.8vw,0.68rem);color:var(--w);letter-spacing:0.07em;}
 
-/* Session timer */
-.session-timer-wrap {
-  display:none; align-items:center; gap:6px;
-  background:rgba(139,0,0,0.20); border:1px solid rgba(139,0,0,0.4);
-  border-radius:100px; padding:4px 10px;
-}
-.session-timer-wrap.visible { display:flex; }
-.session-timer-wrap.warning { background:rgba(200,50,0,0.3); border-color:rgba(200,80,0,0.6); animation:timerPulse .8s ease-in-out infinite alternate; }
-@keyframes timerPulse { from{opacity:1} to{opacity:.6} }
-.timer-icon { font-size:0.72rem; }
-.timer-val { font-family:'Cinzel',serif; font-size:clamp(0.65rem,2vw,0.72rem); color:var(--w); letter-spacing:.08em; }
+/* Progress bar */
+.prog-wrap{display:none;height:2px;background:rgba(255,255,255,0.05);flex-shrink:0;}
+.prog-wrap.on{display:block;}
+.prog-bar{height:100%;width:0%;background:linear-gradient(to right,var(--red),var(--gold));transition:width 0.5s linear;}
 
-/* Session progress bar */
-.session-progress-wrap {
-  display:none; height:3px; background:rgba(255,255,255,0.06); flex-shrink:0;
-}
-.session-progress-wrap.visible { display:block; }
-.session-progress-bar {
-  height:100%; width:100%;
-  background:linear-gradient(to right,var(--cr),var(--gold));
-  transition:width .5s linear;
-  border-radius:0;
-}
-
-/* Quick replies */
-.quick-replies {
-  padding:clamp(10px,2vw,14px) clamp(12px,2vw,20px);
-  display:flex; gap:8px; flex-wrap:wrap;
-  background:rgba(0,0,0,0.28); border-bottom:1px solid rgba(201,168,76,.07);
+/* Quick chips */
+.qreplies{
+  padding:clamp(10px,2vw,13px) clamp(12px,2vw,18px);
+  display:flex;gap:7px;flex-wrap:wrap;
+  background:rgba(0,0,0,0.25);border-bottom:1px solid var(--border);
   flex-shrink:0;
 }
-.quick-btn {
-  font-size:clamp(0.68rem,2vw,0.75rem); padding:7px 14px; border-radius:100px;
-  border:1px solid rgba(201,168,76,.22); background:rgba(201,168,76,.07);
-  color:var(--w-d); cursor:pointer;
-  transition:all .28s; font-family:'DM Sans',sans-serif;
-  touch-action:manipulation; min-height:36px;
+.qbtn{
+  font-size:clamp(0.66rem,1.8vw,0.72rem);padding:6px 13px;border-radius:100px;
+  border:1px solid var(--border);background:var(--bg3);color:var(--w60);
+  cursor:pointer;transition:var(--transition);min-height:34px;touch-action:manipulation;
 }
-.quick-btn:hover { background:rgba(201,168,76,.18); border-color:rgba(201,168,76,.5); color:var(--gold2); transform:translateY(-2px); }
-.quick-btn:active { transform:scale(.95); }
+.qbtn:hover{border-color:var(--red);background:var(--red-soft);color:var(--w);}
+.qbtn:active{transform:scale(0.95);}
 
 /* Messages */
-.chat-messages {
-  flex:1; overflow-y:auto; min-height:320px;
-  max-height:clamp(320px,45vh,480px);
-  padding:clamp(16px,3vw,26px) clamp(12px,2.5vw,22px);
-  display:flex; flex-direction:column; gap:clamp(14px,2vw,18px);
-  scroll-behavior:smooth; overscroll-behavior:contain;
-  -webkit-overflow-scrolling:touch;
+.chat-msgs{
+  flex:1;overflow-y:auto;min-height:280px;max-height:clamp(280px,42vh,440px);
+  padding:clamp(14px,2.5vw,22px) clamp(12px,2vw,20px);
+  display:flex;flex-direction:column;gap:clamp(12px,2vw,16px);
+  scroll-behavior:smooth;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
 }
-.chat-messages::-webkit-scrollbar { width:3px; }
-.chat-messages::-webkit-scrollbar-thumb { background:rgba(201,168,76,.22); border-radius:2px; }
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);border-radius:2px;}
 
-.msg { display:flex; gap:10px; align-items:flex-end; animation:msgPop .4s cubic-bezier(.2,.8,.3,1) both; }
-@keyframes msgPop {
-  from{opacity:0;transform:translateY(14px) scale(.96)}
-  to  {opacity:1;transform:translateY(0)    scale(1)}
+.msg{display:flex;gap:9px;align-items:flex-end;animation:msgPop 0.38s cubic-bezier(0.2,0.8,0.3,1) both;}
+@keyframes msgPop{from{opacity:0;transform:translateY(12px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+.msg.user{flex-direction:row-reverse;}
+.msg-av{
+  width:clamp(26px,6vw,32px);height:clamp(26px,6vw,32px);
+  border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:0.6rem;
 }
-.msg.user { flex-direction:row-reverse; }
-.msg-av { width:clamp(28px,7vw,34px); height:clamp(28px,7vw,34px); border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:clamp(0.58rem,2vw,0.7rem); }
-.msg-av.bot-av { background:linear-gradient(145deg,#3a0000,#1a0000); border:1.5px solid rgba(201,168,76,.35); font-family:'Cinzel',serif; color:var(--gold2); }
-.msg-av.user-av { background:linear-gradient(145deg,#0f1a2e,#081020); border:1.5px solid rgba(100,130,200,.3); font-family:'DM Sans',sans-serif; color:var(--w-m); }
-
-.msg-bubble {
-  max-width:min(72%,320px); padding:clamp(10px,2vw,14px) clamp(12px,2.5vw,18px);
-  border-radius:16px; font-size:clamp(0.82rem,2vw,0.88rem); line-height:1.74;
+.msg-av.b{background:linear-gradient(145deg,#3a0000,#1a0000);border:1px solid rgba(201,168,76,0.3);font-family:'Cinzel',serif;color:var(--gold2);}
+.msg-av.u{background:linear-gradient(145deg,#0f1a2e,#081020);border:1px solid rgba(100,130,200,0.28);color:var(--w60);}
+.msg-bubble{
+  max-width:min(74%,340px);padding:clamp(9px,1.8vw,12px) clamp(11px,2vw,16px);
+  border-radius:16px;font-size:clamp(0.8rem,1.9vw,0.86rem);line-height:1.72;
   word-break:break-word;
 }
-.msg.bot .msg-bubble {
-  background:linear-gradient(160deg,rgba(255,255,255,0.065) 0%,rgba(255,255,255,0.025) 100%);
-  border:1px solid rgba(201,168,76,.13); border-bottom-left-radius:4px;
-  color:var(--w); box-shadow:0 4px 18px rgba(0,0,0,.28);
+.msg.bot .msg-bubble{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.12);
+  border-bottom-left-radius:3px;color:var(--w);
 }
-.msg.user .msg-bubble {
-  background:linear-gradient(145deg,var(--cr),#6b0000);
-  border:1px solid rgba(139,0,0,.5); border-bottom-right-radius:4px;
-  color:var(--w); box-shadow:0 4px 18px rgba(139,0,0,.28);
+.msg.user .msg-bubble{
+  background:linear-gradient(145deg,var(--red),#580000);
+  border:1px solid rgba(139,0,0,0.45);border-bottom-right-radius:3px;color:var(--w);
 }
-.msg.system .msg-bubble {
-  background:rgba(201,168,76,0.10); border:1px solid rgba(201,168,76,.25);
-  color:var(--gold2); font-size:clamp(0.78rem,2vw,0.84rem); text-align:center;
-  max-width:100%; border-radius:10px; font-style:italic;
+.msg.sys .msg-bubble{
+  max-width:100%;width:100%;background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.22);border-radius:8px;
+  color:var(--gold2);font-size:clamp(0.75rem,1.8vw,0.8rem);text-align:center;font-style:italic;
 }
-.msg-time { font-size:0.6rem; color:rgba(245,240,232,.28); margin-top:6px; display:block; }
-.msg.user .msg-time { text-align:right; }
+.msg-time{font-size:0.58rem;color:rgba(242,237,228,0.28);margin-top:5px;display:block;}
+.msg.user .msg-time{text-align:right;}
 
-.msg-wa-btn {
-  display:inline-flex; align-items:center; gap:8px;
-  background:linear-gradient(135deg,#1fad57,#0e7a3a);
-  color:#fff; padding:10px 18px; border-radius:10px;
-  font-size:clamp(0.76rem,2vw,0.82rem); font-weight:600; text-decoration:none;
-  margin-top:12px; border:1px solid rgba(37,211,102,.3);
-  transition:all .3s; box-shadow:0 4px 18px rgba(37,211,102,.22);
-  touch-action:manipulation; min-height:44px;
-  display:inline-flex; align-items:center;
+.wa-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#1a9e4a,#0d6630);
+  color:#fff;padding:9px 16px;border-radius:8px;
+  font-size:clamp(0.74rem,1.8vw,0.8rem);font-weight:500;text-decoration:none;
+  margin-top:10px;border:1px solid rgba(26,158,74,0.35);
+  transition:var(--transition);box-shadow:0 4px 16px rgba(26,158,74,0.22);
+  min-height:40px;touch-action:manipulation;
 }
-.msg-wa-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,.4); }
-.msg-wa-btn:active { transform:scale(.97); }
-.msg-wa-btn svg { width:15px; height:15px; fill:currentColor; flex-shrink:0; }
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(26,158,74,0.38);}
+.wa-btn:active{transform:scale(0.97);}
+.wa-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0;}
 
-/* Typing indicator */
-.typing-indicator { display:none; gap:10px; align-items:flex-end; padding:0 clamp(12px,2.5vw,22px) 12px; flex-shrink:0; }
-.typing-indicator.visible { display:flex; }
-.typing-dots {
-  display:flex; gap:5px; align-items:center;
-  background:linear-gradient(160deg,rgba(255,255,255,0.065) 0%,rgba(255,255,255,0.025) 100%);
-  border:1px solid rgba(201,168,76,.13); padding:12px 16px;
-  border-radius:16px; border-bottom-left-radius:4px;
+/* Typing */
+.typing-row{display:none;gap:9px;align-items:flex-end;padding:0 clamp(12px,2vw,20px) 10px;flex-shrink:0;}
+.typing-row.on{display:flex;}
+.tdots{
+  display:flex;gap:4px;align-items:center;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.12);
+  padding:10px 14px;border-radius:14px;border-bottom-left-radius:3px;
 }
-.dot { width:7px; height:7px; border-radius:50%; background:rgba(201,168,76,.65); animation:typeDot 1.3s ease-in-out infinite; }
-.dot:nth-child(2){ animation-delay:.22s; }
-.dot:nth-child(3){ animation-delay:.44s; }
-@keyframes typeDot {
-  0%,80%,100%{transform:scale(.6) translateY(0);opacity:.35}
-  40%         {transform:scale(1)  translateY(-5px);opacity:1}
-}
+.tdot{width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,0.6);animation:tdot 1.3s ease-in-out infinite;}
+.tdot:nth-child(2){animation-delay:.2s;}.tdot:nth-child(3){animation-delay:.4s;}
 
-/* Input area */
-.chat-input-area {
-  padding:clamp(12px,2vw,16px) clamp(12px,2.5vw,18px);
-  border-top:1px solid rgba(201,168,76,.08);
-  background:rgba(0,0,0,.44);
-  display:flex; gap:10px; align-items:center; flex-shrink:0;
+/* Session ended */
+.sess-end{
+  display:none;flex-direction:column;align-items:center;gap:12px;
+  padding:24px 20px;text-align:center;
+  background:rgba(0,0,0,0.5);border-top:1px solid var(--border);flex-shrink:0;
 }
-.chat-input {
-  flex:1; background:rgba(255,255,255,0.055);
-  border:1px solid rgba(201,168,76,.16); border-radius:10px;
-  padding:clamp(11px,2vw,13px) clamp(12px,2vw,16px);
-  color:var(--w); font-family:'DM Sans',sans-serif;
-  font-size:clamp(0.85rem,2.5vw,0.9rem); outline:none;
-  transition:border-color .3s, box-shadow .3s;
-  min-height:44px;
-}
-.chat-input:focus { border-color:rgba(201,168,76,.48); box-shadow:0 0 0 3px rgba(201,168,76,.07); }
-.chat-input::placeholder { color:rgba(245,240,232,.28); }
-.chat-input:disabled { opacity:.45; cursor:not-allowed; }
+.sess-end.on{display:flex;}
+.sess-end-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold2);}
+.sess-end-sub{font-size:0.82rem;color:var(--w60);line-height:1.6;}
+.sess-end-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 
-.chat-send {
-  width:clamp(42px,10vw,46px); height:clamp(42px,10vw,46px);
-  background:linear-gradient(135deg,var(--cr),#6b0000);
-  border:1px solid rgba(139,0,0,.5); border-radius:10px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  transition:all .3s; flex-shrink:0; color:white;
-  touch-action:manipulation;
+/* Input */
+.chat-input-row{
+  padding:clamp(11px,2vw,14px) clamp(12px,2vw,16px);
+  border-top:1px solid var(--border);background:rgba(0,0,0,0.38);
+  display:flex;gap:9px;align-items:center;flex-shrink:0;
 }
-.chat-send:hover { background:linear-gradient(135deg,var(--cr2),#8b0000); transform:scale(1.08); box-shadow:0 6px 22px rgba(139,0,0,.5); }
-.chat-send:active { transform:scale(.93); }
-.chat-send:disabled { opacity:.4; cursor:not-allowed; transform:none; }
-.chat-send svg { width:17px; height:17px; fill:currentColor; }
-
-/* Session ended overlay */
-.session-ended {
-  display:none; flex-direction:column; align-items:center; gap:14px;
-  padding:28px 24px; text-align:center;
-  background:rgba(0,0,0,0.6); border-top:1px solid rgba(201,168,76,.12);
-  flex-shrink:0;
+.chat-inp{
+  flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:clamp(10px,2vw,12px) clamp(11px,2vw,14px);
+  color:var(--w);font-family:'DM Sans',sans-serif;font-size:clamp(0.83rem,2vw,0.88rem);
+  outline:none;transition:border-color 0.3s,box-shadow 0.3s;min-height:44px;
 }
-.session-ended.visible { display:flex; }
-.session-ended-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold2); }
-.session-ended-sub { font-size:0.84rem; color:var(--w-d); line-height:1.6; }
+.chat-inp:focus{border-color:rgba(201,168,76,0.42);box-shadow:0 0 0 3px rgba(201,168,76,0.06);}
+.chat-inp::placeholder{color:rgba(242,237,228,0.25);}
+.chat-inp:disabled{opacity:0.4;cursor:not-allowed;}
+.chat-send{
+  width:44px;height:44px;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--red),#580000);
+  border:1px solid rgba(139,0,0,0.45);color:white;
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);flex-shrink:0;touch-action:manipulation;
+}
+.chat-send:hover{transform:scale(1.07);box-shadow:0 6px 20px rgba(139,0,0,0.45);}
+.chat-send:active{transform:scale(0.93);}
+.chat-send:disabled{opacity:0.38;cursor:not-allowed;transform:none;}
+.chat-send svg{width:16px;height:16px;fill:currentColor;}
 
-/* ══════════════════════════════════════════
+/* ════════════════════════════════════════════════
    TESTIMONIALS
-══════════════════════════════════════════ */
-.proof-section { padding:clamp(60px,8vw,90px) clamp(20px,5vw,60px); max-width:1200px; margin:0 auto; }
-.proof-header { text-align:center; margin-bottom:clamp(40px,6vw,64px); }
-.testimonials {
-  display:grid; grid-template-columns:1fr; gap:22px;
+════════════════════════════════════════════════ */
+.testi-section{position:relative;z-index:2;background:var(--bg2);}
+.testi-grid{
+  display:grid;grid-template-columns:1fr;gap:18px;
 }
-@media(min-width:560px){ .testimonials { grid-template-columns:repeat(2,1fr); } }
-@media(min-width:900px){ .testimonials { grid-template-columns:repeat(3,1fr); } }
-
-.testimonial {
-  background:linear-gradient(160deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.02) 100%);
-  border:1px solid var(--gold-lo); border-radius:var(--r);
-  padding:clamp(28px,4vw,38px) clamp(20px,3vw,32px); position:relative; overflow:hidden;
-  transition:all .45s cubic-bezier(.2,.8,.3,1);
-  backdrop-filter:blur(10px);
+@media(min-width:560px){.testi-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
+.testi-card{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:var(--r);padding:clamp(22px,4vw,32px);
+  position:relative;overflow:hidden;transition:var(--transition);
 }
-.testimonial::before { content:'\201C'; font-family:'Cormorant Garamond',serif; font-size:4.5rem; color:var(--gold); opacity:.18; position:absolute; top:10px; left:20px; line-height:1; }
-.testimonial:hover { border-color:rgba(201,168,76,.34); transform:translateY(-6px); box-shadow:0 22px 55px rgba(0,0,0,.4); }
-.star-row { display:flex; gap:3px; margin-bottom:16px; }
-.star { color:var(--gold2); font-size:0.85rem; }
-.testimonial-text { font-size:clamp(0.84rem,2vw,0.9rem); color:var(--w-d); line-height:1.8; margin-bottom:22px; position:relative; z-index:1; }
-.testimonial-author { display:flex; align-items:center; gap:12px; }
-.author-avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(145deg,#2a0000,#0e0000); border:1px solid rgba(201,168,76,.28); display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:0.85rem; color:var(--gold); flex-shrink:0; }
-.author-name { font-size:clamp(0.82rem,2vw,0.9rem); font-weight:500; color:var(--w); margin-bottom:2px; }
-.author-role { font-size:clamp(0.7rem,1.8vw,0.74rem); color:var(--w-m); }
+.testi-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--gold);opacity:0.15;position:absolute;top:10px;left:18px;line-height:1;}
+.testi-card:hover{border-color:var(--gold-border);transform:translateY(-5px);}
+.testi-stars{display:flex;gap:2px;margin-bottom:14px;}
+.testi-star{color:var(--gold2);font-size:0.82rem;}
+.testi-text{font-size:clamp(0.82rem,1.9vw,0.88rem);color:var(--w60);line-height:1.8;margin-bottom:20px;position:relative;z-index:1;}
+.testi-author{display:flex;align-items:center;gap:11px;}
+.testi-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#2a0000,#0e0000);border:1px solid rgba(201,168,76,0.25);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.82rem;color:var(--gold);flex-shrink:0;}
+.testi-name{font-size:0.86rem;font-weight:500;color:var(--w);margin-bottom:2px;}
+.testi-role{font-size:0.72rem;color:var(--w60);}
 
-/* ══════════════════════════════════════════
+/* ════════════════════════════════════════════════
    FINAL CTA
-══════════════════════════════════════════ */
-.final-cta {
-  padding:clamp(80px,10vw,130px) clamp(20px,5vw,60px);
-  text-align:center; position:relative; overflow:hidden;
+════════════════════════════════════════════════ */
+.cta-final{
+  position:relative;z-index:2;text-align:center;overflow:hidden;
 }
-.final-cta::before {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse at center,rgba(139,0,0,.10) 0%,transparent 65%);
+.cta-final::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(139,0,0,0.10) 0%,transparent 65%);
 }
-.final-cta-inner { max-width:720px; margin:0 auto; position:relative; z-index:1; }
-.final-cta .section-title { font-size:clamp(2rem,5.5vw,4rem); margin-bottom:20px; }
-.final-cta .section-body { margin:0 auto clamp(32px,5vw,50px); }
-.final-actions { display:flex; gap:clamp(10px,2vw,18px); justify-content:center; flex-wrap:wrap; }
+.cta-final-inner{max-width:680px;margin:0 auto;position:relative;z-index:1;}
+.cta-final .h2{font-size:clamp(2rem,5.5vw,3.8rem);margin-bottom:18px;}
+.cta-final .body-text{margin:0 auto 36px;}
+.cta-final-actions{display:flex;gap:clamp(10px,2vw,16px);justify-content:center;flex-wrap:wrap;}
 
-/* ══════════════════════════════════════════
+/* ════════════════════════════════════════════════
    FOOTER
-══════════════════════════════════════════ */
-footer {
-  border-top:1px solid var(--gold-lo); padding:clamp(24px,4vw,40px) clamp(20px,4vw,48px);
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:16px; position:relative; z-index:2;
-  background:rgba(0,0,0,.4);
+════════════════════════════════════════════════ */
+.site-footer{
+  position:relative;z-index:2;
+  border-top:1px solid var(--border);
+  background:var(--bg2);
 }
-.footer-copy { font-size:clamp(0.7rem,2vw,0.77rem); color:var(--w-m); }
-.footer-logo { font-family:'Cinzel',serif; font-size:clamp(0.82rem,2.5vw,0.95rem); color:var(--gold); letter-spacing:.22em; }
-.footer-wa { color:rgba(245,240,232,.45); font-size:clamp(0.7rem,2vw,0.78rem); text-decoration:none; transition:color .3s; }
-.footer-wa:hover { color:var(--gold); }
+.footer-inner{
+  max-width:var(--max-w);margin:0 auto;
+  padding:clamp(36px,5vw,56px) clamp(16px,4vw,40px);
+  display:grid;grid-template-columns:1fr;gap:36px;
+}
+@media(min-width:640px){.footer-inner{grid-template-columns:2fr 1fr 1fr;}}
+.footer-brand-name{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.22em;color:var(--gold);margin-bottom:10px;}
+.footer-brand-sub{font-size:0.8rem;color:var(--w60);line-height:1.7;max-width:260px;}
+.footer-col-title{font-size:0.72rem;letter-spacing:0.2em;color:var(--w35);margin-bottom:14px;font-family:'Cinzel',serif;}
+.footer-links{display:flex;flex-direction:column;gap:9px;list-style:none;}
+.footer-links a{font-size:0.82rem;color:var(--w60);transition:color 0.25s;}
+.footer-links a:hover{color:var(--gold2);}
+.footer-bottom{
+  max-width:var(--max-w);margin:0 auto;
+  padding:16px clamp(16px,4vw,40px);
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-size:0.74rem;color:var(--w35);}
+.footer-wa-link{font-size:0.74rem;color:var(--w60);transition:color 0.25s;}
+.footer-wa-link:hover{color:var(--gold2);}
 
-/* ══════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════ */
-.reveal { opacity:0; transform:translateY(36px); transition:opacity .75s cubic-bezier(.2,.8,.3,1), transform .75s cubic-bezier(.2,.8,.3,1); }
-.reveal.in { opacity:1; transform:translateY(0); }
-.reveal-d1 { transition-delay:.1s; }
-.reveal-d2 { transition-delay:.2s; }
-.reveal-d3 { transition-delay:.32s; }
+/* ════════════════════════════════════════════════
+   TOAST
+════════════════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);
+  background:rgba(8,8,8,0.95);border:1px solid var(--gold-border);border-radius:var(--r-sm);
+  padding:11px 20px;font-size:0.82rem;color:var(--gold2);
+  box-shadow:var(--sh);z-index:999;opacity:0;pointer-events:none;
+  transition:var(--transition);white-space:nowrap;max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* ══════════════════════════════════════════
-   MOBILE PERF — reduce blur on small screens
-══════════════════════════════════════════ */
+/* ════════════════════════════════════════════════
+   AI RESPONSE FORMATTING
+════════════════════════════════════════════════ */
+.ai-list-item{
+  display:flex;align-items:flex-start;gap:8px;
+  margin:4px 0;line-height:1.65;
+}
+.ai-list-num{
+  color:var(--gold2);font-weight:600;font-size:0.82rem;
+  flex-shrink:0;min-width:18px;
+}
+.ai-list-bullet{
+  color:var(--red3);font-size:0.9rem;flex-shrink:0;
+  margin-top:1px;
+}
+
+/* ════════════════════════════════════════════════
+   MOBILE PERF
+════════════════════════════════════════════════ */
 @media(max-width:480px){
-  .about-card, .chat-container, .testimonial, .service-card, .schedule-card { backdrop-filter:none; }
-  .stats-strip { backdrop-filter:none; }
+  .chat-wrap,.value-card,.schedule-card,.testi-card,.feat-card,.session-opt,.trust-metric,.trust-item,.why-card,.demo-chat{backdrop-filter:none;}
 }
-
-/* ══════════════════════════════════════════
-   TOAST NOTIFICATION
-══════════════════════════════════════════ */
-.toast {
-  position:fixed; bottom:80px; left:50%; transform:translateX(-50%) translateY(20px);
-  background:rgba(10,4,4,0.95); border:1px solid var(--gold-b); border-radius:10px;
-  padding:12px 20px; font-size:0.84rem; color:var(--gold2);
-  box-shadow:0 8px 30px rgba(0,0,0,.5);
-  z-index:300; opacity:0; pointer-events:none;
-  transition:all .4s cubic-bezier(.2,.8,.3,1);
-  white-space:nowrap; max-width:90vw; text-align:center;
-}
-.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
 </style>
 </head>
 <body>
 
-<!-- CANVAS -->
 <canvas id="bg-canvas"></canvas>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a class="nav-logo" href="#">Zahid Hussain</a>
-  <a class="nav-cta" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20to%20connect" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Chat on WhatsApp
-  </a>
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">Z · HUSSAIN</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#session">Session</a></li>
+      <li><a href="#chat-section">Chat</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-wa" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20found%20you%20online%20and%20would%20like%20to%20connect" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
   <div class="hero-spotlight"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="badge-dot"></span>Top 7% LinkedIn Creator Worldwide</div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="badge-live"></span>Top 7% LinkedIn Creator Worldwide</div>
     <h1 class="hero-title">
       <em>Build a Brand</em>
-      <strong>That Speaks</strong>
-      Before You Do.
+      <strong>That Opens Doors</strong>
+      Before You Knock.
     </h1>
-    <p class="hero-sub">I help professionals, entrepreneurs, and creators turn their LinkedIn presence into a growth engine that attracts opportunity, authority, and career clarity.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20a%201%20on%201%20session" target="_blank" rel="noopener">
-        <svg style="width:17px;height:17px;fill:currentColor;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Start a 1 on 1 Session
-      </a>
-      <button class="btn-secondary" onclick="scrollToChat()">
-        Talk to My AI Assistant
-        <svg style="width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <p class="hero-sub">AI powered personal branding guidance from one of LinkedIn's most recognized creators. Real sessions. Real results. No fluff.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-red btn-lg" onclick="openPreChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Start AI Chat Session
       </button>
+      <a class="btn btn-outline btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20a%201%20on%201%20session" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Zahid
+      </a>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-item"><span class="proof-icon">🏆</span><span>Top 7% Globally</span></div>
+      <div class="proof-divider"></div>
+      <div class="proof-item"><span class="proof-icon">👥</span><span>500+ Professionals Helped</span></div>
+      <div class="proof-divider"></div>
+      <div class="proof-item"><span class="proof-icon">⚡</span><span>No Forms Required</span></div>
     </div>
   </div>
   <div class="hero-scroll"><span class="scroll-line"></span><span>SCROLL</span></div>
@@ -745,606 +1031,985 @@ footer {
 <!-- STATS -->
 <div class="stats-strip reveal">
   <div class="stat-item"><span class="stat-num">7%</span><span class="stat-label">Top Global Creator</span></div>
-  <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Professionals Mentored</span></div>
+  <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Professionals Mentored</span></div>
   <div class="stat-item"><span class="stat-num">3x</span><span class="stat-label">Average Profile Growth</span></div>
-  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Personal 1 on 1 Access</span></div>
+  <div class="stat-item"><span class="stat-num">30m</span><span class="stat-label">Focused Sessions</span></div>
 </div>
 
-<!-- ABOUT -->
-<div class="about">
-  <div class="about-text reveal">
-    <span class="section-tag">WHO IS ZAHID HUSSAIN</span>
-    <h2 class="section-title">A Mentor Who Has <em>Walked the Path</em> You Are On</h2>
-    <p class="section-body">I am Zahid Hussain, a LinkedIn Creator and Personal Branding Mentor recognized in the top 7 percent of creators worldwide. My work is built around one belief: your story, your voice, and your expertise deserve to be seen by the right people.</p>
-    <p class="section-body" style="margin-top:16px;">I do not offer generic advice. Every conversation I have is real, personal, and focused entirely on your growth. From building your LinkedIn profile to defining your content strategy, I walk with you every step of the way.</p>
-    <div style="margin-top:34px;">
-      <a class="btn-primary" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20mentorship" target="_blank" rel="noopener" style="display:inline-flex;">Let us Talk Directly</a>
-    </div>
-  </div>
-  <div class="about-visual reveal reveal-d2">
-    <div class="about-deco-2"></div>
-    <div class="about-card">
-      <div class="about-avatar">Z</div>
-      <div class="about-name">Zahid Hussain</div>
-      <div class="about-role">LINKEDIN CREATOR AND PERSONAL BRANDING MENTOR</div>
-      <div class="about-divider"></div>
-      <p class="about-quote">"Your personal brand is not a logo. It is the clarity, consistency, and confidence with which you show up for the world."</p>
-      <div class="about-badge-row">
-        <span class="pill">LinkedIn Growth</span>
-        <span class="pill">Content Strategy</span>
-        <span class="pill">Career Clarity</span>
-        <span class="pill">Personal Branding</span>
+<!-- ═══════════════ VALUE PROPOSITION ═══════════════ -->
+<section class="value-section section-pad" id="about">
+  <div class="container">
+    <div class="value-grid">
+      <div class="value-text reveal">
+        <span class="eyebrow"><span class="eyebrow-line"></span>WHAT THIS SYSTEM DOES</span>
+        <h2 class="h2">Not Another Course.<br><em>A Real Conversation.</em></h2>
+        <p class="body-text" style="margin-bottom:26px;">This is an AI powered guidance system backed by Zahid Hussain, one of LinkedIn's top creators. You get structured 30 minute sessions, intelligent chat responses, and a direct line to WhatsApp when you are ready to go deeper.</p>
+        <ul class="value-checklist">
+          <li><span class="check-icon">✓</span>Built for professionals who want real LinkedIn results, not generic tips</li>
+          <li><span class="check-icon">✓</span>For creators who feel invisible online and want to be recognized</li>
+          <li><span class="check-icon">✓</span>For anyone stuck in career limbo who needs clarity and direction</li>
+          <li><span class="check-icon">✓</span>For entrepreneurs who want their personal brand to do the selling</li>
+        </ul>
       </div>
-    </div>
-    <div class="about-deco"></div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section class="services">
-  <div class="services-header reveal">
-    <span class="section-tag">WHAT I OFFER</span>
-    <h2 class="section-title">Everything You Need to <em>Stand Out</em></h2>
-    <p class="section-body">These are not cookie cutter programs. Each service is built around your specific goals, your industry, and where you are right now in your journey.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">🎯</div>
-      <div class="service-title">LinkedIn Profile Transformation</div>
-      <p class="service-desc">Your profile is your first impression. I will help you craft a headline, summary, and experience section that immediately communicates your authority and attracts the right audience.</p>
-    </div>
-    <div class="service-card reveal reveal-d1">
-      <div class="service-icon">✍️</div>
-      <div class="service-title">Content Strategy and Positioning</div>
-      <p class="service-desc">Stop posting randomly and hoping for results. I will help you build a content system that grows your reach, builds trust, and keeps your audience coming back consistently.</p>
-    </div>
-    <div class="service-card reveal reveal-d2">
-      <div class="service-icon">🧭</div>
-      <div class="service-title">Career Clarity and Direction</div>
-      <p class="service-desc">If you feel stuck or unsure about your next move, I will help you gain the clarity and confidence to step into the career path that truly matches who you are.</p>
-    </div>
-    <div class="service-card reveal reveal-d3">
-      <div class="service-icon">💬</div>
-      <div class="service-title">1 on 1 Personal Branding Mentorship</div>
-      <p class="service-desc">Direct, personal, and results focused. We work together over dedicated sessions to build your entire personal brand from the ground up, your way, your story, your voice.</p>
+      <div class="value-visual reveal reveal-d2">
+        <div class="value-card">
+          <div class="value-avatar-wrap">
+            <div class="value-avatar">Z</div>
+            <div class="value-av-info">
+              <div class="value-av-name">Zahid Hussain</div>
+              <div class="value-av-role">LINKEDIN CREATOR AND BRANDING MENTOR</div>
+            </div>
+          </div>
+          <div class="value-quote">"Your personal brand is the only business that works while you sleep, compounds over time, and cannot be taken from you."</div>
+          <div class="value-tags">
+            <span class="tag">LinkedIn Growth</span>
+            <span class="tag">Content Strategy</span>
+            <span class="tag">Career Clarity</span>
+            <span class="tag">Personal Branding</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SCHEDULE -->
-<section class="schedule-section reveal" id="schedule-section">
-  <div class="schedule-card">
-    <span class="section-tag" style="text-align:center;display:block;">BOOK YOUR SESSION</span>
-    <h2 class="schedule-title">Schedule Your <em>Preferred Time</em></h2>
-    <p class="schedule-sub">Pick a date and time that works for you. Zahid will confirm your session personally on WhatsApp.</p>
-    <div class="schedule-inputs">
-      <div class="sch-group">
-        <label class="sch-label" for="sessDate">SELECT DATE</label>
-        <input class="sch-input" type="date" id="sessDate" />
+<div class="divider"></div>
+
+<!-- ═══════════════ FEATURES ═══════════════ -->
+<section class="features-section section-pad" id="features">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:clamp(36px,5vw,60px);">
+      <span class="eyebrow"><span class="eyebrow-line"></span>PLATFORM FEATURES</span>
+      <h2 class="h2">Everything in <em>One System</em></h2>
+      <p class="body-text" style="margin:0 auto;">Four core capabilities designed to guide you from confused to confident in the shortest time possible.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">🤖</div>
+        <div class="feat-title">AI Chat Assistant</div>
+        <p class="feat-desc">An intelligent assistant trained on LinkedIn growth, personal branding, content strategy, and career clarity. Available instantly, no booking required.</p>
+        <span class="feat-tag">Always On</span>
       </div>
-      <div class="sch-group">
-        <label class="sch-label" for="sessTime">SELECT TIME</label>
-        <input class="sch-input" type="time" id="sessTime" />
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon">💬</div>
+        <div class="feat-title">WhatsApp Integration</div>
+        <p class="feat-desc">Seamless handoff from AI chat to a real conversation with Zahid on WhatsApp. No forms, no waiting rooms, no friction between insight and action.</p>
+        <span class="feat-tag">Direct Access</span>
+      </div>
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon">⏱</div>
+        <div class="feat-title">30 Minute Sessions</div>
+        <p class="feat-desc">Structured, focused 30 minute guided sessions with a live countdown, progress tracking, and a clear end goal. Clarity delivered in under an hour.</p>
+        <span class="feat-tag">Focused</span>
+      </div>
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon">🎯</div>
+        <div class="feat-title">Personalized Guidance</div>
+        <p class="feat-desc">Every response adapts to your specific topic, whether that is LinkedIn, content, branding, or career. Nothing generic. Nothing copy pasted.</p>
+        <span class="feat-tag">Tailored</span>
       </div>
     </div>
-    <button class="btn-primary" onclick="confirmSchedule()" style="width:100%;justify-content:center;">
-      Confirm My Session Time
-      <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
-    </button>
-    <p class="schedule-note">
-      <strong>Note:</strong> Your WhatsApp session will also be a focused 30 minute conversation so we can give your goals the full attention they deserve.
-    </p>
   </div>
 </section>
 
-<!-- CHATBOT -->
-<section class="chat-section" id="chat-section">
-  <div class="chat-section-header reveal">
-    <span class="section-tag">AI POWERED SESSION</span>
-    <h2 class="section-title">Talk to My <em>AI Assistant</em></h2>
-    <p class="section-body">Ask anything about LinkedIn growth, personal branding, or career clarity. Start a live 30 minute session or schedule one for later.</p>
+<div class="divider"></div>
+
+<!-- ═══════════════ DEMO CHAT PREVIEW ═══════════════ -->
+<section class="demo-section section-pad">
+  <div class="container">
+    <div class="demo-grid">
+      <div class="demo-text reveal">
+        <span class="eyebrow"><span class="eyebrow-line"></span>HOW IT WORKS</span>
+        <h2 class="h2">Three Steps to <em>Clarity</em></h2>
+        <div class="demo-steps">
+          <div class="demo-step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Tell us what you need.</strong> Choose LinkedIn growth, personal branding, content strategy, or career clarity as your starting point.</div>
+          </div>
+          <div class="demo-step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Start your session.</strong> The AI assistant guides you through focused questions and gives intelligent, context-aware responses for 30 minutes.</div>
+          </div>
+          <div class="demo-step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Move to WhatsApp.</strong> When you are ready, connect directly with Zahid to take the conversation further with full human guidance.</div>
+          </div>
+        </div>
+        <button class="btn btn-red" onclick="openPreChat()">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          Try It Now
+        </button>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="demo-chat">
+          <div class="demo-chat-header">
+            <div class="demo-av">Z</div>
+            <div>
+              <div class="demo-header-name">Zahid AI Assistant</div>
+              <div class="demo-header-sub">● Online</div>
+            </div>
+          </div>
+          <div class="demo-msgs" id="demoChatMsgs">
+            <div class="demo-msg bot" style="animation-delay:0.2s;">
+              <div class="demo-msg-av b">Z</div>
+              <div class="demo-bubble">Hey! What would you like help with today?</div>
+            </div>
+            <div class="demo-msg user" style="animation-delay:0.6s;">
+              <div class="demo-msg-av u">U</div>
+              <div class="demo-bubble">I want to grow my LinkedIn audience</div>
+            </div>
+          </div>
+          <div class="demo-typing" id="demoTyping" style="display:flex;">
+            <div class="demo-msg-av b">Z</div>
+            <div class="demo-typing-dots">
+              <div class="demo-dot"></div>
+              <div class="demo-dot"></div>
+              <div class="demo-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="chat-container reveal">
+</section>
 
-    <!-- HEADER -->
-    <div class="chat-header">
-      <div class="chat-avatar">Z</div>
-      <div class="chat-header-info">
-        <div class="chat-header-name">Zahid Hussain AI Assistant</div>
-        <div class="chat-header-status"><span class="status-dot"></span>Online and ready to help</div>
+<div class="divider"></div>
+
+<!-- ═══════════════ TRUST ═══════════════ -->
+<section class="trust-section section-pad">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="reveal">
+        <span class="eyebrow"><span class="eyebrow-line"></span>WHY TRUST THIS</span>
+        <h2 class="h2">Built by Someone in the <em>Top 7%</em></h2>
+        <p class="body-text" style="margin-bottom:32px;">Zahid Hussain does not teach theory. He shares exactly what worked for him to reach the top 7 percent of LinkedIn creators worldwide, and helps you apply the same principles to your situation.</p>
+        <div class="trust-metrics">
+          <div class="trust-metric">
+            <div class="metric-icon">🏆</div>
+            <div class="metric-num">Top 7%</div>
+            <div class="metric-label">LinkedIn Creator Worldwide</div>
+          </div>
+          <div class="trust-metric">
+            <div class="metric-icon">👥</div>
+            <div class="metric-num">500+</div>
+            <div class="metric-label">Professionals Personally Guided</div>
+          </div>
+          <div class="trust-metric">
+            <div class="metric-icon">📈</div>
+            <div class="metric-num">3x</div>
+            <div class="metric-label">Average Profile Impression Growth</div>
+          </div>
+          <div class="trust-metric">
+            <div class="metric-icon">💬</div>
+            <div class="metric-num">100%</div>
+            <div class="metric-label">Personal 1 on 1 Conversations</div>
+          </div>
+        </div>
       </div>
-      <div class="chat-header-right">
-        <span class="chat-header-badge" id="sessionBadge">AI Powered</span>
-        <div class="session-timer-wrap" id="sessionTimerWrap">
-          <span class="timer-icon">⏱</span>
-          <span class="timer-val" id="timerVal">30:00</span>
+      <div class="trust-highlights reveal reveal-d2">
+        <div class="trust-item">
+          <div class="trust-item-icon">🎙</div>
+          <div class="trust-item-text">
+            <strong>Real Conversation Approach</strong>
+            <span>No recorded courses, no templates dumped into your inbox. Every interaction is a real exchange focused entirely on your situation.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">🔒</div>
+          <div class="trust-item-text">
+            <strong>No Pressure Environment</strong>
+            <span>You explore at your own pace. Chat when you are ready. No pushy funnels, no countdown timers forcing decisions.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">⚡</div>
+          <div class="trust-item-text">
+            <strong>Instant Access, No Forms</strong>
+            <span>Start a session in seconds. No signups, no application process, no waiting for approval. Just open the chat and begin.</span>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- PROGRESS BAR -->
-    <div class="session-progress-wrap" id="progressWrap">
-      <div class="session-progress-bar" id="progressBar"></div>
+<div class="divider"></div>
+
+<!-- ═══════════════ WHY CHAT ═══════════════ -->
+<section class="why-section section-pad">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:0;">
+      <span class="eyebrow"><span class="eyebrow-line"></span>WHY CHAT FIRST</span>
+      <h2 class="h2">Chat is Better Than <em>a Cold Call</em></h2>
+      <p class="body-text" style="margin:0 auto;">A conversation that starts in text lets you think clearly, express yourself honestly, and engage at your own pace before committing to anything.</p>
     </div>
-
-    <!-- QUICK REPLIES -->
-    <div class="quick-replies" id="quickReplies">
-      <button class="quick-btn" onclick="sendQuick('How can you help me?')">How can you help?</button>
-      <button class="quick-btn" onclick="sendQuick('I want to grow on LinkedIn')">LinkedIn growth</button>
-      <button class="quick-btn" onclick="sendQuick('I need help with my content strategy')">Content strategy</button>
-      <button class="quick-btn" onclick="sendQuick('I need career guidance and clarity')">Career guidance</button>
-      <button class="quick-btn" onclick="startSession()">Start 30 min session</button>
-    </div>
-
-    <!-- MESSAGES -->
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg bot">
-        <div class="msg-av bot-av">Z</div>
-        <div>
-          <div class="msg-bubble">Hey there! I am Zahid Hussain AI Assistant, and I am here to guide you on LinkedIn growth, personal branding, content strategy, and career clarity.<br><br>You can chat freely, or start a focused <strong>30 minute session</strong> for a structured conversation. What would you like to do?</div>
-          <span class="msg-time">Just now</span>
-        </div>
+    <div class="why-cards">
+      <div class="why-card reveal">
+        <div class="why-card-icon">🧠</div>
+        <div class="why-card-title">Think Before You Speak</div>
+        <div class="why-card-body">In a chat, you can think through your question before sending it. No pressure, no stumbling over words, no awkward silences.</div>
+        <div class="why-card-vs">vs. rushed call conversations</div>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-card-icon">🕐</div>
+        <div class="why-card-title">Your Time, Your Pace</div>
+        <div class="why-card-body">Start a session when you have 30 minutes and mental space. No scheduling 3 days ahead, no calendar back and forth.</div>
+        <div class="why-card-vs">vs. fixed booking slots</div>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-card-icon">📋</div>
+        <div class="why-card-title">Context Carries Over</div>
+        <div class="why-card-body">When you move from AI chat to WhatsApp, Zahid already has the context of your situation. No repeating yourself from scratch.</div>
+        <div class="why-card-vs">vs. starting cold every time</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- TYPING -->
-    <div class="typing-indicator" id="typingIndicator">
-      <div class="msg-av bot-av">Z</div>
-      <div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-    </div>
+<div class="divider"></div>
 
-    <!-- SESSION ENDED -->
-    <div class="session-ended" id="sessionEnded">
-      <div class="session-ended-title">Your session has ended.</div>
-      <div class="session-ended-sub">Your 30 minute session is complete. Continue the conversation directly with Zahid on WhatsApp.</div>
-      <a class="msg-wa-btn" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20my%20AI%20session%20just%20ended%20and%20I%20would%20like%20to%20continue%20our%20conversation" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Continue on WhatsApp with Zahid
-      </a>
-    </div>
-
-    <!-- INPUT -->
-    <div class="chat-input-area">
-      <input class="chat-input" id="chatInput" type="text" placeholder="Type your question here..." autocomplete="off" enterkeyhint="send" />
-      <button class="chat-send" id="sendBtn" onclick="handleSend()">
-        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+<!-- ═══════════════ SESSION LAUNCH ═══════════════ -->
+<section class="session-launch section-pad" id="session">
+  <div class="container">
+    <div class="session-launch-inner reveal">
+      <span class="eyebrow" style="justify-content:center;"><span class="eyebrow-line"></span>START YOUR SESSION</span>
+      <h2 class="h2">30 Minutes. <em>Full Focus.</em> Real Results.</h2>
+      <p class="body-text" style="margin:0 auto 28px;">Pick what matters most to you right now, then start a live session. The AI assistant will guide you through focused questions and give you actionable direction.</p>
+      <div class="session-options" id="sessionOpts">
+        <div class="session-opt" onclick="selectTopic('LinkedIn Growth','I want to grow on LinkedIn')" data-topic="linkedin">
+          <div class="session-opt-icon">📈</div>
+          <div><div class="session-opt-title">LinkedIn Growth</div><div class="session-opt-sub">Profile optimization, reach, visibility, and engagement strategies</div></div>
+        </div>
+        <div class="session-opt" onclick="selectTopic('Personal Branding','I need help with my personal brand')" data-topic="brand">
+          <div class="session-opt-icon">🎯</div>
+          <div><div class="session-opt-title">Personal Branding</div><div class="session-opt-sub">Define your story, positioning, and professional identity</div></div>
+        </div>
+        <div class="session-opt" onclick="selectTopic('Content Strategy','I need a content strategy for LinkedIn')" data-topic="content">
+          <div class="session-opt-icon">✍️</div>
+          <div><div class="session-opt-title">Content Strategy</div><div class="session-opt-sub">Build a content system that consistently grows your audience</div></div>
+        </div>
+        <div class="session-opt" onclick="selectTopic('Career Clarity','I need career guidance and clarity')" data-topic="career">
+          <div class="session-opt-icon">🧭</div>
+          <div><div class="session-opt-title">Career Clarity</div><div class="session-opt-sub">Find direction, gain confidence, and step into your next chapter</div></div>
+        </div>
+      </div>
+      <button class="btn btn-red btn-lg btn-full" onclick="launchSession()" id="launchBtn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Start 30 Minute Session
       </button>
+      <p class="session-launch-note" style="margin-top:16px;">No login required. Your session starts immediately in the chat below. At the end, a direct WhatsApp link connects you with Zahid.</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="proof-section">
-  <div class="proof-header reveal">
-    <span class="section-tag">WHAT PEOPLE SAY</span>
-    <h2 class="section-title">Real Results from <em>Real People</em></h2>
+<div class="divider"></div>
+
+<!-- ═══════════════ SCHEDULE ═══════════════ -->
+<div class="container section-pad schedule-section reveal" id="schedule-section">
+  <div class="schedule-card">
+    <span class="eyebrow" style="justify-content:center;margin-bottom:12px;"><span class="eyebrow-line"></span>BOOK AHEAD</span>
+    <h2 class="schedule-title">Schedule Your <em>Preferred Time</em></h2>
+    <p class="schedule-sub">If you prefer to plan ahead, pick a date and time. Zahid will confirm your session personally on WhatsApp.</p>
+    <div class="schedule-inputs">
+      <div class="sch-group"><label class="sch-label" for="sessDate">DATE</label><input class="sch-input" type="date" id="sessDate"/></div>
+      <div class="sch-group"><label class="sch-label" for="sessTime">TIME</label><input class="sch-input" type="time" id="sessTime"/></div>
+    </div>
+    <button class="btn btn-red btn-full" onclick="confirmSchedule()">
+      <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+      Confirm My Session Time
+    </button>
+    <p class="schedule-note"><strong>Note:</strong> Your WhatsApp session will also be a focused 30 minute conversation so your goals get the full attention they deserve.</p>
   </div>
-  <div class="testimonials">
-    <div class="testimonial reveal">
-      <div class="star-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testimonial-text">Working with Zahid completely transformed how I show up on LinkedIn. Within 6 weeks my profile impressions tripled and I started getting inbound messages from recruiters I had never reached out to.</p>
-      <div class="testimonial-author"><div class="author-avatar">A</div><div><div class="author-name">Ahmed Raza</div><div class="author-role">Product Manager, Karachi</div></div></div>
+</div>
+
+<!-- ═══════════════ CHATBOT ═══════════════ -->
+<section class="chat-section section-pad" id="chat-section" style="padding-top:0;">
+  <div class="container">
+    <div class="chat-section-header reveal">
+      <span class="eyebrow" style="justify-content:center;"><span class="eyebrow-line"></span>LIVE AI CHAT</span>
+      <h2 class="h2">Your <em>AI Assistant</em> Is Ready</h2>
+      <p class="body-text">Ask anything about LinkedIn growth, personal branding, or career clarity. Or start a focused 30 minute session using the section above.</p>
     </div>
-    <div class="testimonial reveal reveal-d1">
-      <div class="star-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testimonial-text">I had no idea what personal branding really meant before Zahid explained it in a way that finally made sense. His 1 on 1 sessions gave me clarity and a real direction for my career.</p>
-      <div class="testimonial-author"><div class="author-avatar">S</div><div><div class="author-name">Sara Malik</div><div class="author-role">Marketing Consultant, Lahore</div></div></div>
-    </div>
-    <div class="testimonial reveal reveal-d2">
-      <div class="star-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testimonial-text">Zahid does not just give you templates. He listens, understands your story, and helps you find the right voice. My content now feels authentic and my engagement has grown significantly.</p>
-      <div class="testimonial-author"><div class="author-avatar">U</div><div><div class="author-name">Usman Tariq</div><div class="author-role">Software Engineer, Islamabad</div></div></div>
+    <div class="chat-wrap reveal">
+
+      <!-- PRE-CHAT SCREEN -->
+      <div class="pre-chat" id="preChat">
+        <div class="pre-chat-av">Z</div>
+        <div class="pre-chat-title">Zahid Hussain AI Assistant</div>
+        <p class="pre-chat-sub">I am here to guide you on LinkedIn growth, personal branding, content strategy, and career clarity. Let us start with one question.</p>
+        <p class="pre-chat-question">What do you want help with?</p>
+        <div class="pre-chat-opts">
+          <button class="pre-opt" onclick="choosePreChat('LinkedIn Growth','I want to grow on LinkedIn')">LinkedIn Growth</button>
+          <button class="pre-opt" onclick="choosePreChat('Personal Branding','I need help with my personal brand')">Personal Branding</button>
+          <button class="pre-opt" onclick="choosePreChat('Content Strategy','I need a content strategy')">Content Strategy</button>
+          <button class="pre-opt" onclick="choosePreChat('Other','I have a different question')">Other</button>
+        </div>
+      </div>
+
+      <!-- ACTIVE CHAT -->
+      <div class="chat-ui" id="chatUI">
+
+        <!-- HEADER -->
+        <div class="chat-header">
+          <div class="chat-av">Z</div>
+          <div class="chat-header-info">
+            <div class="chat-hname">Zahid Hussain AI Assistant</div>
+            <div class="chat-hstatus"><span class="sdot"></span>Online and ready to help</div>
+          </div>
+          <div class="chat-header-right">
+            <span class="hbadge" id="sessLabel">AI Powered</span>
+            <div class="timer-wrap" id="timerWrap"><span class="timer-val" id="timerVal">30:00</span></div>
+          </div>
+        </div>
+
+        <!-- PROGRESS BAR -->
+        <div class="prog-wrap" id="progWrap"><div class="prog-bar" id="progBar"></div></div>
+
+        <!-- QUICK CHIPS -->
+        <div class="qreplies" id="qreplies">
+          <button class="qbtn" onclick="quickSend('I want to grow on LinkedIn')">LinkedIn growth</button>
+          <button class="qbtn" onclick="quickSend('I need help with my content strategy')">Content strategy</button>
+          <button class="qbtn" onclick="quickSend('I need career guidance')">Career clarity</button>
+          <button class="qbtn" onclick="startSession()">Start 30 min session</button>
+        </div>
+
+        <!-- MESSAGES -->
+        <div class="chat-msgs" id="chatMsgs"></div>
+
+        <!-- TYPING -->
+        <div class="typing-row" id="typingRow">
+          <div class="msg-av b">Z</div>
+          <div class="tdots"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>
+        </div>
+
+        <!-- SESSION ENDED -->
+        <div class="sess-end" id="sessEnd">
+          <div class="sess-end-title">Your session has ended.</div>
+          <div class="sess-end-sub">Your 30 minutes are complete. Continue the conversation directly with Zahid on WhatsApp, or start a new session.</div>
+          <div class="sess-end-actions">
+            <a class="btn btn-green" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20my%20AI%20session%20just%20ended%20and%20I%20would%20like%20to%20continue%20the%20conversation" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Continue on WhatsApp
+            </a>
+            <button class="btn btn-ghost" onclick="resetSession()">Start New Session</button>
+          </div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="chat-input-row">
+          <input class="chat-inp" id="chatInp" type="text" placeholder="Type your question here..." autocomplete="off" enterkeyhint="send"/>
+          <button class="chat-send" id="sendBtn" onclick="handleSend()">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner reveal">
-    <span class="section-tag">YOUR NEXT STEP</span>
-    <h2 class="section-title">Your Brand Will Not Build <em>Itself.</em></h2>
-    <p class="section-body">No forms. No waiting. Just a real conversation with Zahid Hussain. Click below to start a WhatsApp chat and let us figure out the best path forward for you together.</p>
-    <div class="final-actions">
-      <a class="btn-primary" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20to%20book%20a%201%20on%201%20session" target="_blank" rel="noopener">
-        <svg style="width:17px;height:17px;fill:currentColor;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Start Your Journey on WhatsApp
-      </a>
-      <button class="btn-secondary" onclick="scrollToChat()">Ask a Question First</button>
+<div class="divider"></div>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section class="testi-section section-pad">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:clamp(32px,5vw,52px);">
+      <span class="eyebrow"><span class="eyebrow-line"></span>WHAT PEOPLE SAY</span>
+      <h2 class="h2">Real Results from <em>Real Conversations</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+        <p class="testi-text">Working with Zahid completely transformed how I show up on LinkedIn. Within 6 weeks my profile impressions tripled and I started getting inbound messages from recruiters I had never reached out to.</p>
+        <div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Ahmed Raza</div><div class="testi-role">Product Manager, Karachi</div></div></div>
+      </div>
+      <div class="testi-card reveal reveal-d1">
+        <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+        <p class="testi-text">I had no idea what personal branding really meant before Zahid explained it in a way that finally made sense. His 1 on 1 sessions gave me clarity and a real direction for my career.</p>
+        <div class="testi-author"><div class="testi-av">S</div><div><div class="testi-name">Sara Malik</div><div class="testi-role">Marketing Consultant, Lahore</div></div></div>
+      </div>
+      <div class="testi-card reveal reveal-d2">
+        <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+        <p class="testi-text">Zahid does not just give you templates. He listens, understands your story, and helps you find the right voice. My content now feels authentic and my engagement has grown significantly.</p>
+        <div class="testi-author"><div class="testi-av">U</div><div><div class="testi-name">Usman Tariq</div><div class="testi-role">Software Engineer, Islamabad</div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-copy">© 2025 Zahid Hussain. All rights reserved.</span>
-  <span class="footer-logo">Zahid Hussain</span>
-  <a class="footer-wa" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20would%20like%20to%20connect" target="_blank" rel="noopener">WhatsApp: +92 345 462 7881</a>
+<div class="divider"></div>
+
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<section class="cta-final section-pad">
+  <div class="container">
+    <div class="cta-final-inner reveal">
+      <span class="eyebrow" style="justify-content:center;"><span class="eyebrow-line"></span>READY TO START</span>
+      <h2 class="h2">Your Brand Will Not Build <em>Itself.</em></h2>
+      <p class="body-text" style="margin:0 auto 36px;">No forms. No waiting. Pick your path below and take the first step toward the professional presence you have been putting off.</p>
+      <div class="cta-final-actions">
+        <button class="btn btn-red btn-lg" onclick="openPreChat()">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          Start AI Chat Session
+        </button>
+        <a class="btn btn-outline btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20to%20book%20a%201%20on%201%20session" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Zahid Directly
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Z · HUSSAIN</div>
+      <p class="footer-brand-sub">LinkedIn Creator and Personal Branding Mentor. Top 7% creator worldwide helping professionals build brands that open doors.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">NAVIGATE</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#session">Sessions</a></li>
+        <li><a href="#chat-section">AI Chat</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">CONNECT</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20would%20like%20to%20connect" target="_blank" rel="noopener">WhatsApp: +92 345 462 7881</a></li>
+        <li><a href="#schedule-section">Schedule a Session</a></li>
+        <li><a href="#chat-section">Start AI Chat</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Zahid Hussain. All rights reserved.</span>
+    <a class="footer-wa-link" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain" target="_blank" rel="noopener">WhatsApp: +92 345 462 7881</a>
+  </div>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════
-   PERFORMANCE: detect mobile
-═══════════════════════════════════════════ */
-const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
+/* ════════════════════════════════════════
+   PERFORMANCE: mobile detection
+════════════════════════════════════════ */
+const IS_MOBILE = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
 
-/* ═══════════════════════════════════════════
-   CANVAS BACKGROUND (lightweight on mobile)
-═══════════════════════════════════════════ */
+/* ════════════════════════════════════════
+   CANVAS BACKGROUND
+════════════════════════════════════════ */
 (function(){
-  const cv = document.getElementById('bg-canvas');
-  const cx = cv.getContext('2d');
-  let W, H, t = 0, raf;
-
-  const orbCount = isMobile ? 4 : 6;
-  const pCount  = isMobile ? 30 : 55;
-
-  const orbs = [
-    {x:.76,y:.12,r:isMobile?220:360,c:'rgba(110,0,0,',b:.09,s:.00042},
-    {x:.12,y:.74,r:isMobile?180:300,c:'rgba(80,0,0,', b:.07,s:.00031},
-    {x:.52,y:.52,r:isMobile?140:220,c:'rgba(140,80,0,',b:.04,s:.00052},
-    {x:.90,y:.88,r:isMobile?120:190,c:'rgba(75,0,0,', b:.06,s:.00038},
-    {x:.06,y:.32,r:110,             c:'rgba(100,0,0,', b:.06,s:.00046},
-    {x:.40,y:.90,r:100,             c:'rgba(55,35,0,', b:.03,s:.00060},
-  ].slice(0, orbCount);
-
-  const pts = Array.from({length:pCount},()=>({
+  const cv=document.getElementById('bg-canvas');
+  const cx=cv.getContext('2d');
+  let W,H,t=0,raf;
+  const nOrbs=IS_MOBILE?3:5, nPts=IS_MOBILE?25:48;
+  const orbs=[
+    {x:.78,y:.10,r:IS_MOBILE?200:340,c:'rgba(110,0,0,',b:.09,s:.00040},
+    {x:.10,y:.75,r:IS_MOBILE?160:270,c:'rgba(75,0,0,', b:.07,s:.00030},
+    {x:.50,y:.50,r:IS_MOBILE?120:200,c:'rgba(130,70,0,',b:.04,s:.00050},
+    {x:.88,y:.85,r:160,c:'rgba(70,0,0,', b:.05,s:.00036},
+    {x:.05,y:.30,r:150,c:'rgba(95,0,0,', b:.06,s:.00044},
+  ].slice(0,nOrbs);
+  const pts=Array.from({length:nPts},()=>({
     x:Math.random(),y:Math.random(),
-    vx:(Math.random()-.5)*(isMobile?.00010:.00013),
-    vy:(Math.random()-.5)*(isMobile?.00010:.00013),
-    r:Math.random()*1.2+.25, o:Math.random()*.35+.08,
-    gold:Math.random()>.6, ph:Math.random()*Math.PI*2
+    vx:(Math.random()-.5)*(IS_MOBILE?.00009:.00012),
+    vy:(Math.random()-.5)*(IS_MOBILE?.00009:.00012),
+    r:Math.random()*1.1+.2,o:Math.random()*.32+.07,
+    gold:Math.random()>.62,ph:Math.random()*Math.PI*2
   }));
-
-  function resize(){ W=cv.width=window.innerWidth; H=cv.height=window.innerHeight; }
-
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
   function draw(){
     t++;
     cx.clearRect(0,0,W,H);
-
-    const bg=cx.createLinearGradient(W*(.5+.10*Math.sin(t*.00028)),0,W*(.5-.10*Math.cos(t*.00036)),H);
-    bg.addColorStop(0,'#070202'); bg.addColorStop(.4,'#0b0303');
-    bg.addColorStop(.7,'#060101'); bg.addColorStop(1,'#030101');
-    cx.fillStyle=bg; cx.fillRect(0,0,W,H);
-
+    const bg=cx.createLinearGradient(W*(.5+.09*Math.sin(t*.00026)),0,W*(.5-.09*Math.cos(t*.00034)),H);
+    bg.addColorStop(0,'#060202');bg.addColorStop(.4,'#0a0303');bg.addColorStop(.7,'#050101');bg.addColorStop(1,'#030101');
+    cx.fillStyle=bg;cx.fillRect(0,0,W,H);
     orbs.forEach((o,i)=>{
       const ox=o.x*W+Math.sin(t*o.s+i*1.4)*W*.07;
       const oy=o.y*H+Math.cos(t*o.s*.75+i)*H*.08;
-      const al=Math.min(o.b+.025*Math.sin(t*o.s*3+i),.18);
+      const al=Math.min(o.b+.024*Math.sin(t*o.s*3+i),.17);
       const g=cx.createRadialGradient(ox,oy,0,ox,oy,o.r);
-      g.addColorStop(0,o.c+al+')'); g.addColorStop(1,o.c+'0)');
-      cx.fillStyle=g; cx.beginPath(); cx.arc(ox,oy,o.r,0,Math.PI*2); cx.fill();
+      g.addColorStop(0,o.c+al+')');g.addColorStop(1,o.c+'0)');
+      cx.fillStyle=g;cx.beginPath();cx.arc(ox,oy,o.r,0,Math.PI*2);cx.fill();
     });
-
     pts.forEach(p=>{
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0)p.x=1; if(p.x>1)p.x=0;
-      if(p.y<0)p.y=1; if(p.y>1)p.y=0;
-      cx.globalAlpha=p.o*(.65+.35*Math.sin(t*.048+p.ph));
-      cx.fillStyle=p.gold?'#C9A84C':'rgba(245,240,232,.85)';
-      cx.beginPath(); cx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2); cx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0;
+      cx.globalAlpha=p.o*(.62+.38*Math.sin(t*.046+p.ph));
+      cx.fillStyle=p.gold?'#C9A84C':'rgba(242,237,228,.82)';
+      cx.beginPath();cx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2);cx.fill();
     });
     cx.globalAlpha=1;
     raf=requestAnimationFrame(draw);
   }
-
-  // Pause when hidden for performance
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden){ cancelAnimationFrame(raf); }
-    else { raf=requestAnimationFrame(draw); }
-  });
-
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(raf);else raf=requestAnimationFrame(draw);});
   window.addEventListener('resize',resize,{passive:true});
-  resize(); draw();
+  resize();draw();
 })();
 
-/* ═══════════════════════════════════════════
+/* ════════════════════════════════════════
+   DEMO CHAT ANIMATION
+════════════════════════════════════════ */
+(function(){
+  const msgs=[
+    {s:'bot',t:'LinkedIn growth starts with three things most people miss: a powerful headline, consistent content, and strategic engagement. Which one should we work on first?'},
+    {s:'user',t:'Let us start with my headline'},
+    {s:'bot',t:'Your headline is your first impression. Instead of just your job title, it should answer: What value do I bring, and who do I bring it for? Tell me your current headline and we will rewrite it together.'},
+  ];
+  let idx=0;
+  function addDemoMsg(){
+    if(idx>=msgs.length){idx=0;setTimeout(addDemoMsg,3500);return;}
+    const m=msgs[idx];
+    const typing=document.getElementById('demoTyping');
+    if(m.s==='bot'){
+      typing.style.display='flex';
+      setTimeout(()=>{
+        typing.style.display='none';
+        const c=document.getElementById('demoChatMsgs');
+        const d=document.createElement('div');d.className=`demo-msg ${m.s}`;
+        d.innerHTML=`<div class="demo-msg-av ${m.s==='bot'?'b':'u'}">${m.s==='bot'?'Z':'U'}</div><div class="demo-bubble">${m.t}</div>`;
+        c.appendChild(d);c.scrollTop=c.scrollHeight;
+        idx++;setTimeout(addDemoMsg,1800);
+      },1400);
+    } else {
+      typing.style.display='none';
+      const c=document.getElementById('demoChatMsgs');
+      const d=document.createElement('div');d.className=`demo-msg ${m.s}`;
+      d.innerHTML=`<div class="demo-msg-av ${m.s==='bot'?'b':'u'}">${m.s==='bot'?'Z':'U'}</div><div class="demo-bubble">${m.t}</div>`;
+      c.appendChild(d);c.scrollTop=c.scrollHeight;
+      idx++;setTimeout(addDemoMsg,900);
+    }
+  }
+  setTimeout(addDemoMsg,2000);
+})();
+
+/* ════════════════════════════════════════
    NAV SCROLL
-═══════════════════════════════════════════ */
+════════════════════════════════════════ */
 window.addEventListener('scroll',()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
 },{passive:true});
 
-/* ═══════════════════════════════════════════
+/* ════════════════════════════════════════
    SCROLL REVEAL
-═══════════════════════════════════════════ */
-const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.08});
+════════════════════════════════════════ */
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* ═══════════════════════════════════════════
-   SCROLL TO CHAT
-═══════════════════════════════════════════ */
-function scrollToChat(){
-  document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'start'});
-  setTimeout(()=>{ if(!isMobile) document.getElementById('chatInput').focus(); },700);
-}
-
-/* ═══════════════════════════════════════════
+/* ════════════════════════════════════════
    TOAST
-═══════════════════════════════════════════ */
-function showToast(msg,dur=3200){
+════════════════════════════════════════ */
+function toast(msg,ms=3000){
   const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),dur);
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),ms);
 }
 
-/* ═══════════════════════════════════════════
-   SCHEDULE CONFIRM
-═══════════════════════════════════════════ */
-function confirmSchedule(){
-  const d=document.getElementById('sessDate').value;
-  const t=document.getElementById('sessTime').value;
-  if(!d&&!t){ showToast('Please pick a date and time first.'); return; }
-  const dt=d?new Date(d).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}):'';
-  const tm=t?formatTime12(t):'';
-  const msg=`Great, I have noted your preferred time${dt?' on '+dt:''}${tm?' at '+tm:''}. Zahid will confirm your session personally on WhatsApp. You can also chat with the AI assistant below to prepare.`;
-  scrollToChat();
-  setTimeout(()=>addBotMessage(msg,false),600);
-  showToast('Session time noted. Check the chat below.');
-}
-function formatTime12(val){
-  const [h,m]=val.split(':').map(Number);
-  const ampm=h>=12?'PM':'AM';
-  return ((h%12)||12)+':'+String(m).padStart(2,'0')+' '+ampm;
+/* ════════════════════════════════════════
+   PRE-CHAT + TOPIC SELECTION
+════════════════════════════════════════ */
+let selectedTopic='';
+let selectedMessage='';
+
+function openPreChat(){
+  document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'start'});
+  // Already in pre-chat state by default
 }
 
-/* ═══════════════════════════════════════════
-   30-MINUTE SESSION SYSTEM
-═══════════════════════════════════════════ */
-const SESSION_DURATION = 30 * 60; // 30 minutes in seconds
-let sessionActive = false;
-let sessionSecondsLeft = SESSION_DURATION;
-let sessionInterval = null;
-let inactivityTimeout = null;
+function selectTopic(topic,msg){
+  selectedTopic=topic;selectedMessage=msg;
+  document.querySelectorAll('.session-opt').forEach(o=>{
+    o.classList.toggle('active',o.dataset.topic===topic.toLowerCase().replace(' ',''));
+  });
+}
+
+function choosePreChat(topic,msg){
+  selectedTopic=topic;selectedMessage=msg;
+  activateChatUI();
+  // Send topic choice through Gemini for real AI response
+  chatHistory.push({ role: 'user', text: `I want to focus on: ${topic}` });
+  callGeminiAPI(`I want to focus on: ${topic}. Give me a brief, encouraging opening and ask me one specific question to understand my current situation.`);
+}
+
+function launchSession(){
+  if(!selectedTopic){toast('Please select a topic above first.');return;}
+  activateChatUI();
+  startSession();
+  document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function activateChatUI(){
+  document.getElementById('preChat').style.display='none';
+  const ui=document.getElementById('chatUI');
+  ui.classList.add('active');
+  if(selectedMessage){
+    addMsg(selectedMessage,'user');
+    selectedMessage='';
+  }
+}
+
+/* ════════════════════════════════════════
+   SESSION SYSTEM
+════════════════════════════════════════ */
+const SESS_DUR=30*60;
+let sessActive=false,sessLeft=SESS_DUR,sessInt=null,idleT=null;
 
 function startSession(){
-  if(sessionActive) return;
-  sessionActive = true;
-  sessionSecondsLeft = SESSION_DURATION;
-
-  document.getElementById('progressWrap').classList.add('visible');
-  document.getElementById('sessionTimerWrap').classList.add('visible');
-  document.getElementById('sessionBadge').textContent = 'Live Session';
-  document.getElementById('quickReplies').style.display = 'none';
-
-  // System message
-  addSystemMessage('Your 1 to 1 session has started. You have 30 minutes of focused guidance.');
-
-  addBotMessage('Your session is now live! I am fully focused on you for the next 30 minutes. Tell me exactly where you are right now with your LinkedIn or personal brand, and we will map out the best path forward together.', false);
-
-  sessionInterval = setInterval(tickSession, 1000);
-  resetInactivity();
-  scrollToChat();
+  if(sessActive)return;
+  sessActive=true;sessLeft=SESS_DUR;
+  document.getElementById('progWrap').classList.add('on');
+  document.getElementById('timerWrap').classList.add('on');
+  document.getElementById('sessLabel').textContent='Live Session';
+  document.getElementById('qreplies').style.display='none';
+  addSysMsg('Your 1 to 1 session has started. You have 30 minutes.');
+  addBotMsg(`Your session is now live! For the next 30 minutes I am fully focused on you${selectedTopic?' and your '+selectedTopic+' goals':''}.&nbsp;<br><br>Let us start: describe your current situation in one or two sentences. Where are you right now, and where do you want to be?`,false);
+  sessInt=setInterval(tickSess,1000);
+  resetIdle();
 }
 
-function tickSession(){
-  sessionSecondsLeft--;
-  updateTimerDisplay();
-  updateProgress();
-
-  if(sessionSecondsLeft === 5*60){
-    // 5 minute warning
-    document.getElementById('sessionTimerWrap').classList.add('warning');
-    addSystemMessage('5 minutes remaining in your session. Wrap up your key questions now.');
-    addBotMessage('We have about 5 minutes left in this session. Is there anything specific you want to make sure we cover before we finish?', false);
+function tickSess(){
+  sessLeft--;
+  updateTimer();updateProgress();
+  if(sessLeft===5*60){
+    document.getElementById('timerWrap').classList.add('warn');
+    addSysMsg('5 minutes remaining in your session.');
+    addBotMsg('We have about 5 minutes left. Is there a specific question or action you want to make sure we cover before we finish?',false);
   }
-
-  if(sessionSecondsLeft <= 0){
-    endSession();
-  }
+  if(sessLeft<=0)endSession();
 }
 
-function updateTimerDisplay(){
-  const m = Math.floor(sessionSecondsLeft / 60);
-  const s = sessionSecondsLeft % 60;
-  document.getElementById('timerVal').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+function updateTimer(){
+  const m=Math.floor(sessLeft/60),s=sessLeft%60;
+  document.getElementById('timerVal').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 
 function updateProgress(){
-  const pct = ((SESSION_DURATION - sessionSecondsLeft) / SESSION_DURATION) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+  const pct=((SESS_DUR-sessLeft)/SESS_DUR)*100;
+  document.getElementById('progBar').style.width=pct+'%';
 }
 
 function endSession(){
-  clearInterval(sessionInterval);
-  sessionActive = false;
-  clearTimeout(inactivityTimeout);
-
-  // Siren sound (Web Audio API — no external file needed)
+  clearInterval(sessInt);sessActive=false;clearTimeout(idleT);
   playSiren();
+  addSysMsg('Your session has ended. Thank you for this conversation.');
+  const inp=document.getElementById('chatInp'),btn=document.getElementById('sendBtn');
+  inp.disabled=true;btn.disabled=true;
+  inp.placeholder='Session ended. Continue on WhatsApp.';
+  document.getElementById('sessEnd').classList.add('on');
+  document.getElementById('timerWrap').classList.remove('warn');
+  document.getElementById('timerVal').textContent='00:00';
+  document.getElementById('progBar').style.width='100%';
+}
 
-  addSystemMessage('Your session has ended. Thank you for spending this time together.');
-
-  const input  = document.getElementById('chatInput');
-  const btn    = document.getElementById('sendBtn');
-  input.disabled = true;
-  btn.disabled   = true;
-  input.placeholder = 'Session ended. Continue on WhatsApp.';
-
-  document.getElementById('sessionEnded').classList.add('visible');
-  document.getElementById('sessionTimerWrap').classList.remove('warning');
-  document.getElementById('timerVal').textContent = '00:00';
-  document.getElementById('progressBar').style.width = '100%';
+function resetSession(){
+  document.getElementById('sessEnd').classList.remove('on');
+  document.getElementById('progWrap').classList.remove('on');
+  document.getElementById('timerWrap').classList.remove('on');
+  document.getElementById('timerWrap').classList.remove('warn');
+  document.getElementById('timerVal').textContent='30:00';
+  document.getElementById('progBar').style.width='0%';
+  document.getElementById('sessLabel').textContent='AI Powered';
+  document.getElementById('chatMsgs').innerHTML='';
+  const inp=document.getElementById('chatInp'),btn=document.getElementById('sendBtn');
+  inp.disabled=false;btn.disabled=false;inp.placeholder='Type your question here...';
+  sessActive=false;sessLeft=SESS_DUR;
+  document.getElementById('qreplies').style.display='flex';
+  selectedTopic='';selectedMessage='';
+  // Clear conversation history for fresh session
+  chatHistory=[];
+  addBotMsg('Welcome back! What would you like to work on in this new session? Pick a topic or just type your first question.',false);
 }
 
 function playSiren(){
-  try {
-    const ctx = new (window.AudioContext||window.webkitAudioContext)();
-    const now = ctx.currentTime;
+  try{
+    const ac=new(window.AudioContext||window.webkitAudioContext)();
+    const now=ac.currentTime;
     for(let i=0;i<3;i++){
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain); gain.connect(ctx.destination);
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(880, now + i*.45);
-      osc.frequency.linearRampToValueAtTime(440, now + i*.45 + .3);
-      gain.gain.setValueAtTime(.22, now + i*.45);
-      gain.gain.linearRampToValueAtTime(0, now + i*.45 + .4);
-      osc.start(now + i*.45);
-      osc.stop(now  + i*.45 + .45);
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.type='sine';
+      o.frequency.setValueAtTime(800,now+i*.45);
+      o.frequency.linearRampToValueAtTime(400,now+i*.45+.3);
+      g.gain.setValueAtTime(.20,now+i*.45);
+      g.gain.linearRampToValueAtTime(0,now+i*.45+.4);
+      o.start(now+i*.45);o.stop(now+i*.45+.45);
     }
-  } catch(e){}
+  }catch(e){}
 }
 
-/* ═══════════════════════════════════════════
-   INACTIVITY TRIGGER
-═══════════════════════════════════════════ */
-function resetInactivity(){
-  clearTimeout(inactivityTimeout);
-  if(!sessionActive) return;
-  inactivityTimeout = setTimeout(()=>{
-    if(sessionActive && !isBotTyping){
-      addBotMessage("Still there? I want to make the most of your session time. Is there something specific you are trying to figure out, whether about your LinkedIn profile, your content, or your career direction? Let us dig in.", false);
+function resetIdle(){
+  clearTimeout(idleT);
+  if(!sessActive)return;
+  idleT=setTimeout(()=>{
+    if(sessActive&&!botTyping){
+      addBotMsg("Still there? I want to make sure we make the most of your session time. What specific challenge would you like to dig into right now?",false);
     }
-    resetInactivity();
-  }, 60000); // 60 seconds idle
+    resetIdle();
+  },65000);
 }
 
-/* ═══════════════════════════════════════════
-   CHATBOT ENGINE
-═══════════════════════════════════════════ */
-const WA_URL='https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20AI%20chat%20assistant%20and%20would%20like%20a%201%20on%201%20session';
-const WA_SVG=`<svg style="width:15px;height:15px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
-const WA_BTN=`<a class="msg-wa-btn" href="${WA_URL}" target="_blank" rel="noopener">${WA_SVG} Continue on WhatsApp with Zahid</a>`;
-
-const responses=[
-  { kw:['hello','hi','hey','start','salam','assalam'],
-    r:`Great to have you here! I am Zahid Hussain AI Assistant. I am trained to guide you on LinkedIn growth, personal branding, content strategy, and career clarity.<br><br>You can ask me anything, use the quick buttons, or hit <strong>Start 30 min session</strong> for a focused guided conversation.` },
-  { kw:['help','what can you do','what do you do','how does this work','capabilities'],
-    r:`Here is what I can help you with right now:<br><br><strong>LinkedIn Growth</strong> — Profile transformation, reach, and engagement strategies.<br><strong>Personal Branding</strong> — Defining your story, positioning, and professional identity.<br><strong>Content Strategy</strong> — Building a content engine that actually grows your audience.<br><strong>Career Clarity</strong> — Finding direction when you feel stuck or unsure.<br><br>You can also start a <strong>30 minute live session</strong> for a structured, in depth conversation.` },
-  { kw:['session','30 min','30 minute','live','start session','start a session'],
-    r:`A 30 minute session is a focused 1 to 1 guided conversation where we go deep on your specific situation.<br><br>Click the <strong>"Start 30 min session"</strong> chip above to begin. I will guide you through the right questions and give you real, actionable insights.<br><br>You can also schedule a session with Zahid directly on WhatsApp afterward.`,
-    showWa:true },
-  { kw:['linkedin','growth','followers','profile','impressions','visibility','reach','network','connections','headline'],
-    r:`LinkedIn growth comes down to three things most people get completely wrong:<br><br><strong>1. Your headline</strong> must communicate the value you bring, not just your job title. Think micro pitch, not label.<br><br><strong>2. Consistency</strong> in content wins every time over frequency. Posting without strategy leads nowhere fast.<br><br><strong>3. Engagement</strong> builds reach faster than broadcasting. Thoughtful comments put you in front of new audiences daily.<br><br>Zahid has helped hundreds go from invisible to recognized. Want a personal strategy built for your specific profile?`,
-    showWa:true },
-  { kw:['content','post','writing','ideas','strategy','what to post','creator','thought leader','viral','hooks'],
-    r:`Content strategy is where most LinkedIn creators either win big or spin their wheels for months.<br><br>The key is never just posting more. It is posting with <strong>purpose, positioning, and a clear reader in mind</strong>. Your content should reflect your expertise, speak directly to your target audience, and build a narrative over time.<br><br>Zahid helps clients build content systems that feel authentic and grow audiences consistently. Want to talk specifics?`,
-    showWa:true },
-  { kw:['confidence','mindset','fear','self doubt','nervous','scared','imposter','motivation','stuck','hesitant','overthinking'],
-    r:`You are not alone in feeling this. Most professionals who come to Zahid feel exactly the same when they first reach out. The fear of being seen, judged, or not being experienced enough to share their voice publicly.<br><br>Here is what Zahid says to everyone who feels this: <strong>Your experience is already someone else's answer.</strong> The moment you start showing up, even imperfectly, things shift in ways you cannot predict.<br><br>A single honest conversation often unlocks more clarity than months of overthinking. Want to speak with Zahid directly?`,
-    showWa:true },
-  { kw:['book','call','appointment','schedule','1 on 1','one on one','consult','mentor','coaching','work with'],
-    r:`That is one of the best decisions you can make for your personal brand right now.<br><br>Zahid does not do group programs or generic templates. Every session is fully personal and focused on your specific profile, goals, and current situation.<br><br>You can also scroll up to pick your preferred date and time, and Zahid will confirm personally on WhatsApp.`,
-    showWa:true },
-  { kw:['price','cost','how much','rate','fee','pay','payment','investment','plans'],
-    r:`Zahid keeps the process honest and personal. Pricing is always discussed directly based on your specific needs, because no two people are in the same situation.<br><br>The best first step is a quick WhatsApp conversation with Zahid himself. He will be transparent, never pushy, and give you a clear picture of what working together looks like.`,
-    showWa:true },
-  { kw:['personal brand','branding','identity','reputation','how do i start','beginner','new to','build my brand'],
-    r:`Personal branding is not about having a fancy logo or thousands of followers. It is about knowing <strong>who you are, what you stand for, and showing up consistently</strong> for the people you are here to serve.<br><br>The best brands are built through clarity, consistency, and genuine connection. Zahid helps professionals at every level find that clarity and translate it into a brand that actually works for their goals.`,
-    showWa:true },
-  { kw:['career','job','change','switch','direction','purpose','clarity','lost','confused','pivot','transition'],
-    r:`Career clarity is one of the most powerful things a mentor can help you unlock. When you know your true direction, everything else aligns. Your content, connections, and conversations all start pointing the same way.<br><br>Zahid has helped professionals discover paths they did not even know were available to them, and built the confidence to walk those paths with intention. A 1 on 1 session is often exactly where that clarity begins.`,
-    showWa:true },
-  { kw:['zahid','who is zahid','about zahid','mentor','experience','background','credentials'],
-    r:`Zahid Hussain is a LinkedIn Creator and Personal Branding Mentor recognized in the <strong>top 7 percent of creators worldwide</strong>.<br><br>He has personally mentored over 500 professionals, helping them transform their LinkedIn presence, clarify their career direction, and build content that grows real audiences.<br><br>Every conversation with Zahid is personal, honest, and entirely focused on your growth.`,
-    showWa:true },
-  { kw:['thank','thanks','appreciate','helpful','great','amazing','perfect','excellent','love it'],
-    r:`That genuinely means a lot. I am glad I could help, even a little.<br><br>If you are ready to go deeper and build something real with Zahid directly, the next step is always a personal conversation. He is here to help, not to sell.`,
-    showWa:true },
-];
-
-let isBotTyping=false;
-
-function getTime(){
-  return new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
-}
-
-function addMessage(html,sender){
-  const container=document.getElementById('chatMessages');
-  const div=document.createElement('div');
-  div.className=`msg ${sender}`;
-  if(sender==='bot'){
-    div.innerHTML=`<div class="msg-av bot-av">Z</div><div><div class="msg-bubble">${html}</div><span class="msg-time">${getTime()}</span></div>`;
-  } else if(sender==='user'){
-    div.innerHTML=`<div class="msg-av user-av">YOU</div><div><div class="msg-bubble">${html}</div><span class="msg-time">${getTime()}</span></div>`;
-  }
-  container.appendChild(div);
-  smoothScroll(container);
-  if(sessionActive) resetInactivity();
-}
-
-function addSystemMessage(text){
-  const container=document.getElementById('chatMessages');
-  const div=document.createElement('div');
-  div.className='msg system';
-  div.innerHTML=`<div class="msg-bubble" style="max-width:100%;width:100%;">🔔 ${text}</div>`;
-  container.appendChild(div);
-  smoothScroll(container);
-}
-
-function smoothScroll(el){
-  requestAnimationFrame(()=>{ el.scrollTop=el.scrollHeight; });
-}
-
-function addBotMessage(text,showWa=false){
-  if(isBotTyping) return;
-  isBotTyping=true;
-  const typing=document.getElementById('typingIndicator');
-  const input=document.getElementById('chatInput');
-  const btn=document.getElementById('sendBtn');
-  const container=document.getElementById('chatMessages');
-
-  typing.classList.add('visible');
-  input.disabled=true; btn.disabled=true;
-  input.placeholder='Zahid AI is typing...';
-  smoothScroll(container);
-
-  const delay = sessionActive ? (900+Math.random()*700) : (1300+Math.random()*1200);
+/* ════════════════════════════════════════
+   SCHEDULE
+════════════════════════════════════════ */
+function confirmSchedule(){
+  const d=document.getElementById('sessDate').value;
+  const t=document.getElementById('sessTime').value;
+  if(!d&&!t){toast('Please pick a date and time first.');return;}
+  const dt=d?new Date(d).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}):'';
+  const tm=t?fmt12(t):'';
+  const confirmMsg=`I have noted a session request${dt?' for '+dt:''}${tm?' at '+tm:''}. Zahid will confirm personally on WhatsApp. Is there anything you would like to prepare or discuss before your session?`;
+  activateChatUI();
   setTimeout(()=>{
-    typing.classList.remove('visible');
-    const full=showWa?text+`<br><br>${WA_BTN}`:text;
-    addMessage(full,'bot');
-    isBotTyping=false;
-    input.disabled=false; btn.disabled=false;
-    input.placeholder='Type your question here...';
-    if(!isMobile) input.focus();
-  },delay);
+    // Use Gemini for a warm, personalized confirmation response
+    const userCtx=`The user just scheduled a session${dt?' for '+dt:''}${tm?' at '+tm:''}. Acknowledge this warmly in one sentence, confirm Zahid will reach out on WhatsApp, and ask them one thing they would like to focus on so the session is well prepared.`;
+    chatHistory.push({role:'user',text:userCtx});
+    callGeminiAPI(userCtx);
+  },500);
+  toast('Session time noted. Zahid will confirm on WhatsApp.');
+  document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function fmt12(v){const[h,m]=v.split(':').map(Number);const a=h>=12?'PM':'AM';return((h%12)||12)+':'+String(m).padStart(2,'0')+' '+a;}
+
+/* ════════════════════════════════════════
+   GEMINI AI CHATBOT ENGINE
+   Connects to /.netlify/functions/chatbot
+════════════════════════════════════════ */
+const BACKEND_URL = '/.netlify/functions/chatbot';
+
+const WA_LINK = 'https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20AI%20assistant%20and%20would%20like%20a%201%20on%201%20session';
+const WA_SVG = `<svg style="width:14px;height:14px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+const WA_BTN = `<a class="wa-btn" href="${WA_LINK}" target="_blank" rel="noopener">${WA_SVG} Continue on WhatsApp with Zahid</a>`;
+
+// Conversation history — sent to backend for context-aware replies
+// Each entry: { role: 'user' | 'bot', text: string }
+let chatHistory = [];
+let botTyping = false;
+
+// ── Determine if a reply warrants showing WhatsApp CTA ───────────
+function shouldShowWA(text) {
+  const triggers = [
+    'whatsapp','book','session','1 on 1','pricing','cost','how much',
+    'connect with zahid','speak with zahid','talk to zahid',
+    'contact','directly','personal conversation'
+  ];
+  return triggers.some(t => text.toLowerCase().includes(t));
 }
 
-function processInput(raw){
-  const lower=raw.toLowerCase().trim();
-  if(!lower) return;
-  document.getElementById('quickReplies').style.display='none';
+// ── Format AI text: convert markdown-like syntax to HTML ─────────
+function formatAIText(text) {
+  return text
+    // Bold: **text** or __text__
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.*?)__/g, '<strong>$1</strong>')
+    // Italic: *text* or _text_  (after bold handled)
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    // Numbered lists
+    .replace(/^(\d+)\.\s(.+)$/gm, '<div class="ai-list-item"><span class="ai-list-num">$1.</span><span>$2</span></div>')
+    // Bullet lists: - item or • item
+    .replace(/^[-•]\s(.+)$/gm, '<div class="ai-list-item"><span class="ai-list-bullet">•</span><span>$1</span></div>')
+    // Double newline to paragraph break
+    .replace(/\n\n/g, '<br><br>')
+    // Single newline to break
+    .replace(/\n/g, '<br>');
+}
 
-  for(const rule of responses){
-    if(rule.kw.some(k=>lower.includes(k))){
-      addBotMessage(rule.r, rule.showWa||false);
+// ── Get current time string ──────────────────────────────────────
+function getT() {
+  return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
+
+// ── Add a message bubble to the chat ────────────────────────────
+function addMsg(html, sender) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = `msg ${sender}`;
+
+  if (sender === 'bot') {
+    d.innerHTML = `
+      <div class="msg-av b">Z</div>
+      <div>
+        <div class="msg-bubble">${html}</div>
+        <span class="msg-time">${getT()}</span>
+      </div>`;
+  } else if (sender === 'user') {
+    d.innerHTML = `
+      <div class="msg-av u">Y</div>
+      <div>
+        <div class="msg-bubble">${html}</div>
+        <span class="msg-time">${getT()}</span>
+      </div>`;
+  }
+
+  c.appendChild(d);
+  requestAnimationFrame(() => { c.scrollTop = c.scrollHeight; });
+  if (sessActive) resetIdle();
+}
+
+// ── System notification message ──────────────────────────────────
+function addSysMsg(txt) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg sys';
+  d.innerHTML = `<div class="msg-bubble">🔔 ${txt}</div>`;
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+
+// ── Show typing state ────────────────────────────────────────────
+function setTyping(on) {
+  const tr  = document.getElementById('typingRow');
+  const inp = document.getElementById('chatInp');
+  const btn = document.getElementById('sendBtn');
+  botTyping = on;
+  tr.classList.toggle('on', on);
+  inp.disabled = on;
+  btn.disabled = on;
+  inp.placeholder = on ? 'Zahid AI is thinking...' : 'Type your question here...';
+  if (on) {
+    const c = document.getElementById('chatMsgs');
+    c.scrollTop = c.scrollHeight;
+  }
+}
+
+// ── Core function: call Gemini backend and render response ───────
+async function callGeminiAPI(userMessage) {
+  setTyping(true);
+
+  // Build history payload — last 16 turns max for efficiency
+  const historyPayload = chatHistory.slice(-16).map(h => ({
+    role: h.role,
+    text: h.text,
+  }));
+
+  let replyText = '';
+
+  try {
+    const response = await fetch(BACKEND_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: userMessage,
+        history: historyPayload,
+        topic: selectedTopic || '',
+      }),
+    });
+
+    if (!response.ok) {
+      let errMsg = 'Something went wrong on our end. Please try again.';
+      try {
+        const errData = await response.json();
+        if (errData.error) errMsg = errData.error;
+      } catch (_) {}
+
+      // Handle rate limit specifically
+      if (response.status === 429) {
+        errMsg = 'The AI is handling many requests right now. Please wait a moment and try again.';
+      }
+
+      setTyping(false);
+      addMsg(`<em style="color:rgba(242,237,228,0.55);">${errMsg}</em>`, 'bot');
       return;
     }
+
+    const data = await response.json();
+    replyText = (data.reply || '').trim();
+
+    if (!replyText) {
+      throw new Error('Empty reply from server');
+    }
+
+  } catch (networkErr) {
+    setTyping(false);
+    const isOffline = !navigator.onLine;
+    const errMsg = isOffline
+      ? 'It looks like you are offline. Please check your connection and try again.'
+      : 'I had trouble connecting to the AI. Please try again in a moment.';
+    addMsg(`<em style="color:rgba(242,237,228,0.55);">${errMsg}</em>`, 'bot');
+    return;
   }
-  addBotMessage(
-    `I may not have the exact answer here, but I can guide you much better in a personal conversation with Zahid Hussain.<br><br>He will listen carefully, understand your specific situation, and give you real answers, not generic ones.`,
-    true
-  );
+
+  setTyping(false);
+
+  // Format and render the AI response
+  const formattedReply = formatAIText(replyText);
+
+  // Decide whether to append WhatsApp CTA
+  const showWaBtn = shouldShowWA(replyText);
+  const finalHTML = showWaBtn
+    ? `${formattedReply}<br><br>${WA_BTN}`
+    : formattedReply;
+
+  addMsg(finalHTML, 'bot');
+
+  // Store bot reply in history (plain text for backend context)
+  chatHistory.push({ role: 'bot', text: replyText });
 }
 
-function handleSend(){
-  if(isBotTyping) return;
-  const input=document.getElementById('chatInput');
-  const text=input.value.trim();
-  if(!text) return;
-  addMessage(text,'user');
-  input.value='';
-  processInput(text);
+// ── Main send handler ────────────────────────────────────────────
+function handleSend() {
+  if (botTyping) return;
+  const inp = document.getElementById('chatInp');
+  const text = inp.value.trim();
+  if (!text) return;
+
+  // Render user message
+  addMsg(text, 'user');
+  inp.value = '';
+
+  // Hide quick chips after first send
+  document.getElementById('qreplies').style.display = 'none';
+
+  // Add to history
+  chatHistory.push({ role: 'user', text });
+
+  // Call Gemini
+  callGeminiAPI(text);
 }
 
-function sendQuick(text){
-  if(isBotTyping) return;
-  addMessage(text,'user');
-  processInput(text);
+// ── Quick chip send ──────────────────────────────────────────────
+function quickSend(text) {
+  if (botTyping) return;
+  activateChatUI();
+  addMsg(text, 'user');
+  document.getElementById('qreplies').style.display = 'none';
+  chatHistory.push({ role: 'user', text });
+  callGeminiAPI(text);
 }
 
-document.getElementById('chatInput').addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&!isBotTyping) handleSend();
-});
+// ── addBotMsg: used by session system (non-API messages) ─────────
+// These are system-triggered messages not routed through Gemini
+function addBotMsg(html, showWa = false) {
+  if (botTyping) return;
+  setTyping(true);
+  const delay = sessActive ? (700 + Math.random() * 500) : (900 + Math.random() * 700);
+  setTimeout(() => {
+    setTyping(false);
+    const finalHTML = showWa ? `${html}<br><br>${WA_BTN}` : html;
+    addMsg(finalHTML, 'bot');
+    // Don't add system-triggered messages to history — they are not user-initiated
+  }, delay);
+}
 
-// Fix iOS: keep input visible when keyboard opens
-document.getElementById('chatInput').addEventListener('focus',()=>{
-  if(isMobile){
-    setTimeout(()=>{
-      document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'end'});
-    },350);
+document.addEventListener('DOMContentLoaded',()=>{
+  const inp=document.getElementById('chatInp');
+  if(inp){
+    inp.addEventListener('keydown',e=>{
+      if(e.key==='Enter'&&!e.shiftKey&&!botTyping){
+        e.preventDefault();
+        handleSend();
+      }
+    });
+    if(IS_MOBILE){
+      inp.addEventListener('focus',()=>{
+        setTimeout(()=>document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'end'}),350);
+      });
+    }
   }
+  // Set today as min date for scheduler
+  const today=new Date().toISOString().split('T')[0];
+  const sd=document.getElementById('sessDate');
+  if(sd) sd.min=today;
 });
 </script>
 </body>
