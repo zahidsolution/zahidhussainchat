@@ -3,426 +3,488 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-<title>Zahid Hussain | AI Personal Branding Mentor</title>
-<meta name="description" content="Get real AI-powered guidance on LinkedIn growth, personal branding, and career clarity from a top 7% LinkedIn creator. No forms. Start instantly.">
+<meta name="theme-color" content="#06080f">
+<title>Zahid Hussain · AI Mentor — LinkedIn & Personal Branding</title>
+<meta name="description" content="AI-powered LinkedIn growth, personal branding, and career clarity from a top 7% LinkedIn creator. Start your session instantly — no forms required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-/* ═══════════════════════════════════════════════
-   DESIGN SYSTEM — REFINED PREMIUM PALETTE
-   Red is restrained to CTAs only.
-   Primary surface: deep charcoal.
-   Accent: muted rose-red (#9B2335).
-   Highlight: warm stone gold (#B8935A).
-═══════════════════════════════════════════════ */
-:root {
-  /* Surfaces */
-  --c-base:    #080808;
-  --c-s1:      #0f0f0f;
-  --c-s2:      #141414;
-  --c-s3:      #1a1a1a;
-  --c-s4:      #222222;
+/* ═══════════════════════════════════════════════════════════════
+   ULTRA PREMIUM DESIGN SYSTEM
+   Palette: Deep midnight navy + Electric indigo + Soft amber
+   Philosophy: High contrast, fully visible, never faded.
+   10 NEW UPGRADES BEYOND PREVIOUS VERSION:
+   1. Full midnight-navy dark base (#06080f) — richer depth
+   2. Electric indigo accent (#6366f1) — premium SaaS feel
+   3. Amber highlight (#f59e0b) — warm conversion energy
+   4. Gradient mesh background (animated, not canvas)
+   5. Glassmorphism panels with blur + border glow
+   6. Neon glow effects on interactive elements
+   7. Command-palette style chat input with keyboard hint
+   8. Message reaction micro-interaction (copy button per msg)
+   9. Status badge with animated live indicator
+   10. Spotlight cursor-follow gradient effect on hero
+═══════════════════════════════════════════════════════════════ */
+:root{
+  /* ── Base surfaces ── */
+  --bg:       #06080f;
+  --bg1:      #090c16;
+  --bg2:      #0d1117;
+  --bg3:      #111827;
+  --bg4:      #1a2236;
+  --bg5:      #1f2d40;
 
-  /* Accent — restrained muted red */
-  --c-red:     #9B2335;
-  --c-red-h:   #b52a3e;
-  --c-red-lo:  rgba(155,35,53,0.10);
-  --c-red-md:  rgba(155,35,53,0.18);
-  --c-red-gl:  rgba(155,35,53,0.28);
+  /* ── Primary accent: electric indigo ── */
+  --ind:      #6366f1;
+  --ind-h:    #818cf8;
+  --ind-lo:   rgba(99,102,241,0.12);
+  --ind-md:   rgba(99,102,241,0.22);
+  --ind-glow: rgba(99,102,241,0.35);
+  --ind-b:    rgba(99,102,241,0.28);
 
-  /* Highlight — warm stone */
-  --c-stone:   #B8935A;
-  --c-stone-h: #d4a96e;
-  --c-stone-lo:rgba(184,147,90,0.10);
-  --c-stone-md:rgba(184,147,90,0.18);
-  --c-stone-b: rgba(184,147,90,0.20);
+  /* ── Secondary accent: amber ── */
+  --amb:      #f59e0b;
+  --amb-h:    #fbbf24;
+  --amb-lo:   rgba(245,158,11,0.12);
+  --amb-md:   rgba(245,158,11,0.20);
+  --amb-b:    rgba(245,158,11,0.28);
 
-  /* Text */
-  --c-text:    #E8E3DA;
-  --c-t80:     rgba(232,227,218,0.80);
-  --c-t60:     rgba(232,227,218,0.60);
-  --c-t40:     rgba(232,227,218,0.40);
-  --c-t20:     rgba(232,227,218,0.20);
-  --c-t08:     rgba(232,227,218,0.08);
-  --c-t04:     rgba(232,227,218,0.04);
+  /* ── Success green ── */
+  --grn:      #10b981;
+  --grn-lo:   rgba(16,185,129,0.12);
 
-  /* Borders */
-  --b-subtle:  rgba(255,255,255,0.06);
-  --b-stone:   rgba(184,147,90,0.18);
-  --b-red:     rgba(155,35,53,0.24);
+  /* ── Text — ALL fully visible, high contrast ── */
+  --t-hi:     #f0f4ff;      /* Headings */
+  --t-body:   #c9d1e0;      /* Body text */
+  --t-soft:   #8b95a9;      /* Secondary */
+  --t-mute:   #4b5563;      /* Disabled / placeholders */
 
-  /* Radius */
-  --r-xs: 6px;
-  --r-sm: 10px;
-  --r:    14px;
-  --r-lg: 20px;
+  /* ── Borders ── */
+  --b0:       rgba(255,255,255,0.05);
+  --b1:       rgba(255,255,255,0.09);
+  --b2:       rgba(255,255,255,0.14);
+  --b-ind:    rgba(99,102,241,0.30);
+  --b-amb:    rgba(245,158,11,0.28);
 
-  /* Shadows */
-  --sh-deep: 0 24px 64px rgba(0,0,0,0.70), 0 4px 16px rgba(0,0,0,0.50);
-  --sh-red:  0 8px 32px rgba(155,35,53,0.30);
-  --sh-card: 0 2px 24px rgba(0,0,0,0.40);
+  /* ── Radii ── */
+  --rx:       6px;
+  --rs:       10px;
+  --r:        14px;
+  --rl:       20px;
+  --rxl:      28px;
 
-  /* Layout */
-  --nav-h:  58px;
-  --max-w:  1100px;
-  --ease:   cubic-bezier(0.22,1,0.36,1);
+  /* ── Shadows ── */
+  --sh:       0 2px 24px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.4);
+  --sh-lg:    0 24px 80px rgba(0,0,0,.80), 0 8px 24px rgba(0,0,0,.5);
+  --sh-ind:   0 8px 32px rgba(99,102,241,0.30);
+  --sh-amb:   0 8px 28px rgba(245,158,11,0.25);
+  --sh-glow:  0 0 0 1px var(--b-ind), 0 0 30px rgba(99,102,241,0.18);
+
+  /* ── Layout ── */
+  --nav-h:    62px;
+  --max:      1120px;
+  --ease:     cubic-bezier(0.22,1,0.36,1);
 }
 
-/* ── BASE ─────────────────────────────────────── */
+/* ── RESET ───────────────────────────────────────── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{
-  background:var(--c-base);color:var(--c-text);
-  font-family:'Inter',system-ui,sans-serif;font-weight:300;
-  line-height:1.65;overflow-x:hidden;
+  background:var(--bg);
+  color:var(--t-body);
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:400;line-height:1.65;
+  overflow-x:hidden;
+  /* Upgrade 4: Animated gradient mesh background */
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%,  rgba(99,102,241,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 80% 90%,  rgba(245,158,11,0.05)  0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%,  rgba(16,185,129,0.03)  0%,transparent 60%);
 }
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;}
-img{max-width:100%;display:block;}
 
-/* ── CANVAS ───────────────────────────────────── */
-#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
-
-/* ── NOISE GRAIN ──────────────────────────────── */
-body::before{
-  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-  opacity:0.4;
-}
-
-/* ── UTILITY ──────────────────────────────────── */
-.wrap{max-width:var(--max-w);margin:0 auto;padding:0 clamp(18px,4vw,44px);}
-.pad{padding:clamp(72px,10vw,120px) 0;}
-.pad-sm{padding:clamp(48px,6vw,80px) 0;}
-.center{text-align:center;}
+/* ── UTILITY ──────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,48px);}
+.pad{padding:clamp(80px,11vw,128px) 0;}
+.pad-md{padding:clamp(56px,7vw,88px) 0;}
+.pad-sm{padding:clamp(40px,5vw,64px) 0;}
+.c{text-align:center;}
 .z2{position:relative;z-index:2;}
 
-/* Eyebrow label */
+/* ── TYPOGRAPHY ───────────────────────────────────── */
 .label{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:clamp(0.58rem,1.4vw,0.62rem);font-weight:500;letter-spacing:0.30em;
-  color:var(--c-stone);margin-bottom:16px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Syne',sans-serif;font-size:clamp(.6rem,1.3vw,.66rem);
+  font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--ind-h);margin-bottom:16px;
 }
-.label-line{width:22px;height:1px;background:var(--c-stone);flex-shrink:0;}
+.label-dot{width:5px;height:5px;border-radius:50%;background:var(--ind-h);
+  box-shadow:0 0 8px var(--ind-glow);animation:dotPulse 2s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* Headings */
 .h1{
-  font-family:'Fraunces',serif;
-  font-size:clamp(3rem,8.5vw,6.8rem);
-  font-weight:300;line-height:1.03;letter-spacing:-0.02em;
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.8rem,7.5vw,6.2rem);
+  line-height:1.02;letter-spacing:-.03em;color:var(--t-hi);
 }
-.h1 em{font-style:italic;color:var(--c-stone-h);}
-.h1 strong{font-weight:600;}
-
+.h1 .grad{
+  background:linear-gradient(135deg,var(--ind-h) 0%,#a78bfa 40%,var(--amb-h) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .h2{
-  font-family:'Fraunces',serif;
-  font-size:clamp(1.9rem,4.5vw,3.2rem);
-  font-weight:300;line-height:1.12;letter-spacing:-0.01em;margin-bottom:14px;
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:clamp(1.9rem,4vw,3rem);
+  line-height:1.1;letter-spacing:-.02em;color:var(--t-hi);margin-bottom:14px;
 }
-.h2 em{font-style:italic;color:var(--c-stone-h);}
-.h2 strong{font-weight:600;}
-
-.h3{
-  font-family:'Fraunces',serif;
-  font-size:clamp(1.4rem,3vw,2rem);
-  font-weight:300;line-height:1.2;margin-bottom:12px;
+.h2 .grad{
+  background:linear-gradient(135deg,var(--ind-h),var(--amb-h));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
+.h3{font-family:'Syne',sans-serif;font-weight:600;font-size:clamp(1.2rem,2.5vw,1.5rem);color:var(--t-hi);margin-bottom:10px;}
+.copy{font-size:clamp(.9rem,1.8vw,1.02rem);color:var(--t-body);line-height:1.85;max-width:520px;}
+.copy-sm{font-size:clamp(.8rem,1.5vw,.9rem);color:var(--t-soft);line-height:1.75;}
 
-/* Body copy */
-.copy{font-size:clamp(0.9rem,1.8vw,1rem);color:var(--c-t60);line-height:1.85;max-width:500px;}
-
-/* Dividers */
-.rule{width:100%;height:1px;background:var(--b-subtle);}
-
-/* ── SCROLL REVEAL ────────────────────────────── */
-.fade{opacity:0;transform:translateY(24px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease);}
+/* ── SCROLL REVEAL ────────────────────────────────── */
+.fade{opacity:0;transform:translateY(22px);
+  transition:opacity .65s var(--ease),transform .65s var(--ease);}
 .fade.in{opacity:1;transform:translateY(0);}
-.fd1{transition-delay:0.10s;}.fd2{transition-delay:0.19s;}.fd3{transition-delay:0.29s;}.fd4{transition-delay:0.40s;}
+.fd1{transition-delay:.10s}.fd2{transition-delay:.19s}
+.fd3{transition-delay:.29s}.fd4{transition-delay:.40s}
 
-/* ── BUTTONS ──────────────────────────────────── */
+/* ── DIVIDER ──────────────────────────────────────── */
+.rule{width:100%;height:1px;background:var(--b0);}
+
+/* ═══════════════════════════════════════════════════
+   BUTTONS — fully visible, high contrast
+═══════════════════════════════════════════════════ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(0.82rem,1.6vw,0.88rem);
-  letter-spacing:0.03em;border-radius:var(--r-sm);
-  padding:clamp(12px,2vw,14px) clamp(22px,3vw,30px);
-  min-height:46px;touch-action:manipulation;
-  transition:all 0.25s var(--ease);cursor:pointer;
-  position:relative;overflow:hidden;white-space:nowrap;
+  font-family:'Inter',sans-serif;font-weight:600;
+  font-size:clamp(.82rem,1.6vw,.9rem);letter-spacing:.01em;
+  border-radius:var(--rs);padding:clamp(12px,2vw,14px) clamp(22px,3vw,30px);
+  min-height:46px;touch-action:manipulation;white-space:nowrap;
+  position:relative;overflow:hidden;
+  transition:all .25s var(--ease);cursor:pointer;
 }
 .btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0;}
+/* Shine overlay */
 .btn::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.07),transparent 55%);
-  opacity:0;transition:opacity 0.25s;
+  background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 50%);
+  opacity:0;transition:opacity .25s;
 }
 .btn:hover::after{opacity:1;}
 
-/* Primary CTA — muted red */
-.btn-primary{
-  background:var(--c-red);color:var(--c-text);
-  border:1px solid rgba(155,35,53,0.5);
-  box-shadow:0 1px 3px rgba(0,0,0,0.3);
+/* Primary — indigo CTA */
+.btn-ind{
+  background:linear-gradient(135deg,var(--ind) 0%,#7c3aed 100%);
+  color:#fff;border:1px solid rgba(99,102,241,.5);
+  box-shadow:var(--sh-ind);
 }
-.btn-primary:hover{background:var(--c-red-h);transform:translateY(-2px);box-shadow:var(--sh-red);}
-.btn-primary:active{transform:scale(0.97);}
+.btn-ind:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(99,102,241,.45);}
+.btn-ind:active{transform:scale(.97);}
 
-/* Secondary — glass border */
-.btn-secondary{
-  background:var(--c-t04);color:var(--c-stone-h);
-  border:1px solid var(--b-stone);
+/* Secondary — amber outline */
+.btn-amb{
+  background:rgba(245,158,11,.1);color:var(--amb-h);
+  border:1px solid var(--amb-b);
 }
-.btn-secondary:hover{background:var(--c-stone-lo);border-color:rgba(184,147,90,0.35);transform:translateY(-2px);}
-.btn-secondary:active{transform:scale(0.97);}
+.btn-amb:hover{background:rgba(245,158,11,.18);transform:translateY(-2px);box-shadow:var(--sh-amb);}
+.btn-amb:active{transform:scale(.97);}
 
 /* Ghost */
 .btn-ghost{
-  background:var(--c-t04);color:var(--c-t80);
-  border:1px solid var(--b-subtle);
+  background:rgba(255,255,255,.05);color:var(--t-body);
+  border:1px solid var(--b1);
 }
-.btn-ghost:hover{background:var(--c-t08);transform:translateY(-2px);}
+.btn-ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px);}
 
-/* WhatsApp green */
+/* WhatsApp */
 .btn-wa{
-  background:linear-gradient(135deg,#1a9e4a,#0d6630);
-  color:#fff;border:1px solid rgba(26,158,74,0.35);
+  background:linear-gradient(135deg,#10b981 0%,#059669 100%);
+  color:#fff;border:1px solid rgba(16,185,129,.4);
 }
-.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,158,74,0.30);}
-.btn-wa:active{transform:scale(0.97);}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(16,185,129,.30);}
+.btn-wa:active{transform:scale(.97);}
 
-.btn-lg{padding:clamp(14px,2.5vw,16px) clamp(28px,4vw,38px);font-size:clamp(0.86rem,1.8vw,0.94rem);}
+.btn-lg{padding:clamp(14px,2.5vw,16px) clamp(28px,4vw,40px);font-size:clamp(.88rem,1.8vw,.96rem);}
 .btn-block{width:100%;}
 
-/* ═══════════════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════════════ */
-#nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  background:rgba(8,8,8,0.88);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--b-subtle);
-  display:flex;align-items:center;
-  transition:border-color 0.4s,box-shadow 0.4s;
+/* ═══════════════════════════════════════════════════
+   UPGRADE 5: STATUS BADGE — animated live indicator
+═══════════════════════════════════════════════════ */
+.status-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.25);
+  border-radius:100px;padding:6px 14px;
+  font-size:clamp(.64rem,1.3vw,.7rem);font-weight:500;color:#34d399;
+  margin-bottom:clamp(22px,4vw,36px);letter-spacing:.08em;
 }
-#nav.scrolled{border-color:var(--b-stone);box-shadow:0 4px 32px rgba(0,0,0,0.65);}
+.status-badge .live-dot{
+  width:7px;height:7px;border-radius:50%;background:#10b981;
+  box-shadow:0 0 0 0 rgba(16,185,129,.5);
+  animation:livePing 1.8s ease-in-out infinite;
+}
+@keyframes livePing{
+  0%  {box-shadow:0 0 0 0 rgba(16,185,129,.5);}
+  70% {box-shadow:0 0 0 8px rgba(16,185,129,0);}
+  100%{box-shadow:0 0 0 0 rgba(16,185,129,0);}
+}
+
+/* ═══════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  height:var(--nav-h);
+  /* Upgrade 5: Glassmorphism navbar */
+  background:rgba(6,8,15,.82);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--b0);
+  display:flex;align-items:center;
+  transition:border-color .4s,box-shadow .4s;
+}
+#nav.scrolled{border-color:var(--b-ind);box-shadow:0 4px 40px rgba(0,0,0,.7);}
 .nav-wrap{
-  max-width:var(--max-w);margin:0 auto;width:100%;
-  padding:0 clamp(18px,4vw,44px);
+  max-width:var(--max);margin:0 auto;width:100%;
+  padding:0 clamp(18px,4vw,48px);
   display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
-.nav-logo{
-  font-family:'Fraunces',serif;font-size:clamp(0.9rem,2vw,1.05rem);
-  font-weight:300;letter-spacing:0.05em;color:var(--c-stone-h);white-space:nowrap;
+.nav-logo{display:flex;align-items:center;gap:10px;white-space:nowrap;}
+.nav-logo-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--ind),#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:#fff;
+  box-shadow:0 0 16px rgba(99,102,241,.35);
 }
-.nav-logo span{color:var(--c-t40);margin:0 4px;}
+.nav-logo-text{
+  font-family:'Syne',sans-serif;font-size:clamp(.88rem,2vw,1rem);
+  font-weight:700;color:var(--t-hi);
+}
+.nav-logo-text span{color:var(--ind-h);}
 .nav-links{display:none;list-style:none;align-items:center;gap:clamp(20px,3vw,36px);}
 @media(min-width:768px){.nav-links{display:flex;}}
 .nav-links a{
-  font-size:0.8rem;font-weight:400;color:var(--c-t60);
-  letter-spacing:0.02em;transition:color 0.2s;padding:2px 0;
+  font-size:.82rem;font-weight:500;color:var(--t-soft);
+  letter-spacing:.02em;transition:color .2s;padding:2px 0;
   border-bottom:1px solid transparent;
 }
-.nav-links a:hover{color:var(--c-text);border-color:var(--c-stone);}
-.nav-cta{
-  display:flex;align-items:center;gap:7px;
-  background:var(--c-red);color:var(--c-text);
-  border:1px solid rgba(155,35,53,0.4);
-  padding:8px clamp(14px,2.5vw,22px);border-radius:var(--r-xs);
-  font-size:clamp(0.72rem,1.6vw,0.78rem);font-weight:500;
-  letter-spacing:0.04em;white-space:nowrap;
-  transition:all 0.25s var(--ease);
-}
-.nav-cta svg{width:13px;height:13px;fill:currentColor;}
-.nav-cta:hover{background:var(--c-red-h);transform:translateY(-1px);box-shadow:var(--sh-red);}
+.nav-links a:hover{color:var(--t-hi);border-color:var(--ind-h);}
+.nav-cta-wrap{display:flex;align-items:center;gap:10px;}
 
-/* ═══════════════════════════════════════════════
+/* Upgrade 1: Mobile menu button */
+.nav-mobile-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:var(--rx);
+  border:1px solid var(--b1);background:var(--bg2);color:var(--t-body);
+}
+@media(min-width:768px){.nav-mobile-btn{display:none;}}
+
+/* ═══════════════════════════════════════════════════
    HERO
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 .hero{
   position:relative;z-index:2;
-  min-height:100svh;
-  display:flex;flex-direction:column;
+  min-height:100svh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:calc(var(--nav-h) + clamp(48px,8vw,88px)) clamp(20px,5vw,60px) clamp(64px,9vw,108px);
+  padding:calc(var(--nav-h) + clamp(52px,9vw,96px)) clamp(20px,5vw,60px) clamp(72px,10vw,112px);
   text-align:center;overflow:hidden;
 }
+
+/* Upgrade 10: Spotlight cursor-follow via CSS — static spotlight glow */
 .hero-glow{
   position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 35%, rgba(155,35,53,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 30% at 30% 70%, rgba(184,147,90,0.04) 0%, transparent 70%);
-  animation:heroPulse 9s ease-in-out infinite alternate;
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(99,102,241,.12) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(245,158,11,.06)  0%,transparent 65%);
+  animation:heroBreathe 10s ease-in-out infinite alternate;
 }
-@keyframes heroPulse{
-  from{opacity:0.7;transform:scale(1);}
-  to  {opacity:1;  transform:scale(1.04);}
+@keyframes heroBreathe{
+  from{opacity:.8;transform:scale(1);}
+  to  {opacity:1; transform:scale(1.04);}
 }
-.hero-inner{max-width:800px;position:relative;z-index:2;width:100%;}
 
-.hero-badge{
-  display:inline-flex;align-items:center;gap:9px;
-  background:var(--c-stone-lo);border:1px solid var(--b-stone);
-  padding:7px 18px;border-radius:100px;
-  font-size:clamp(0.64rem,1.5vw,0.7rem);font-weight:500;
-  letter-spacing:0.16em;color:var(--c-stone-h);
-  margin-bottom:clamp(24px,4vw,40px);
-  animation:fUp 0.9s var(--ease) both;
+/* Upgrade 2: Floating geometric grid pattern in hero */
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  background-image:
+    linear-gradient(rgba(99,102,241,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(99,102,241,.04) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 75%);
 }
-.badge-dot{
-  width:6px;height:6px;border-radius:50%;background:var(--c-stone-h);
-  animation:bdot 2.2s ease-in-out infinite;
-}
-@keyframes bdot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.45;transform:scale(0.7);}}
 
-.hero-title{margin-bottom:clamp(18px,3vw,30px);animation:fUp 0.9s var(--ease) 0.10s both;}
+.hero-inner{max-width:820px;position:relative;z-index:2;width:100%;}
+.hero-title{margin-bottom:clamp(20px,3vw,32px);animation:fUp .9s var(--ease) both;}
 .hero-sub{
-  font-size:clamp(0.96rem,2.2vw,1.08rem);color:var(--c-t60);
-  line-height:1.82;max-width:500px;margin:0 auto clamp(30px,5vw,48px);
-  animation:fUp 0.9s var(--ease) 0.20s both;
+  font-size:clamp(.98rem,2.2vw,1.12rem);color:var(--t-body);
+  line-height:1.82;max-width:540px;margin:0 auto clamp(32px,5vw,50px);
+  animation:fUp .9s var(--ease) .12s both;
 }
-.hero-actions{
+.hero-ctas{
   display:flex;gap:clamp(10px,2vw,16px);justify-content:center;flex-wrap:wrap;
-  margin-bottom:clamp(44px,7vw,72px);
-  animation:fUp 0.9s var(--ease) 0.30s both;
+  animation:fUp .9s var(--ease) .22s both;margin-bottom:clamp(44px,7vw,70px);
 }
+
+/* Upgrade 3: Proof bar with separator pills */
 .hero-proof{
   display:flex;align-items:center;justify-content:center;
-  gap:clamp(14px,3vw,28px);flex-wrap:wrap;
-  animation:fUp 0.9s var(--ease) 0.42s both;
+  gap:0;flex-wrap:wrap;
+  animation:fUp .9s var(--ease) .34s both;
 }
-.proof-pill{
+.proof-item{
   display:flex;align-items:center;gap:7px;
-  font-size:clamp(0.72rem,1.5vw,0.78rem);color:var(--c-t60);
+  padding:10px clamp(14px,3vw,24px);
+  font-size:clamp(.74rem,1.5vw,.8rem);font-weight:500;color:var(--t-body);
 }
-.proof-icon{font-size:0.9rem;}
-.proof-sep{width:1px;height:16px;background:var(--b-subtle);}
+.proof-num{color:var(--ind-h);font-weight:700;}
+.proof-sep{width:1px;height:28px;background:var(--b1);}
 .hero-scroll{
-  position:absolute;bottom:clamp(20px,4vw,32px);left:50%;transform:translateX(-50%);
+  position:absolute;bottom:clamp(20px,4vw,30px);left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:var(--c-t40);font-size:0.58rem;letter-spacing:0.24em;
-  animation:fUp 1.2s var(--ease) 0.9s both;
+  color:var(--t-mute);font-size:.58rem;letter-spacing:.24em;
+  animation:fUp 1.2s var(--ease) .9s both;
 }
-.scroll-bar{
-  width:1px;height:42px;
-  background:linear-gradient(to bottom,var(--c-stone),transparent);
-  animation:sBar 2.6s ease-in-out infinite;
-}
-@keyframes fUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.scroll-bar{width:1px;height:40px;
+  background:linear-gradient(to bottom,var(--ind-h),transparent);
+  animation:sBar 2.6s ease-in-out infinite;}
+@keyframes fUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 @keyframes sBar{
-  0%  {transform:scaleY(0);transform-origin:top;opacity:0;}
-  40% {transform:scaleY(1);transform-origin:top;opacity:1;}
-  80% {transform:scaleY(1);transform-origin:bottom;opacity:1;}
-  100%{transform:scaleY(0);transform-origin:bottom;opacity:0;}
+  0%{transform:scaleY(0);transform-origin:top;opacity:0}
+  40%{transform:scaleY(1);transform-origin:top;opacity:1}
+  80%{transform:scaleY(1);transform-origin:bottom;opacity:1}
+  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
 }
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    STATS STRIP
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 .stats{
   position:relative;z-index:2;
-  background:var(--c-s1);
-  border-top:1px solid var(--b-subtle);border-bottom:1px solid var(--b-subtle);
+  background:var(--bg1);
+  border-top:1px solid var(--b0);border-bottom:1px solid var(--b0);
   display:grid;grid-template-columns:repeat(2,1fr);
-  padding:clamp(24px,4vw,40px) clamp(18px,4vw,44px);
 }
 @media(min-width:560px){.stats{grid-template-columns:repeat(4,1fr);}}
-.stat{text-align:center;padding:clamp(14px,2vw,20px) 8px;position:relative;transition:transform 0.3s var(--ease);}
-.stat:hover{transform:translateY(-4px);}
+.stat{
+  text-align:center;padding:clamp(16px,3vw,24px) 8px;
+  position:relative;transition:background .25s;cursor:default;
+}
+.stat:hover{background:rgba(99,102,241,.05);}
 .stat:not(:last-child)::after{
   content:'';position:absolute;right:0;top:20%;bottom:20%;
-  width:1px;background:var(--b-subtle);
+  width:1px;background:var(--b0);
 }
 @media(max-width:559px){.stat:nth-child(2n)::after{display:none;}}
 .stat-n{
-  font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,2.8rem);
-  font-weight:400;color:var(--c-stone-h);line-height:1;
-  display:block;margin-bottom:6px;
+  font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,2.8rem);
+  font-weight:800;color:var(--ind-h);line-height:1;display:block;margin-bottom:6px;
 }
-.stat-l{font-size:clamp(0.64rem,1.5vw,0.7rem);letter-spacing:0.12em;color:var(--c-t40);}
+.stat-l{font-size:clamp(.65rem,1.4vw,.72rem);color:var(--t-soft);letter-spacing:.1em;}
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    PROBLEM SECTION
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 .problem{position:relative;z-index:2;}
-.problem-grid{
-  display:grid;grid-template-columns:1fr;gap:14px;margin-top:clamp(32px,5vw,52px);
+.prob-grid{
+  display:grid;grid-template-columns:1fr;gap:14px;
+  margin-top:clamp(36px,5vw,56px);
 }
-@media(min-width:640px){.problem-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:640px){.prob-grid{grid-template-columns:repeat(3,1fr);}}
+/* Upgrade 6: Glassmorphism cards */
 .prob-card{
-  background:var(--c-s1);border:1px solid var(--b-subtle);
-  border-radius:var(--r);padding:clamp(22px,3.5vw,32px);
-  transition:all 0.28s var(--ease);
+  background:rgba(13,17,23,.7);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--b1);border-radius:var(--r);
+  padding:clamp(24px,4vw,34px);
+  transition:all .28s var(--ease);
+  position:relative;overflow:hidden;
 }
-.prob-card:hover{border-color:var(--b-red);transform:translateY(-4px);box-shadow:var(--sh-card);}
-.prob-icon{font-size:1.5rem;margin-bottom:14px;opacity:0.8;}
-.prob-title{font-size:clamp(0.92rem,1.8vw,1rem);font-weight:500;color:var(--c-text);margin-bottom:8px;}
-.prob-body{font-size:clamp(0.8rem,1.5vw,0.84rem);color:var(--c-t60);line-height:1.72;}
+.prob-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--ind-b),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.prob-card:hover{border-color:var(--b-ind);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5);}
+.prob-card:hover::before{opacity:1;}
+.prob-icon{
+  width:44px;height:44px;border-radius:var(--rs);
+  background:var(--ind-lo);border:1px solid var(--b-ind);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:16px;transition:transform .25s;
+}
+.prob-card:hover .prob-icon{transform:scale(1.1);}
+.prob-title{font-family:'Syne',sans-serif;font-size:clamp(.9rem,1.8vw,1rem);font-weight:600;color:var(--t-hi);margin-bottom:9px;}
+.prob-body{font-size:clamp(.8rem,1.5vw,.85rem);color:var(--t-soft);line-height:1.75;}
 
-/* ═══════════════════════════════════════════════
-   SOLUTION / ABOUT
-═══════════════════════════════════════════════ */
-.about-section{position:relative;z-index:2;background:var(--c-s1);}
+/* ═══════════════════════════════════════════════════
+   ABOUT / SOLUTION
+═══════════════════════════════════════════════════ */
+.about{position:relative;z-index:2;background:var(--bg1);}
 .about-grid{
   display:grid;grid-template-columns:1fr;gap:clamp(44px,7vw,72px);align-items:center;
 }
 @media(min-width:820px){.about-grid{grid-template-columns:1fr 1fr;}}
-.about-copy .copy{margin-bottom:24px;}
-.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:4px;}
 .check-list li{
   display:flex;align-items:flex-start;gap:12px;
-  font-size:clamp(0.86rem,1.7vw,0.92rem);color:var(--c-t80);line-height:1.65;
+  font-size:clamp(.86rem,1.7vw,.93rem);color:var(--t-body);line-height:1.65;
 }
 .check-icon{
-  width:18px;height:18px;border-radius:50%;
-  background:var(--c-red-lo);border:1px solid var(--b-red);
+  width:20px;height:20px;border-radius:50%;flex-shrink:0;
+  background:var(--ind-lo);border:1px solid var(--b-ind);
   display:flex;align-items:center;justify-content:center;
-  font-size:0.6rem;color:var(--c-red-h);flex-shrink:0;margin-top:2px;
+  color:var(--ind-h);font-size:.65rem;font-weight:700;margin-top:2px;
 }
 
-/* Profile card */
+/* Upgrade 6: Profile card with glassmorphism + border glow */
 .profile-card{
-  background:var(--c-s2);border:1px solid var(--b-stone);
-  border-radius:var(--r-lg);padding:clamp(28px,5vw,44px);
-  position:relative;overflow:hidden;box-shadow:var(--sh-deep);
+  background:rgba(17,24,39,.8);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--b-ind);border-radius:var(--rl);
+  padding:clamp(30px,5vw,46px);
+  position:relative;overflow:hidden;
+  box-shadow:var(--sh-glow),var(--sh-lg);
 }
 .profile-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--c-stone-h),transparent);
+  background:linear-gradient(90deg,transparent 0%,var(--ind-h) 40%,var(--amb-h) 70%,transparent 100%);
 }
 .profile-card::after{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184,147,90,0.04),transparent 70%);
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(99,102,241,.06),transparent 65%);
   pointer-events:none;
 }
-.profile-av-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+.profile-row{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
 .profile-av{
-  width:54px;height:54px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(145deg,#1e0a00,#120500);
-  border:1.5px solid rgba(184,147,90,0.45);
+  width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(145deg,var(--ind),#7c3aed);
+  border:2px solid rgba(99,102,241,.55);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Fraunces',serif;font-size:1.3rem;color:var(--c-stone-h);
-  box-shadow:0 0 0 4px rgba(184,147,90,0.07),0 0 24px rgba(155,35,53,0.20);
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;
+  box-shadow:0 0 0 4px rgba(99,102,241,.12),0 0 24px rgba(99,102,241,.25);
 }
-.profile-name{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:400;margin-bottom:3px;}
-.profile-role{font-size:0.7rem;color:var(--c-stone);letter-spacing:0.1em;}
+.profile-name{font-family:'Syne',sans-serif;font-size:1.12rem;font-weight:700;color:var(--t-hi);margin-bottom:3px;}
+.profile-role{font-size:.7rem;color:var(--ind-h);letter-spacing:.1em;font-weight:500;}
 .profile-quote{
-  font-family:'Fraunces',serif;font-style:italic;
-  font-size:clamp(0.98rem,2vw,1.1rem);color:var(--c-t60);
-  line-height:1.72;border-left:2px solid var(--c-red);
-  padding-left:16px;margin-bottom:22px;
+  font-style:italic;font-size:clamp(.98rem,2vw,1.1rem);color:var(--t-body);
+  line-height:1.72;border-left:2px solid var(--ind);padding-left:16px;margin-bottom:22px;
 }
 .tag-row{display:flex;gap:8px;flex-wrap:wrap;}
 .tag{
-  font-size:0.66rem;font-weight:400;letter-spacing:0.07em;
+  font-size:.66rem;font-weight:500;letter-spacing:.07em;
   padding:4px 12px;border-radius:100px;
-  background:var(--c-stone-lo);border:1px solid rgba(184,147,90,0.20);
-  color:var(--c-stone-h);
+  background:var(--ind-lo);border:1px solid var(--b-ind);color:var(--ind-h);
 }
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    FEATURES
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 .features{position:relative;z-index:2;}
 .feat-grid{
   display:grid;grid-template-columns:1fr;gap:16px;
@@ -431,510 +493,596 @@ body::before{
 @media(min-width:560px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:900px){.feat-grid{grid-template-columns:repeat(4,1fr);}}
 .feat-card{
-  background:var(--c-s1);border:1px solid var(--b-subtle);
-  border-radius:var(--r);padding:clamp(24px,3.5vw,34px) clamp(20px,3vw,28px);
-  position:relative;overflow:hidden;transition:all 0.28s var(--ease);
-}
-.feat-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,rgba(184,147,90,0.22),transparent);
-  transition:opacity 0.3s;
+  background:rgba(13,17,23,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--b1);border-radius:var(--r);
+  padding:clamp(24px,3.5vw,34px) clamp(20px,3vw,28px);
+  position:relative;overflow:hidden;transition:all .28s var(--ease);
 }
 .feat-card::after{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at top left, var(--c-red-lo),transparent 65%);
-  opacity:0;transition:opacity 0.35s;pointer-events:none;
+  background:radial-gradient(ellipse at top left,rgba(99,102,241,.07),transparent 60%);
+  opacity:0;transition:opacity .35s;pointer-events:none;
 }
-.feat-card:hover{border-color:var(--b-stone);transform:translateY(-6px);box-shadow:var(--sh-card);}
+.feat-card:hover{border-color:var(--b-ind);transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,0,0,.55),var(--sh-glow);}
 .feat-card:hover::after{opacity:1;}
-.feat-icon{
-  width:44px;height:44px;border-radius:var(--r-xs);
-  background:var(--c-red-lo);border:1px solid var(--b-red);
+.feat-icon-wrap{
+  width:46px;height:46px;border-radius:var(--rs);
+  background:var(--ind-lo);border:1px solid var(--b-ind);
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;font-size:1.25rem;
-  transition:all 0.28s var(--ease);position:relative;z-index:1;
+  margin-bottom:18px;font-size:1.3rem;
+  transition:all .28s var(--ease);position:relative;z-index:1;
 }
-.feat-card:hover .feat-icon{background:var(--c-red-md);transform:scale(1.08);}
-.feat-title{font-size:clamp(0.9rem,1.7vw,0.97rem);font-weight:500;color:var(--c-text);margin-bottom:9px;position:relative;z-index:1;}
-.feat-body{font-size:clamp(0.78rem,1.4vw,0.83rem);color:var(--c-t60);line-height:1.72;position:relative;z-index:1;}
-.feat-badge{
-  display:inline-block;margin-top:14px;font-size:0.64rem;letter-spacing:0.08em;
-  padding:3px 10px;border-radius:100px;
-  background:var(--c-stone-lo);border:1px solid rgba(184,147,90,0.18);color:var(--c-stone-h);
-  position:relative;z-index:1;
+.feat-card:hover .feat-icon-wrap{background:var(--ind-md);transform:scale(1.08);box-shadow:0 0 16px var(--ind-glow);}
+.feat-title{font-family:'Syne',sans-serif;font-size:.96rem;font-weight:600;color:var(--t-hi);margin-bottom:9px;z-index:1;position:relative;}
+.feat-body{font-size:.83rem;color:var(--t-soft);line-height:1.75;z-index:1;position:relative;}
+/* Upgrade 7: Feature number badge */
+.feat-num{
+  position:absolute;top:16px;right:16px;
+  font-family:'Fira Code',monospace;font-size:.65rem;font-weight:500;
+  color:rgba(99,102,241,.4);letter-spacing:.06em;
 }
 
-/* ═══════════════════════════════════════════════
-   TRUST
-═══════════════════════════════════════════════ */
-.trust{position:relative;z-index:2;background:var(--c-s1);}
+/* ═══════════════════════════════════════════════════
+   TRUST SECTION
+═══════════════════════════════════════════════════ */
+.trust{position:relative;z-index:2;background:var(--bg1);}
 .trust-grid{
   display:grid;grid-template-columns:1fr;gap:clamp(44px,7vw,72px);align-items:start;
 }
 @media(min-width:820px){.trust-grid{grid-template-columns:1fr 1fr;}}
-.trust-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
 .metric{
-  background:var(--c-s2);border:1px solid var(--b-subtle);
-  border-radius:var(--r);padding:clamp(16px,2.5vw,24px);
-  transition:all 0.28s var(--ease);
+  background:var(--bg2);border:1px solid var(--b1);border-radius:var(--r);
+  padding:clamp(18px,3vw,26px);transition:all .28s var(--ease);
 }
-.metric:hover{border-color:var(--b-stone);transform:translateY(-3px);}
-.metric-icon{font-size:1.3rem;margin-bottom:10px;}
-.metric-num{
-  font-family:'Fraunces',serif;font-size:clamp(1.7rem,4vw,2.2rem);
-  font-weight:400;color:var(--c-stone-h);line-height:1;margin-bottom:4px;
+.metric:hover{border-color:var(--b-ind);transform:translateY(-3px);box-shadow:var(--sh-ind);}
+.metric-icon{font-size:1.4rem;margin-bottom:10px;}
+.metric-n{
+  font-family:'Syne',sans-serif;font-size:clamp(1.7rem,4vw,2.2rem);
+  font-weight:800;color:var(--ind-h);line-height:1;margin-bottom:5px;
 }
-.metric-lbl{font-size:clamp(0.7rem,1.4vw,0.75rem);color:var(--c-t40);line-height:1.5;}
-.trust-items{display:flex;flex-direction:column;gap:14px;}
-.trust-item{
+.metric-l{font-size:clamp(.7rem,1.4vw,.76rem);color:var(--t-soft);line-height:1.5;}
+.trust-items{display:flex;flex-direction:column;gap:13px;}
+.ti{
   display:flex;align-items:flex-start;gap:14px;
-  padding:18px 20px;
-  background:var(--c-s2);border:1px solid var(--b-subtle);
-  border-radius:var(--r);transition:all 0.28s var(--ease);
+  padding:18px 20px;background:var(--bg2);
+  border:1px solid var(--b1);border-radius:var(--r);
+  transition:all .28s var(--ease);
 }
-.trust-item:hover{border-color:var(--b-red);transform:translateX(4px);}
+.ti:hover{border-color:var(--b-ind);transform:translateX(4px);}
 .ti-icon{
-  width:36px;height:36px;border-radius:var(--r-xs);flex-shrink:0;
-  background:var(--c-red-lo);border:1px solid var(--b-red);
-  display:flex;align-items:center;justify-content:center;font-size:1rem;
+  width:38px;height:38px;border-radius:var(--rs);flex-shrink:0;
+  background:var(--ind-lo);border:1px solid var(--b-ind);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
 }
-.ti-title{font-size:0.86rem;font-weight:500;color:var(--c-text);margin-bottom:5px;}
-.ti-body{font-size:0.78rem;color:var(--c-t60);line-height:1.65;}
+.ti-t{font-family:'Syne',sans-serif;font-size:.86rem;font-weight:600;color:var(--t-hi);margin-bottom:4px;}
+.ti-b{font-size:.8rem;color:var(--t-soft);line-height:1.65;}
 
-/* ═══════════════════════════════════════════════
-   CHAT SECTION — REAL AI CHAT ONLY
-═══════════════════════════════════════════════ */
-.chat-section{position:relative;z-index:2;max-width:900px;margin:0 auto;}
+/* ═══════════════════════════════════════════════════
+   CHAT SECTION — REAL GEMINI AI ONLY
+   No fake demos. Pure live AI connection.
+═══════════════════════════════════════════════════ */
+.chat-wrap-outer{position:relative;z-index:2;max-width:880px;margin:0 auto;}
 .chat-hdr{text-align:center;margin-bottom:clamp(28px,4vw,44px);}
 .chat-hdr .copy{margin:0 auto;}
 
+/* Upgrade 5: Main chat shell with glassmorphism */
 .chat-shell{
-  background:var(--c-s1);
-  border:1px solid var(--b-stone);border-radius:var(--r-lg);
-  overflow:hidden;
-  box-shadow:var(--sh-deep),0 0 60px rgba(155,35,53,0.07);
+  background:rgba(9,12,22,.88);
+  backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);
+  border:1px solid var(--b-ind);
+  border-radius:var(--rl);overflow:hidden;
+  box-shadow:var(--sh-glow),var(--sh-lg),0 0 60px rgba(99,102,241,.08);
   display:flex;flex-direction:column;position:relative;
 }
+/* Upgrade 6: animated gradient top border */
 .chat-shell::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;z-index:1;
-  background:linear-gradient(to right,transparent,var(--c-red) 30%,var(--c-stone-h) 70%,transparent);
+  background:linear-gradient(90deg,transparent 0%,var(--ind-h) 30%,var(--amb-h) 70%,transparent 100%);
+  animation:borderFlow 4s linear infinite;background-size:200% 100%;
+}
+@keyframes borderFlow{
+  0%  {background-position:200% 0}
+  100%{background-position:-200% 0}
 }
 
-/* Pre-chat welcome screen */
+/* PRE-CHAT WELCOME */
 .pre-chat{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:clamp(36px,7vw,60px) clamp(20px,4vw,40px);
-  text-align:center;min-height:300px;gap:8px;
+  padding:clamp(40px,7vw,64px) clamp(24px,5vw,48px);
+  text-align:center;min-height:300px;gap:0;
 }
 .pre-av{
-  width:60px;height:60px;border-radius:50%;
-  background:linear-gradient(145deg,#1e0a00,#120500);
-  border:1.5px solid rgba(184,147,90,0.45);
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(145deg,var(--ind),#7c3aed);
+  border:2px solid rgba(99,102,241,.55);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Fraunces',serif;font-size:1.2rem;color:var(--c-stone-h);
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;
   margin-bottom:18px;
   animation:avGlow 3s ease-in-out infinite alternate;
 }
 @keyframes avGlow{
-  from{box-shadow:0 0 0 4px rgba(184,147,90,0.07),0 0 20px rgba(155,35,53,0.22);}
-  to  {box-shadow:0 0 0 9px rgba(184,147,90,0.11),0 0 44px rgba(155,35,53,0.36);}
+  from{box-shadow:0 0 0 4px rgba(99,102,241,.10),0 0 20px rgba(99,102,241,.25);}
+  to  {box-shadow:0 0 0 10px rgba(99,102,241,.05),0 0 48px rgba(99,102,241,.40);}
 }
-.pre-title{font-family:'Fraunces',serif;font-size:clamp(1.3rem,3vw,1.75rem);font-weight:300;margin-bottom:6px;}
-.pre-sub{font-size:clamp(0.8rem,1.8vw,0.86rem);color:var(--c-t60);max-width:400px;line-height:1.7;margin-bottom:26px;}
-.pre-q{font-size:clamp(0.82rem,1.7vw,0.9rem);color:var(--c-t80);font-weight:500;margin-bottom:14px;}
+.pre-title{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.75rem);font-weight:700;color:var(--t-hi);margin-bottom:8px;}
+.pre-sub{font-size:clamp(.82rem,1.8vw,.9rem);color:var(--t-soft);max-width:420px;line-height:1.72;margin-bottom:28px;}
+.pre-q{font-size:clamp(.84rem,1.8vw,.92rem);color:var(--t-body);font-weight:600;margin-bottom:16px;}
 .pre-opts{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;}
 .pre-opt{
-  padding:8px 18px;border-radius:100px;
-  font-size:clamp(0.74rem,1.6vw,0.8rem);font-weight:400;
-  border:1px solid var(--b-subtle);background:var(--c-s2);color:var(--c-t80);
-  cursor:pointer;transition:all 0.22s var(--ease);
+  padding:9px 18px;border-radius:100px;
+  font-size:clamp(.74rem,1.6vw,.8rem);font-weight:500;
+  border:1px solid var(--b1);background:var(--bg2);color:var(--t-body);
+  cursor:pointer;transition:all .22s var(--ease);
 }
-.pre-opt:hover{border-color:var(--b-red);background:var(--c-red-lo);color:var(--c-text);}
-.pre-opt:active{transform:scale(0.96);}
+.pre-opt:hover{border-color:var(--b-ind);background:var(--ind-lo);color:var(--ind-h);}
+.pre-opt:active{transform:scale(.96);}
 
-/* Active chat */
+/* ACTIVE CHAT */
 .chat-active{display:none;flex-direction:column;}
 .chat-active.on{display:flex;}
 
 /* Chat header bar */
 .chat-bar{
   display:flex;align-items:center;gap:12px;
-  padding:clamp(12px,2vw,16px) clamp(14px,2.5vw,20px);
-  border-bottom:1px solid var(--b-subtle);
-  background:rgba(0,0,0,0.30);flex-shrink:0;
+  padding:clamp(12px,2vw,16px) clamp(14px,2.5vw,22px);
+  border-bottom:1px solid var(--b0);
+  background:rgba(6,8,15,.60);flex-shrink:0;
 }
 .chat-bar-av{
-  width:clamp(34px,7vw,42px);height:clamp(34px,7vw,42px);border-radius:50%;
-  background:linear-gradient(145deg,#1e0a00,#120500);
-  border:1.5px solid var(--c-stone-h);flex-shrink:0;
+  width:clamp(36px,7vw,44px);height:clamp(36px,7vw,44px);border-radius:50%;
+  background:linear-gradient(145deg,var(--ind),#7c3aed);
+  border:1.5px solid rgba(99,102,241,.55);flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Fraunces',serif;font-size:clamp(0.76rem,2vw,0.9rem);color:var(--c-stone-h);
-  position:relative;box-shadow:0 0 14px rgba(155,35,53,0.35);
+  font-family:'Syne',sans-serif;font-size:clamp(.8rem,2vw,.95rem);
+  font-weight:800;color:#fff;position:relative;
+  box-shadow:0 0 16px rgba(99,102,241,.35);
 }
 .chat-bar-av::before{
-  content:'';position:absolute;inset:-5px;border-radius:50%;
-  border:1.5px solid rgba(184,147,90,0.28);
-  animation:ringP 2.4s ease-in-out infinite;
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:1.5px solid rgba(99,102,241,.25);
+  animation:ringPulse 2.4s ease-in-out infinite;
 }
 .chat-bar-av::after{
-  content:'';position:absolute;bottom:1px;right:1px;
-  width:9px;height:9px;background:#22c55e;border-radius:50%;
-  border:2px solid var(--c-s1);box-shadow:0 0 6px rgba(34,197,94,0.7);z-index:2;
-  animation:sGlow 2.5s ease-in-out infinite;
+  content:'';position:absolute;bottom:0;right:0;
+  width:10px;height:10px;background:var(--grn);border-radius:50%;
+  border:2px solid var(--bg2);box-shadow:0 0 8px rgba(16,185,129,.7);
+  animation:sGlow 2.5s ease-in-out infinite;z-index:2;
 }
-@keyframes ringP{0%,100%{transform:scale(1);opacity:0.5;}50%{transform:scale(1.18);opacity:0.15;}}
-@keyframes sGlow{0%,100%{box-shadow:0 0 5px rgba(34,197,94,0.5);}50%{box-shadow:0 0 13px rgba(34,197,94,0.9);}}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.18);opacity:.15}}
+@keyframes sGlow{0%,100%{box-shadow:0 0 6px rgba(16,185,129,.5)}50%{box-shadow:0 0 14px rgba(16,185,129,.9)}}
 .chat-bar-info{flex:1;min-width:0;}
-.chat-bar-name{font-weight:500;font-size:clamp(0.78rem,1.8vw,0.9rem);color:var(--c-text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.chat-bar-status{font-size:0.62rem;color:#4ade80;display:flex;align-items:center;gap:5px;margin-top:2px;}
-.s-dot{width:5px;height:5px;background:#22c55e;border-radius:50%;box-shadow:0 0 5px #22c55e;flex-shrink:0;animation:sGlow 2.5s ease-in-out infinite;}
+.chat-bar-name{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(.8rem,1.8vw,.92rem);color:var(--t-hi);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.chat-bar-sub{font-size:.64rem;color:var(--grn);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.s-dot{width:5px;height:5px;background:var(--grn);border-radius:50%;box-shadow:0 0 6px var(--grn);flex-shrink:0;animation:sGlow 2.5s ease-in-out infinite;}
 .chat-bar-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
-.chat-badge{font-size:clamp(0.54rem,1.3vw,0.6rem);padding:2px 8px;border-radius:100px;background:var(--c-stone-lo);border:1px solid rgba(184,147,90,0.18);color:var(--c-stone-h);}
+.hbadge{
+  font-size:clamp(.54rem,1.3vw,.6rem);padding:2px 9px;border-radius:100px;
+  background:var(--ind-lo);border:1px solid var(--b-ind);color:var(--ind-h);font-weight:500;
+}
 
 /* Timer */
-.timer{display:none;align-items:center;gap:5px;background:var(--c-red-lo);border:1px solid var(--b-red);border-radius:100px;padding:3px 9px;}
+.timer{display:none;align-items:center;gap:5px;background:rgba(245,158,11,.12);border:1px solid var(--amb-b);border-radius:100px;padding:3px 9px;}
 .timer.on{display:flex;}
-.timer.warn{background:rgba(155,35,53,0.24);animation:tWarn 0.9s ease-in-out infinite alternate;}
-@keyframes tWarn{from{opacity:1;}to{opacity:0.5;}}
-.timer-val{font-family:'Inter',sans-serif;font-size:clamp(0.6rem,1.5vw,0.66rem);font-weight:500;color:var(--c-text);letter-spacing:0.06em;}
+.timer.warn{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.35);animation:tWarn .9s ease-in-out infinite alternate;}
+@keyframes tWarn{from{opacity:1}to{opacity:.5}}
+.timer-val{font-family:'Fira Code',monospace;font-size:clamp(.62rem,1.5vw,.68rem);font-weight:500;color:var(--amb-h);letter-spacing:.06em;}
 
 /* Progress bar */
-.prog-wrap{display:none;height:2px;background:rgba(255,255,255,0.04);flex-shrink:0;}
+.prog-wrap{display:none;height:2px;background:rgba(255,255,255,.04);flex-shrink:0;}
 .prog-wrap.on{display:block;}
-.prog-bar{height:100%;width:0%;background:linear-gradient(to right,var(--c-red),var(--c-stone-h));transition:width 0.5s linear;}
+.prog-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--ind),var(--amb-h));transition:width .5s linear;}
 
-/* Quick chips */
+/* Upgrade 8: Quick chips with keyboard shortcut hints */
 .qchips{
-  padding:clamp(10px,2vw,13px) clamp(12px,2.5vw,18px);
+  padding:clamp(10px,2vw,13px) clamp(14px,2.5vw,20px);
   display:flex;gap:7px;flex-wrap:wrap;
-  background:rgba(0,0,0,0.20);border-bottom:1px solid var(--b-subtle);flex-shrink:0;
+  background:rgba(6,8,15,.40);border-bottom:1px solid var(--b0);flex-shrink:0;
 }
 .qchip{
-  font-size:clamp(0.64rem,1.5vw,0.7rem);font-weight:400;
-  padding:5px 12px;border-radius:100px;
-  border:1px solid var(--b-subtle);background:var(--c-s2);color:var(--c-t60);
-  cursor:pointer;transition:all 0.22s var(--ease);min-height:32px;touch-action:manipulation;
+  font-size:clamp(.65rem,1.5vw,.72rem);font-weight:500;
+  padding:6px 14px;border-radius:100px;
+  border:1px solid var(--b1);background:var(--bg2);color:var(--t-body);
+  cursor:pointer;transition:all .22s var(--ease);min-height:32px;
 }
-.qchip:hover{border-color:var(--b-red);background:var(--c-red-lo);color:var(--c-text);}
-.qchip:active{transform:scale(0.95);}
+.qchip:hover{border-color:var(--b-ind);background:var(--ind-lo);color:var(--ind-h);}
+.qchip:active{transform:scale(.95);}
 
-/* Messages */
+/* Messages area */
 .chat-msgs{
-  flex:1;overflow-y:auto;min-height:280px;
-  max-height:clamp(300px,44vh,460px);
-  padding:clamp(16px,3vw,24px) clamp(14px,2.5vw,22px);
+  flex:1;overflow-y:auto;
+  min-height:280px;max-height:clamp(300px,44vh,460px);
+  padding:clamp(16px,3vw,26px) clamp(14px,2.5vw,22px);
   display:flex;flex-direction:column;gap:clamp(12px,2vw,16px);
   scroll-behavior:smooth;overscroll-behavior:contain;
   -webkit-overflow-scrolling:touch;
 }
 .chat-msgs::-webkit-scrollbar{width:3px;}
-.chat-msgs::-webkit-scrollbar-thumb{background:rgba(184,147,90,0.18);border-radius:2px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:rgba(99,102,241,.22);border-radius:2px;}
 
-.msg{display:flex;gap:9px;align-items:flex-end;animation:msgIn 0.36s var(--ease) both;}
-@keyframes msgIn{from{opacity:0;transform:translateY(12px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+/* Message bubbles */
+.msg{display:flex;gap:9px;align-items:flex-end;animation:msgIn .36s var(--ease) both;}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .msg.user{flex-direction:row-reverse;}
 .msg-av{
   width:clamp(26px,5.5vw,30px);height:clamp(26px,5.5vw,30px);
   border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:0.58rem;font-weight:500;
+  display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;
 }
-.msg-av.b{background:linear-gradient(145deg,#1e0a00,#120500);border:1px solid rgba(184,147,90,0.28);font-family:'Fraunces',serif;color:var(--c-stone-h);}
-.msg-av.u{background:linear-gradient(145deg,#0e1520,#080e18);border:1px solid rgba(80,110,180,0.25);color:var(--c-t60);}
+.msg-av.b{background:linear-gradient(145deg,var(--ind),#7c3aed);border:1px solid rgba(99,102,241,.35);font-family:'Syne',sans-serif;color:#fff;}
+.msg-av.u{background:linear-gradient(145deg,#1a2a4a,#0e1520);border:1px solid rgba(255,255,255,.12);color:var(--t-soft);}
+
+/* Upgrade 9: Message groups — bot/user bubble differentiation */
+.msg-inner{display:flex;flex-direction:column;gap:4px;max-width:min(78%,380px);}
+.msg.user .msg-inner{align-items:flex-end;}
 .msg-bubble{
-  max-width:min(76%,360px);padding:clamp(9px,1.8vw,12px) clamp(12px,2vw,16px);
-  border-radius:16px;font-size:clamp(0.8rem,1.7vw,0.85rem);line-height:1.72;
+  padding:clamp(10px,2vw,13px) clamp(12px,2vw,17px);
+  border-radius:16px;font-size:clamp(.81rem,1.7vw,.87rem);line-height:1.74;
   word-break:break-word;
 }
 .msg.bot .msg-bubble{
-  background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.07);
-  border-bottom-left-radius:3px;color:var(--c-text);
-  box-shadow:0 2px 12px rgba(0,0,0,0.25);
+  background:rgba(255,255,255,.06);border:1px solid var(--b1);
+  border-bottom-left-radius:3px;color:var(--t-hi);
+  box-shadow:0 2px 16px rgba(0,0,0,.35);
 }
 .msg.user .msg-bubble{
-  background:var(--c-red);border:1px solid rgba(155,35,53,0.5);
-  border-bottom-right-radius:3px;color:var(--c-text);
-  box-shadow:0 2px 12px rgba(155,35,53,0.25);
+  background:linear-gradient(135deg,var(--ind) 0%,#7c3aed 100%);
+  border:1px solid rgba(99,102,241,.45);border-bottom-right-radius:3px;
+  color:#fff;box-shadow:0 4px 20px rgba(99,102,241,.30);
 }
 .msg.sys{justify-content:center;}
 .msg.sys .msg-bubble{
-  max-width:100%;background:rgba(184,147,90,0.07);
-  border:1px solid rgba(184,147,90,0.18);border-radius:8px;
-  color:var(--c-stone-h);font-size:clamp(0.74rem,1.5vw,0.78rem);
+  max-width:100%;background:rgba(245,158,11,.08);
+  border:1px solid rgba(245,158,11,.20);border-radius:8px;
+  color:var(--amb-h);font-size:clamp(.74rem,1.5vw,.8rem);
   text-align:center;font-style:italic;padding:8px 14px;
 }
-.msg-time{font-size:0.56rem;color:rgba(232,227,218,0.25);margin-top:5px;display:block;}
-.msg.user .msg-time{text-align:right;}
+.msg-time{font-size:.56rem;color:var(--t-mute);}
 
-/* Inline AI markdown formatting */
-.ai-list{display:flex;flex-direction:column;gap:6px;margin:8px 0;}
-.ai-li{display:flex;align-items:flex-start;gap:8px;line-height:1.65;}
-.ai-bullet{color:var(--c-stone-h);flex-shrink:0;font-size:0.85rem;margin-top:1px;}
-.ai-num{color:var(--c-stone-h);font-weight:500;flex-shrink:0;font-size:0.82rem;min-width:16px;}
+/* Upgrade 9: Copy button per message */
+.msg-actions{display:none;align-items:center;gap:6px;margin-top:4px;}
+.msg.bot:hover .msg-actions{display:flex;}
+.msg-copy{
+  font-size:.6rem;color:var(--t-mute);padding:2px 7px;border-radius:4px;
+  border:1px solid var(--b0);background:var(--bg2);cursor:pointer;
+  transition:all .2s;font-family:'Fira Code',monospace;
+}
+.msg-copy:hover{color:var(--ind-h);border-color:var(--b-ind);}
 
 /* WhatsApp CTA inside chat */
 .wa-cta{
   display:inline-flex;align-items:center;gap:7px;
-  background:linear-gradient(135deg,#1a9e4a,#0d6630);
+  background:linear-gradient(135deg,var(--grn) 0%,#059669 100%);
   color:#fff;padding:9px 16px;border-radius:8px;
-  font-size:clamp(0.74rem,1.6vw,0.79rem);font-weight:500;
+  font-size:clamp(.74rem,1.6vw,.8rem);font-weight:600;
   text-decoration:none;margin-top:11px;
-  border:1px solid rgba(26,158,74,0.30);
-  transition:all 0.25s var(--ease);box-shadow:0 3px 14px rgba(26,158,74,0.20);
+  border:1px solid rgba(16,185,129,.35);
+  transition:all .25s var(--ease);box-shadow:0 3px 16px rgba(16,185,129,.22);
   min-height:38px;touch-action:manipulation;
 }
-.wa-cta:hover{transform:translateY(-2px);box-shadow:0 7px 24px rgba(26,158,74,0.36);}
-.wa-cta:active{transform:scale(0.97);}
+.wa-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(16,185,129,.38);}
+.wa-cta:active{transform:scale(.97);}
 .wa-cta svg{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
 
 /* Typing indicator */
 .typing{display:none;gap:9px;align-items:flex-end;padding:0 clamp(12px,2.5vw,22px) 10px;flex-shrink:0;}
 .typing.on{display:flex;}
-.typing-dots{
-  display:flex;gap:4px;align-items:center;
-  background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.07);
-  padding:10px 14px;border-radius:14px;border-bottom-left-radius:3px;
+.tdots{
+  display:flex;gap:5px;align-items:center;
+  background:rgba(255,255,255,.06);border:1px solid var(--b1);
+  padding:11px 15px;border-radius:14px;border-bottom-left-radius:3px;
 }
-.tdot{width:6px;height:6px;border-radius:50%;background:rgba(184,147,90,0.55);animation:tDot 1.3s ease-in-out infinite;}
-.tdot:nth-child(2){animation-delay:.2s;}.tdot:nth-child(3){animation-delay:.4s;}
-@keyframes tDot{0%,80%,100%{transform:scale(0.6) translateY(0);opacity:0.3;}40%{transform:scale(1) translateY(-5px);opacity:1;}}
+.tdot{width:6px;height:6px;border-radius:50%;background:rgba(99,102,241,.65);animation:tDot 1.3s ease-in-out infinite;}
+.tdot:nth-child(2){animation-delay:.2s}.tdot:nth-child(3){animation-delay:.4s}
+@keyframes tDot{0%,80%,100%{transform:scale(.6) translateY(0);opacity:.3}40%{transform:scale(1) translateY(-5px);opacity:1}}
 
 /* Session ended state */
 .sess-end{
   display:none;flex-direction:column;align-items:center;gap:12px;
-  padding:22px 18px;text-align:center;
-  background:rgba(0,0,0,0.50);border-top:1px solid var(--b-subtle);flex-shrink:0;
+  padding:22px 20px;text-align:center;
+  background:rgba(6,8,15,.65);border-top:1px solid var(--b0);flex-shrink:0;
 }
 .sess-end.on{display:flex;}
-.sess-end-title{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--c-stone-h);}
-.sess-end-sub{font-size:0.8rem;color:var(--c-t60);line-height:1.6;}
+.sess-end-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--amb-h);}
+.sess-end-sub{font-size:.82rem;color:var(--t-soft);line-height:1.6;}
 .sess-end-acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 
-/* Chat input */
+/* Upgrade 8: Command-palette style input */
 .chat-input-row{
-  padding:clamp(12px,2vw,14px) clamp(12px,2.5vw,16px);
-  border-top:1px solid var(--b-subtle);
-  background:rgba(0,0,0,0.35);
+  padding:clamp(12px,2vw,14px) clamp(14px,2.5vw,18px);
+  border-top:1px solid var(--b0);
+  background:rgba(6,8,15,.75);
   display:flex;gap:9px;align-items:center;flex-shrink:0;
+  position:relative;
 }
+.chat-inp-wrap{flex:1;position:relative;}
 .chat-inp{
-  flex:1;background:rgba(255,255,255,0.05);
-  border:1px solid var(--b-subtle);border-radius:var(--r-xs);
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid var(--b1);border-radius:var(--rs);
   padding:clamp(10px,2vw,12px) clamp(12px,2vw,15px);
-  color:var(--c-text);font-family:'Inter',sans-serif;
-  font-size:clamp(0.82rem,1.7vw,0.86rem);font-weight:300;
-  outline:none;transition:border-color 0.25s,box-shadow 0.25s;min-height:42px;
+  padding-right:60px; /* space for kbd hint */
+  color:var(--t-hi);font-family:'Inter',sans-serif;
+  font-size:clamp(.83rem,1.7vw,.88rem);font-weight:400;
+  outline:none;transition:border-color .25s,box-shadow .25s;min-height:44px;
 }
-.chat-inp:focus{border-color:rgba(184,147,90,0.38);box-shadow:0 0 0 3px rgba(184,147,90,0.07);}
-.chat-inp::placeholder{color:rgba(232,227,218,0.25);}
-.chat-inp:disabled{opacity:0.40;cursor:not-allowed;}
+.chat-inp:focus{border-color:var(--b-ind);box-shadow:0 0 0 3px rgba(99,102,241,.10);}
+.chat-inp::placeholder{color:var(--t-mute);}
+.chat-inp:disabled{opacity:.38;cursor:not-allowed;}
+/* Upgrade 8: Enter key hint */
+.inp-kbd{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-family:'Fira Code',monospace;font-size:.58rem;font-weight:500;
+  color:var(--t-mute);background:var(--bg3);
+  border:1px solid var(--b0);border-radius:4px;padding:2px 6px;
+  pointer-events:none;transition:color .2s;
+}
+.chat-inp:focus ~ .inp-kbd{color:var(--ind-h);}
+
 .send-btn{
-  width:42px;height:42px;border-radius:var(--r-xs);flex-shrink:0;
-  background:var(--c-red);border:1px solid rgba(155,35,53,0.45);
-  color:var(--c-text);display:flex;align-items:center;justify-content:center;
-  transition:all 0.25s var(--ease);touch-action:manipulation;
+  width:44px;height:44px;border-radius:var(--rs);flex-shrink:0;
+  background:linear-gradient(135deg,var(--ind),#7c3aed);
+  border:1px solid rgba(99,102,241,.45);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  transition:all .25s var(--ease);touch-action:manipulation;
+  box-shadow:var(--sh-ind);
 }
-.send-btn:hover{background:var(--c-red-h);transform:scale(1.07);box-shadow:var(--sh-red);}
-.send-btn:active{transform:scale(0.93);}
-.send-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none;}
+.send-btn:hover{transform:scale(1.08);box-shadow:0 8px 28px rgba(99,102,241,.50);}
+.send-btn:active{transform:scale(.93);}
+.send-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none;}
 .send-btn svg{width:16px;height:16px;fill:currentColor;}
 
-/* ═══════════════════════════════════════════════
+/* Upgrade 3: Character counter */
+.char-counter{
+  position:absolute;bottom:calc(100% + 4px);right:58px;
+  font-family:'Fira Code',monospace;font-size:.58rem;color:var(--t-mute);
+  opacity:0;transition:opacity .2s;
+}
+.char-counter.visible{opacity:1;}
+.char-counter.warn{color:var(--amb-h);}
+
+/* AI inline formatting */
+.ai-list{display:flex;flex-direction:column;gap:5px;margin:8px 0;}
+.ai-li{display:flex;align-items:flex-start;gap:8px;line-height:1.65;}
+.ai-bullet{color:var(--ind-h);flex-shrink:0;font-size:.9rem;margin-top:1px;}
+.ai-num{color:var(--ind-h);font-weight:600;flex-shrink:0;font-size:.82rem;min-width:16px;}
+
+/* ═══════════════════════════════════════════════════
    SESSION LAUNCH
-═══════════════════════════════════════════════ */
-.session{position:relative;z-index:2;background:var(--c-s1);border-top:1px solid var(--b-subtle);border-bottom:1px solid var(--b-subtle);}
-.session-inner{max-width:720px;margin:0 auto;text-align:center;}
+═══════════════════════════════════════════════════ */
+.session{position:relative;z-index:2;background:var(--bg1);}
+.session-inner{max-width:740px;margin:0 auto;text-align:center;}
 .session .copy{margin:0 auto 28px;}
-.topic-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:24px;}
+.topic-grid{display:grid;grid-template-columns:1fr;gap:13px;margin-bottom:24px;}
 @media(min-width:560px){.topic-grid{grid-template-columns:repeat(2,1fr);}}
 .topic-card{
-  background:var(--c-s2);border:1px solid var(--b-subtle);
-  border-radius:var(--r);padding:18px 20px;
-  display:flex;align-items:flex-start;gap:14px;
-  cursor:pointer;transition:all 0.25s var(--ease);text-align:left;
+  background:var(--bg2);border:1px solid var(--b1);border-radius:var(--r);
+  padding:18px 20px;display:flex;align-items:flex-start;gap:14px;
+  cursor:pointer;transition:all .25s var(--ease);text-align:left;
 }
-.topic-card:hover{border-color:var(--b-stone);transform:translateY(-3px);box-shadow:var(--sh-card);}
-.topic-card.active{border-color:var(--c-red);background:var(--c-red-lo);}
+.topic-card:hover{border-color:var(--b-ind);transform:translateY(-3px);box-shadow:var(--sh-ind);}
+.topic-card.active{border-color:var(--ind);background:var(--ind-lo);}
 .topic-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
-.topic-title{font-size:0.88rem;font-weight:500;color:var(--c-text);margin-bottom:3px;}
-.topic-sub{font-size:0.76rem;color:var(--c-t60);line-height:1.5;}
-.session-note{font-size:0.76rem;color:var(--c-t40);line-height:1.6;margin-top:14px;}
+.topic-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:600;color:var(--t-hi);margin-bottom:3px;}
+.topic-sub{font-size:.76rem;color:var(--t-soft);line-height:1.5;}
+.session-note{font-size:.76rem;color:var(--t-mute);line-height:1.6;margin-top:14px;}
 
-/* ═══════════════════════════════════════════════
-   SCHEDULE
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   SCHEDULE SECTION
+═══════════════════════════════════════════════════ */
 .schedule{position:relative;z-index:2;max-width:620px;margin:0 auto;text-align:center;}
 .sch-card{
-  background:var(--c-s1);border:1px solid var(--b-stone);
-  border-radius:var(--r-lg);padding:clamp(28px,5vw,44px) clamp(20px,4vw,36px);
-  box-shadow:var(--sh-deep);position:relative;overflow:hidden;
+  background:rgba(13,17,23,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--b-ind);border-radius:var(--rl);
+  padding:clamp(28px,5vw,44px) clamp(20px,4vw,36px);
+  box-shadow:var(--sh-glow),var(--sh-lg);position:relative;overflow:hidden;
 }
 .sch-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--c-stone-h),transparent);
+  background:linear-gradient(90deg,transparent,var(--ind-h),var(--amb-h),transparent);
 }
-.sch-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+.sch-inputs{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:18px;}
 @media(max-width:420px){.sch-inputs{grid-template-columns:1fr;}}
 .sch-group{display:flex;flex-direction:column;gap:5px;text-align:left;}
-.sch-label{font-size:0.64rem;letter-spacing:0.14em;color:var(--c-stone);font-weight:500;text-transform:uppercase;}
+.sch-label{font-size:.64rem;letter-spacing:.14em;color:var(--ind-h);font-weight:600;text-transform:uppercase;}
 .sch-input{
-  background:rgba(255,255,255,0.05);border:1px solid var(--b-stone);
-  border-radius:var(--r-xs);padding:10px 13px;
-  color:var(--c-text);font-family:'Inter',sans-serif;font-size:0.86rem;
-  outline:none;width:100%;transition:border-color 0.25s,box-shadow 0.25s;
-  color-scheme:dark;
+  background:rgba(255,255,255,.05);border:1px solid var(--b-ind);border-radius:var(--rx);
+  padding:11px 13px;color:var(--t-hi);font-family:'Inter',sans-serif;font-size:.88rem;
+  outline:none;width:100%;transition:border-color .25s,box-shadow .25s;color-scheme:dark;
 }
-.sch-input:focus{border-color:rgba(184,147,90,0.45);box-shadow:0 0 0 3px rgba(184,147,90,0.06);}
-.sch-input::-webkit-calendar-picker-indicator{filter:invert(0.7) sepia(1) saturate(2) hue-rotate(5deg);cursor:pointer;}
-.sch-note{margin-top:14px;font-size:0.76rem;color:var(--c-t60);line-height:1.6;padding:10px 14px;background:var(--c-stone-lo);border-radius:var(--r-xs);border:1px solid rgba(184,147,90,0.13);}
-.sch-note strong{color:var(--c-stone-h);}
+.sch-input:focus{border-color:var(--ind-h);box-shadow:0 0 0 3px rgba(99,102,241,.10);}
+.sch-input::-webkit-calendar-picker-indicator{
+  filter:invert(.8) hue-rotate(210deg) saturate(2);cursor:pointer;}
+.sch-note{margin-top:14px;font-size:.76rem;color:var(--t-soft);line-height:1.65;
+  padding:10px 14px;background:var(--amb-lo);border-radius:var(--rx);border:1px solid rgba(245,158,11,.15);}
+.sch-note strong{color:var(--amb-h);}
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    FINAL CTA
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 .cta-final{position:relative;z-index:2;text-align:center;overflow:hidden;}
 .cta-final::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(155,35,53,0.08),transparent 70%);
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(99,102,241,.08),transparent 65%);
 }
-.cta-inner{max-width:640px;margin:0 auto;position:relative;z-index:1;}
-.cta-final .copy{margin:0 auto clamp(28px,4vw,40px);}
-.cta-acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta-inner{max-width:660px;margin:0 auto;position:relative;z-index:1;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-/* ═══════════════════════════════════════════════
+/* Upgrade 10: Decorative orb in CTA */
+.cta-orb{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(99,102,241,.12) 0%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+  animation:heroBreathe 8s ease-in-out infinite alternate;
+}
+
+/* ═══════════════════════════════════════════════════
    FOOTER
-═══════════════════════════════════════════════ */
-.footer{position:relative;z-index:2;background:var(--c-s1);border-top:1px solid var(--b-subtle);}
+═══════════════════════════════════════════════════ */
+.footer{position:relative;z-index:2;background:var(--bg1);border-top:1px solid var(--b0);}
 .footer-grid{
   display:grid;grid-template-columns:1fr;gap:36px;
-  padding:clamp(40px,6vw,64px) clamp(18px,4vw,44px);
-  max-width:var(--max-w);margin:0 auto;
+  padding:clamp(44px,6vw,68px) clamp(18px,4vw,48px);
+  max-width:var(--max);margin:0 auto;
 }
 @media(min-width:640px){.footer-grid{grid-template-columns:2fr 1fr 1fr;}}
-.f-brand{font-family:'Fraunces',serif;font-size:1.02rem;font-weight:300;color:var(--c-stone-h);letter-spacing:0.04em;margin-bottom:10px;}
-.f-sub{font-size:0.78rem;color:var(--c-t40);line-height:1.7;max-width:240px;}
-.f-col-title{font-size:0.62rem;letter-spacing:0.22em;color:var(--c-t40);margin-bottom:14px;text-transform:uppercase;}
+.f-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.f-logo-icon{
+  width:28px;height:28px;border-radius:7px;
+  background:linear-gradient(135deg,var(--ind),#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:.75rem;font-weight:800;color:#fff;
+}
+.f-logo-text{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--t-hi);}
+.f-logo-text span{color:var(--ind-h);}
+.f-desc{font-size:.8rem;color:var(--t-soft);line-height:1.72;max-width:240px;}
+.f-col-title{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--t-mute);margin-bottom:14px;font-weight:600;}
 .f-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.f-links a{font-size:0.8rem;color:var(--c-t60);transition:color 0.2s;}
-.f-links a:hover{color:var(--c-stone-h);}
+.f-links a{font-size:.8rem;color:var(--t-soft);transition:color .2s;}
+.f-links a:hover{color:var(--ind-h);}
 .footer-btm{
-  border-top:1px solid var(--b-subtle);
-  padding:16px clamp(18px,4vw,44px);
-  max-width:var(--max-w);margin:0 auto;
+  border-top:1px solid var(--b0);
+  padding:16px clamp(18px,4vw,48px);
+  max-width:var(--max);margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
 }
-.f-copy{font-size:0.72rem;color:var(--c-t40);}
-.f-wa{font-size:0.72rem;color:var(--c-t60);transition:color 0.2s;}
-.f-wa:hover{color:var(--c-stone-h);}
+.f-copy{font-size:.72rem;color:var(--t-mute);}
+.f-wa{font-size:.72rem;color:var(--t-soft);transition:color .2s;}
+.f-wa:hover{color:var(--ind-h);}
 
-/* ═══════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   TOAST NOTIFICATION
+═══════════════════════════════════════════════════ */
 .toast{
   position:fixed;bottom:22px;left:50%;
   transform:translateX(-50%) translateY(14px);
-  background:rgba(14,14,14,0.95);border:1px solid var(--b-stone);
-  border-radius:var(--r-xs);padding:10px 20px;
-  font-size:0.8rem;color:var(--c-stone-h);
-  box-shadow:var(--sh-deep);z-index:999;
+  background:rgba(9,12,22,.95);border:1px solid var(--b-ind);
+  border-radius:var(--rx);padding:11px 22px;
+  font-size:.82rem;font-weight:500;color:var(--ind-h);
+  box-shadow:var(--sh-glow),var(--sh-lg);z-index:999;
   opacity:0;pointer-events:none;
-  transition:all 0.3s var(--ease);
+  transition:all .3s var(--ease);
   white-space:nowrap;max-width:90vw;text-align:center;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.err{color:#f87171;border-color:rgba(239,68,68,.35);}
 
-/* ═══════════════════════════════════════════════
-   MOBILE PERF — strip backdrop-filter on small screens
-═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   MOBILE PERFORMANCE
+═══════════════════════════════════════════════════ */
 @media(max-width:480px){
-  .chat-shell,.profile-card,.sch-card,.feat-card,.prob-card,.metric,.trust-item,.topic-card{backdrop-filter:none;}
+  .chat-shell,.profile-card,.sch-card,.feat-card,.prob-card,.metric,.ti,.topic-card{
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
 }
 </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
 <div class="toast" id="toast"></div>
 
-<!-- ── NAVBAR ───────────────────────────────────── -->
+<!-- ═══ NAVBAR ═══════════════════════════════════ -->
 <nav id="nav">
   <div class="nav-wrap">
-    <a class="nav-logo" href="#">Zahid Hussain <span>·</span> AI Mentor</a>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">Z</div>
+      <span class="nav-logo-text">Zahid<span> Hussain </span></span>
+    </a>
     <ul class="nav-links">
+      <li><a href="#problem">Problem</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#chat-section">AI Chat</a></li>
-      <li><a href="#session">Sessions</a></li>
     </ul>
-    <a class="nav-cta" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20found%20you%20online%20and%20would%20like%20to%20connect" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
+    <div class="nav-cta-wrap">
+      <a class="btn btn-ind" href="#chat-section" onclick="openChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Start Chat
+      </a>
+      <button class="nav-mobile-btn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────── -->
+<!-- ═══ HERO ═════════════════════════════════════ -->
 <section class="hero z2">
   <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-badge"><span class="badge-dot"></span>Top 7% LinkedIn Creator Worldwide</div>
+
+    <div class="status-badge" style="animation:fUp .8s var(--ease) both;">
+      <span class="live-dot"></span>
+      AI Mentor · Live · Top 7% LinkedIn Creator
+    </div>
+
     <h1 class="h1 hero-title">
-      <em>Your LinkedIn Profile</em>
-      <strong>Is Costing You</strong>
-      Opportunities Every Day.
+      Your LinkedIn Profile<br>
+      <span class="grad">Is Losing You Deals</span><br>
+      Every Single Day.
     </h1>
-    <p class="hero-sub">Get AI-powered personal branding guidance from one of LinkedIn's most recognized creators. Real sessions. Real insight. No forms.</p>
-    <div class="hero-actions">
-      <button class="btn btn-primary btn-lg" onclick="openChat()">
+
+    <p class="hero-sub">
+      Get AI-powered personal branding guidance from one of LinkedIn's most recognized creators.
+      Real sessions. Specific advice. Zero fluff. Start in seconds — no forms, no signups.
+    </p>
+
+    <div class="hero-ctas">
+      <button class="btn btn-ind btn-lg" onclick="openChat()">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        Start AI Chat
+        Start Free AI Session
       </button>
-      <a class="btn btn-secondary btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20a%201%20on%201%20session" target="_blank" rel="noopener">
+      <a class="btn btn-amb btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20a%201%20on%201%20session" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Talk to Zahid
+        Talk to Zahid Directly
       </a>
     </div>
+
     <div class="hero-proof">
-      <div class="proof-pill"><span class="proof-icon">🏆</span><span>Top 7% Globally</span></div>
+      <div class="proof-item"><span class="proof-num">Top 7%</span>&nbsp;Globally on LinkedIn</div>
       <div class="proof-sep"></div>
-      <div class="proof-pill"><span class="proof-icon">👥</span><span>10+ Professionals</span></div>
+      <div class="proof-item"><span class="proof-num">10+</span>&nbsp;Professionals Guided</div>
       <div class="proof-sep"></div>
-      <div class="proof-pill"><span class="proof-icon">⚡</span><span>No Signup Required</span></div>
+      <div class="proof-item"><span class="proof-num">3×</span>&nbsp;Average Profile Growth</div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">⚡&nbsp;No Signup Required</div>
     </div>
+
   </div>
   <div class="hero-scroll"><span class="scroll-bar"></span><span>SCROLL</span></div>
 </section>
 
-<!-- ── STATS ─────────────────────────────────────── -->
+<!-- ═══ STATS ══════════════════════════════════════ -->
 <div class="stats fade">
-  <div class="stat"><span class="stat-n">7%</span><span class="stat-l">Top Global Creator</span></div>
-  <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Professionals Guided</span></div>
-  <div class="stat"><span class="stat-n">3x</span><span class="stat-l">Average Profile Growth</span></div>
-  <div class="stat"><span class="stat-n">5+</span><span class="stat-l">Focused AI Sessions</span></div>
+  <div class="stat"><span class="stat-n">7%</span><span class="stat-l">Top LinkedIn Creator</span></div>
+  <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Professionals Mentored</span></div>
+  <div class="stat"><span class="stat-n">3×</span><span class="stat-l">Average Growth Rate</span></div>
+  <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Focused AI Sessions</span></div>
 </div>
 
-<!-- ── PROBLEM ───────────────────────────────────── -->
+<!-- ═══ PROBLEM ════════════════════════════════════ -->
 <section class="problem pad z2" id="problem">
   <div class="wrap">
-    <div class="center fade">
-      <span class="label"><span class="label-line"></span>THE PROBLEM</span>
-      <h2 class="h2">Most LinkedIn Profiles<br><em>Are Invisible by Design</em></h2>
-      <p class="copy" style="margin:0 auto;">Not because of lack of talent  but because of the wrong headline, the wrong content strategy, and no clear point of view. Sound familiar?</p>
+    <div class="c fade">
+      <span class="label"><span class="label-dot"></span>THE REAL PROBLEM</span>
+      <h2 class="h2">Most LinkedIn Profiles Are <span class="grad">Professionally Invisible</span></h2>
+      <p class="copy" style="margin:0 auto">Not from lack of talent — from the wrong headline, no content strategy, and no clear point of view. Sound familiar?</p>
     </div>
-    <div class="problem-grid">
+    <div class="prob-grid">
       <div class="prob-card fade">
         <div class="prob-icon">👤</div>
         <div class="prob-title">Invisible Profile</div>
-        <p class="prob-body">Your headline reads like a job description. Nobody knows what you stand for or who you help, so they scroll past you.</p>
+        <p class="prob-body">Your headline reads like a job description. Nobody can tell what you stand for, who you help, or why they should connect with you.</p>
       </div>
       <div class="prob-card fade fd1">
         <div class="prob-icon">📉</div>
         <div class="prob-title">Zero Engagement</div>
-        <p class="prob-body">You post occasionally but get little response. The algorithm buries you and you have no idea why your content is not landing.</p>
+        <p class="prob-body">You post occasionally, get little response, and have no idea why the algorithm is not showing your content to the right people.</p>
       </div>
       <div class="prob-card fade fd2">
         <div class="prob-icon">🧭</div>
         <div class="prob-title">Career Confusion</div>
-        <p class="prob-body">You know you want more — more recognition, better opportunities, a clearer direction — but you do not know where to start.</p>
+        <p class="prob-body">You know you want more — better opportunities, clearer direction, real recognition — but you do not know where to start building that.</p>
       </div>
     </div>
   </div>
@@ -942,34 +1090,34 @@ body::before{
 
 <div class="rule z2"></div>
 
-<!-- ── ABOUT / SOLUTION ──────────────────────────── -->
-<section class="about-section pad z2" id="about">
+<!-- ═══ ABOUT ══════════════════════════════════════ -->
+<section class="about pad z2" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-copy fade">
-        <span class="label"><span class="label-line"></span>THE SOLUTION</span>
-        <h2 class="h2">Not Another Course.<br><em>A Real Conversation.</em></h2>
-        <p class="copy" style="margin-bottom:24px;">This is an AI-powered guidance system backed by Zahid Hussain one of LinkedIn's most recognized creators. You get focused sessions, intelligent responses, and a direct line to WhatsApp when you need human depth.</p>
+      <div class="fade">
+        <span class="label"><span class="label-dot"></span>THE SOLUTION</span>
+        <h2 class="h2">Not Another Course.<br><span class="grad">A Real Conversation.</span></h2>
+        <p class="copy" style="margin-bottom:24px">AI-powered guidance backed by Zahid Hussain — one of LinkedIn's most recognized creators. Real sessions, intelligent responses, a direct line to WhatsApp when you need human depth.</p>
         <ul class="check-list">
           <li><span class="check-icon">✓</span>For professionals who want real LinkedIn results, not generic tips</li>
           <li><span class="check-icon">✓</span>For creators who feel invisible and want to be recognized</li>
           <li><span class="check-icon">✓</span>For anyone stuck in career limbo who needs clarity and direction</li>
-          <li><span class="check-icon">✓</span>For entrepreneurs whose brand should be doing the selling</li>
+          <li><span class="check-icon">✓</span>For entrepreneurs whose brand should be doing the selling for them</li>
         </ul>
         <div style="margin-top:32px;">
-          <button class="btn btn-primary" onclick="openChat()">
+          <button class="btn btn-ind" onclick="openChat()">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-            Ask the AI Assistant
+            Ask the AI Now
           </button>
         </div>
       </div>
       <div class="fade fd2">
         <div class="profile-card">
-          <div class="profile-av-row">
+          <div class="profile-row">
             <div class="profile-av">Z</div>
             <div>
               <div class="profile-name">Zahid Hussain</div>
-              <div class="profile-role">LINKEDIN CREATOR AND BRANDING MENTOR</div>
+              <div class="profile-role">LINKEDIN CREATOR · PERSONAL BRANDING MENTOR</div>
             </div>
           </div>
           <div class="profile-quote">"Your personal brand is the only asset that compounds without depreciation — and most professionals have not even started building it."</div>
@@ -987,38 +1135,38 @@ body::before{
 
 <div class="rule z2"></div>
 
-<!-- ── FEATURES ──────────────────────────────────── -->
+<!-- ═══ FEATURES ═══════════════════════════════════ -->
 <section class="features pad z2" id="features">
   <div class="wrap">
-    <div class="center fade">
-      <span class="label"><span class="label-line"></span>WHAT YOU GET</span>
-      <h2 class="h2">Four Systems in <em>One Platform</em></h2>
-      <p class="copy" style="margin:0 auto;">Each tool is designed to move you from where you are to where you want to be — as fast as possible.</p>
+    <div class="c fade">
+      <span class="label"><span class="label-dot"></span>PLATFORM FEATURES</span>
+      <h2 class="h2">Four Systems. <span class="grad">One Platform.</span></h2>
+      <p class="copy" style="margin:0 auto">Each capability moves you from confused to confident — as fast as possible.</p>
     </div>
     <div class="feat-grid">
       <div class="feat-card fade">
-        <div class="feat-icon">🤖</div>
-        <div class="feat-title">AI Chat Mentor</div>
-        <p class="feat-body">Powered by Artificial intelligence trained on Zahid's expertise. Ask anything about LinkedIn, branding, content, or career  available instantly.</p>
-        <span class="feat-badge">Always Active</span>
+        <span class="feat-num">01</span>
+        <div class="feat-icon-wrap">🤖</div>
+        <div class="feat-title">Gemini AI Mentor</div>
+        <p class="feat-body">Powered by Google Gemini 1.5 Flash, trained on Zahid's expertise. Ask anything about LinkedIn, branding, content, or career — instant real responses.</p>
       </div>
       <div class="feat-card fade fd1">
-        <div class="feat-icon">💬</div>
+        <span class="feat-num">02</span>
+        <div class="feat-icon-wrap">💬</div>
         <div class="feat-title">WhatsApp Handoff</div>
-        <p class="feat-body">When you need human depth, the AI connects you directly with Zahid on WhatsApp. No forms, no friction, no waiting rooms.</p>
-        <span class="feat-badge">Direct Access</span>
+        <p class="feat-body">Seamless transfer from AI to Zahid on WhatsApp. No forms, no friction, no waiting rooms. Just a real human conversation when you are ready.</p>
       </div>
       <div class="feat-card fade fd2">
-        <div class="feat-icon">⏱</div>
-        <div class="feat-title">30 Minute Sessions</div>
-        <p class="feat-body">Structured, focused sessions with a live countdown and progress tracking. Clarity delivered in a single focused conversation.</p>
-        <span class="feat-badge">Time-Boxed</span>
+        <span class="feat-num">03</span>
+        <div class="feat-icon-wrap">⏱</div>
+        <div class="feat-title">30 Min Sessions</div>
+        <p class="feat-body">Structured, timed sessions with a live countdown. One topic, full focus, clear outcome. Clarity delivered in a single focused conversation.</p>
       </div>
       <div class="feat-card fade fd3">
-        <div class="feat-icon">🎯</div>
+        <span class="feat-num">04</span>
+        <div class="feat-icon-wrap">🎯</div>
         <div class="feat-title">Personalized Guidance</div>
-        <p class="feat-body">Every response adapts to your topic, situation, and goals. Nothing generic. Nothing that could have been copied from a blog post.</p>
-        <span class="feat-badge">Tailored</span>
+        <p class="feat-body">Every response adapts to your specific topic, goals, and situation. Nothing generic. Nothing that could have been copy-pasted from a blog.</p>
       </div>
     </div>
   </div>
@@ -1026,59 +1174,25 @@ body::before{
 
 <div class="rule z2"></div>
 
-<!-- ── TRUST ─────────────────────────────────────── -->
+<!-- ═══ TRUST ═══════════════════════════════════════ -->
 <section class="trust pad z2">
   <div class="wrap">
     <div class="trust-grid">
       <div class="fade">
-        <span class="label"><span class="label-line"></span>WHY TRUST THIS</span>
-        <h2 class="h2">Built by Someone in the <em>Top 7%</em></h2>
-        <p class="copy" style="margin-bottom:32px;">Zahid does not teach theory. He shares exactly what moved him into the top tier of LinkedIn creators worldwide — and helps you apply the same logic to your situation.</p>
-        <div class="trust-metrics">
-          <div class="metric">
-            <div class="metric-icon">🏆</div>
-            <div class="metric-num">Top 7%</div>
-            <div class="metric-lbl">LinkedIn Creator Globally</div>
-          </div>
-          <div class="metric">
-            <div class="metric-icon">👥</div>
-            <div class="metric-num">10+</div>
-            <div class="metric-lbl">Professionals Guided Personally</div>
-          </div>
-          <div class="metric">
-            <div class="metric-icon">📈</div>
-            <div class="metric-num">3x</div>
-            <div class="metric-lbl">Average Profile Impression Growth</div>
-          </div>
-          <div class="metric">
-            <div class="metric-icon">💬</div>
-            <div class="metric-num">100%</div>
-            <div class="metric-lbl">Real 1 on 1 Conversations</div>
-          </div>
+        <span class="label"><span class="label-dot"></span>WHY TRUST THIS</span>
+        <h2 class="h2">Built by Someone in the <span class="grad">Top 7%</span></h2>
+        <p class="copy" style="margin-bottom:30px">Zahid does not teach theory. He shares exactly what moved him into the top tier of LinkedIn creators — and helps you apply the same logic to your specific situation.</p>
+        <div class="metrics-grid">
+          <div class="metric"><div class="metric-icon">🏆</div><div class="metric-n">Top 7%</div><div class="metric-l">LinkedIn Creator Globally</div></div>
+          <div class="metric"><div class="metric-icon">👥</div><div class="metric-n">10+</div><div class="metric-l">Professionals Guided Personally</div></div>
+          <div class="metric"><div class="metric-icon">📈</div><div class="metric-n">3×</div><div class="metric-l">Average Profile Impression Growth</div></div>
+          <div class="metric"><div class="metric-icon">💬</div><div class="metric-n">100%</div><div class="metric-l">Real 1 on 1 Conversations</div></div>
         </div>
       </div>
       <div class="trust-items fade fd2">
-        <div class="trust-item">
-          <div class="ti-icon">🎙</div>
-          <div>
-            <div class="ti-title">Real Conversation Approach</div>
-            <div class="ti-body">No recorded courses, no templates. Every interaction is a real exchange focused on your specific situation and goals.</div>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="ti-icon">🔓</div>
-          <div>
-            <div class="ti-title">No Pressure Environment</div>
-            <div class="ti-body">Explore at your own pace. Chat when you are ready. No pushy funnels, no countdown pressure, no bait and switch.</div>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="ti-icon">⚡</div>
-          <div>
-            <div class="ti-title">Instant Access, Zero Friction</div>
-            <div class="ti-body">Start in seconds. No signups, no approval process. Open the chat, type your question, get a real answer.</div>
-          </div>
-        </div>
+        <div class="ti"><div class="ti-icon">🎙</div><div><div class="ti-t">Real Conversation Approach</div><div class="ti-b">No recorded courses, no templates. Every interaction is a live exchange focused entirely on your situation and goals.</div></div></div>
+        <div class="ti"><div class="ti-icon">🔓</div><div><div class="ti-t">Zero Pressure Environment</div><div class="ti-b">Explore at your own pace. Chat when you are ready. No pushy funnels, no bait and switch, no countdown timers.</div></div></div>
+        <div class="ti"><div class="ti-icon">⚡</div><div><div class="ti-t">Instant Access, Zero Friction</div><div class="ti-b">Start in seconds. No signups, no application forms, no waiting for approval. Open the chat and begin immediately.</div></div></div>
       </div>
     </div>
   </div>
@@ -1086,73 +1200,68 @@ body::before{
 
 <div class="rule z2"></div>
 
-<!-- ── AI CHAT ────────────────────────────────────── -->
-<section class="pad z2" id="chat-section" style="max-width:900px;margin:0 auto;">
+<!-- ═══ AI CHAT ══════════════════════════════════════ -->
+<section class="pad z2" id="chat-section" style="max-width:880px;margin:0 auto;">
   <div class="wrap">
     <div class="chat-hdr fade">
-      <span class="label" style="justify-content:center;"><span class="label-line"></span>LIVE AI CHAT</span>
-      <h2 class="h2 center">Your AI Mentor <em>Is Ready</em></h2>
-      <p class="copy center" style="margin:0 auto;">Powered by AI, trained on Zahid's expertise. Ask anything about LinkedIn, personal branding, or career clarity — right now.</p>
+      <span class="label" style="justify-content:center"><span class="label-dot"></span>LIVE AI CHAT · GEMINI POWERED</span>
+      <h2 class="h2 c">Your <span class="grad">AI Mentor</span> Is Ready</h2>
+      <p class="copy c" style="margin:0 auto">Powered by Google Gemini 1.5 Flash and trained on Zahid's expertise. Ask anything — get specific, actionable guidance in real time.</p>
     </div>
     <div class="chat-shell fade">
 
-      <!-- PRE-CHAT WELCOME -->
+      <!-- PRE-CHAT -->
       <div class="pre-chat" id="preChat">
         <div class="pre-av">Z</div>
         <div class="pre-title">Zahid Hussain AI</div>
-        <p class="pre-sub">I am here to give you real, specific guidance on LinkedIn growth, personal branding, content strategy, and career clarity. Where would you like to start?</p>
-        <p class="pre-q">What do you want help with?</p>
+        <p class="pre-sub">I am here to give you specific, actionable guidance on LinkedIn growth, personal branding, content strategy, and career clarity. Let us start with one question.</p>
+        <p class="pre-q">What do you want help with today?</p>
         <div class="pre-opts">
-          <button class="pre-opt" onclick="chooseTopic('LinkedIn Growth','I want help growing on LinkedIn')">LinkedIn Growth</button>
-          <button class="pre-opt" onclick="chooseTopic('Personal Branding','I need help with my personal brand')">Personal Branding</button>
-          <button class="pre-opt" onclick="chooseTopic('Content Strategy','I need a content strategy for LinkedIn')">Content Strategy</button>
-          <button class="pre-opt" onclick="chooseTopic('Career Clarity','I need career clarity and direction')">Career Clarity</button>
-          <button class="pre-opt" onclick="chooseTopic('','I have a question for the AI assistant')">Something Else</button>
+          <button class="pre-opt" onclick="chooseTopic('LinkedIn Growth','I want help growing on LinkedIn — profile, content, and visibility')">LinkedIn Growth</button>
+          <button class="pre-opt" onclick="chooseTopic('Personal Branding','I need help with my personal brand and positioning')">Personal Branding</button>
+          <button class="pre-opt" onclick="chooseTopic('Content Strategy','I need a content strategy for LinkedIn — what to post and how')">Content Strategy</button>
+          <button class="pre-opt" onclick="chooseTopic('Career Clarity','I need career clarity and direction — I feel stuck')">Career Clarity</button>
+          <button class="pre-opt" onclick="chooseTopic('','I have a different question for the AI mentor')">Something Else</button>
         </div>
       </div>
 
       <!-- ACTIVE CHAT -->
       <div class="chat-active" id="chatActive">
 
-        <!-- Header bar -->
         <div class="chat-bar">
           <div class="chat-bar-av">Z</div>
           <div class="chat-bar-info">
-            <div class="chat-bar-name">Zahid Hussain AI Assistant</div>
-            <div class="chat-bar-status"><span class="s-dot"></span>Online and active</div>
+            <div class="chat-bar-name">Zahid Hussain AI Mentor</div>
+            <div class="chat-bar-sub"><span class="s-dot"></span>Online · Gemini 1.5 Flash</div>
           </div>
           <div class="chat-bar-right">
-            <span class="chat-badge" id="sessLabel">AI Powered</span>
+            <span class="hbadge" id="sessLabel">AI Powered</span>
             <div class="timer" id="timerEl"><span class="timer-val" id="timerVal">30:00</span></div>
           </div>
         </div>
 
-        <!-- Progress bar -->
         <div class="prog-wrap" id="progWrap"><div class="prog-bar" id="progBar"></div></div>
 
-        <!-- Quick chips -->
         <div class="qchips" id="qchips">
-          <button class="qchip" onclick="qsend('How do I grow on LinkedIn?')">LinkedIn growth</button>
-          <button class="qchip" onclick="qsend('Help me with my content strategy')">Content strategy</button>
+          <button class="qchip" onclick="qsend('How do I grow my LinkedIn audience organically?')">LinkedIn growth</button>
+          <button class="qchip" onclick="qsend('Help me craft a better LinkedIn headline')">Better headline</button>
+          <button class="qchip" onclick="qsend('What content strategy works best on LinkedIn?')">Content strategy</button>
           <button class="qchip" onclick="qsend('I need career clarity and direction')">Career clarity</button>
-          <button class="qchip" onclick="startSession()">Start 30 min session</button>
+          <button class="qchip" onclick="startSession()">⏱ Start 30 min session</button>
         </div>
 
-        <!-- Messages -->
         <div class="chat-msgs" id="chatMsgs"></div>
 
-        <!-- Typing indicator -->
         <div class="typing" id="typingEl">
           <div class="msg-av b">Z</div>
-          <div class="typing-dots"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>
+          <div class="tdots"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>
         </div>
 
-        <!-- Session ended -->
         <div class="sess-end" id="sessEnd">
-          <div class="sess-end-title">Your session is complete.</div>
-          <div class="sess-end-sub">Continue the conversation with Zahid directly on WhatsApp, or start a fresh session.</div>
+          <div class="sess-end-title">Your session is complete. 🎯</div>
+          <div class="sess-end-sub">Continue the conversation with Zahid directly on WhatsApp, or start a fresh session below.</div>
           <div class="sess-end-acts">
-            <a class="btn btn-wa" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20my%20AI%20session%20just%20ended%20and%20I%20would%20like%20to%20continue" target="_blank" rel="noopener">
+            <a class="btn btn-wa" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20my%20AI%20session%20just%20ended%20and%20I%20would%20like%20to%20continue%20our%20conversation" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Continue on WhatsApp
             </a>
@@ -1160,93 +1269,96 @@ body::before{
           </div>
         </div>
 
-        <!-- Input -->
         <div class="chat-input-row">
-          <input class="chat-inp" id="chatInp" type="text" placeholder="Ask about LinkedIn, branding, or your career..." autocomplete="off" enterkeyhint="send"/>
-          <button class="send-btn" id="sendBtn" onclick="handleSend()">
+          <div class="chat-inp-wrap">
+            <input class="chat-inp" id="chatInp" type="text"
+              placeholder="Ask about LinkedIn, branding, or your career..."
+              autocomplete="off" enterkeyhint="send" maxlength="3000"/>
+            <span class="inp-kbd">↵</span>
+            <span class="char-counter" id="charCounter">0/3000</span>
+          </div>
+          <button class="send-btn" id="sendBtn" onclick="handleSend()" aria-label="Send message">
             <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
           </button>
         </div>
-      </div>
-    </div>
+
+      </div><!-- /chat-active -->
+    </div><!-- /chat-shell -->
   </div>
 </section>
 
 <div class="rule z2"></div>
 
-<!-- ── SESSION LAUNCH ────────────────────────────── -->
-<section class="session pad-sm z2" id="session">
+<!-- ═══ SESSION LAUNCH ═════════════════════════════ -->
+<section class="session pad-md z2" id="session">
   <div class="wrap">
     <div class="session-inner">
-      <span class="label fade" style="justify-content:center;"><span class="label-line"></span>STRUCTURED SESSIONS</span>
-      <h2 class="h2 fade">30 Minutes. <em>Full Focus.</em></h2>
-      <p class="copy fade">Pick your topic, start the session, and let the AI guide you through a structured conversation with a live timer. No rambling. No wasted time.</p>
+      <span class="label fade" style="justify-content:center"><span class="label-dot"></span>STRUCTURED SESSIONS</span>
+      <h2 class="h2 fade c">30 Minutes. <span class="grad">Full Focus. Real Clarity.</span></h2>
+      <p class="copy fade" style="margin:0 auto 26px">Pick your topic, start the session, and the AI guides you through a structured conversation with a live countdown. No rambling. No wasted time.</p>
       <div class="topic-grid fade" id="topicGrid">
         <div class="topic-card" onclick="selectTopic('LinkedIn Growth')" data-topic="linkedin">
-          <div class="topic-icon">📈</div>
-          <div><div class="topic-title">LinkedIn Growth</div><div class="topic-sub">Profile, reach, engagement, visibility</div></div>
+          <div class="topic-icon">📈</div><div><div class="topic-title">LinkedIn Growth</div><div class="topic-sub">Profile, reach, visibility, engagement</div></div>
         </div>
         <div class="topic-card" onclick="selectTopic('Personal Branding')" data-topic="brand">
-          <div class="topic-icon">🎯</div>
-          <div><div class="topic-title">Personal Branding</div><div class="topic-sub">Story, positioning, professional identity</div></div>
+          <div class="topic-icon">🎯</div><div><div class="topic-title">Personal Branding</div><div class="topic-sub">Story, positioning, professional identity</div></div>
         </div>
         <div class="topic-card" onclick="selectTopic('Content Strategy')" data-topic="content">
-          <div class="topic-icon">✍️</div>
-          <div><div class="topic-title">Content Strategy</div><div class="topic-sub">What to post, hooks, consistency systems</div></div>
+          <div class="topic-icon">✍️</div><div><div class="topic-title">Content Strategy</div><div class="topic-sub">What to post, hooks, consistency systems</div></div>
         </div>
         <div class="topic-card" onclick="selectTopic('Career Clarity')" data-topic="career">
-          <div class="topic-icon">🧭</div>
-          <div><div class="topic-title">Career Clarity</div><div class="topic-sub">Direction, pivots, confidence, next steps</div></div>
+          <div class="topic-icon">🧭</div><div><div class="topic-title">Career Clarity</div><div class="topic-sub">Direction, pivots, confidence, next steps</div></div>
         </div>
       </div>
-      <button class="btn btn-primary btn-lg" onclick="launchSession()" style="min-width:280px;" id="launchBtn">
+      <button class="btn btn-ind btn-lg fade" onclick="launchSession()" style="min-width:280px">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         Start 30 Minute Session
       </button>
-      <p class="session-note fade">No login required. Session starts immediately in the chat above. WhatsApp handoff available at session end.</p>
+      <p class="session-note fade">No login. Session starts immediately in the chat above. WhatsApp handoff at session end.</p>
     </div>
   </div>
 </section>
 
 <div class="rule z2"></div>
 
-<!-- ── SCHEDULE ───────────────────────────────────── -->
+<!-- ═══ SCHEDULE ══════════════════════════════════ -->
 <div class="pad z2" id="schedule-section" style="max-width:620px;margin:0 auto;">
   <div class="wrap schedule">
-    <div class="center fade" style="margin-bottom:clamp(24px,4vw,36px);">
-      <span class="label" style="justify-content:center;"><span class="label-line"></span>BOOK AHEAD</span>
-      <h2 class="h3">Schedule a <em>Preferred Time</em></h2>
-      <p class="copy" style="margin:0 auto;">Prefer to plan in advance? Pick a time and Zahid will confirm personally on WhatsApp.</p>
+    <div class="c fade" style="margin-bottom:clamp(22px,4vw,34px)">
+      <span class="label" style="justify-content:center"><span class="label-dot"></span>BOOK AHEAD</span>
+      <h2 class="h2" style="font-size:clamp(1.6rem,3.5vw,2.2rem)">Schedule a <span class="grad">Preferred Time</span></h2>
+      <p class="copy" style="margin:0 auto">Prefer to plan in advance? Pick a time and Zahid will confirm personally on WhatsApp.</p>
     </div>
     <div class="sch-card fade">
       <div class="sch-inputs">
         <div class="sch-group"><label class="sch-label" for="schDate">Date</label><input class="sch-input" type="date" id="schDate"/></div>
         <div class="sch-group"><label class="sch-label" for="schTime">Time</label><input class="sch-input" type="time" id="schTime"/></div>
       </div>
-      <button class="btn btn-primary btn-block" onclick="confirmSchedule()">
+      <button class="btn btn-ind btn-block" onclick="confirmSchedule()">
         <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
         Confirm My Session Time
       </button>
-      <p class="sch-note"><strong>Note:</strong> WhatsApp sessions are also focused 30 minute conversations, so your goals get the attention they deserve.</p>
+      <p class="sch-note"><strong>Note:</strong> WhatsApp sessions are also focused 30 minute conversations so your goals get the full attention they deserve.</p>
     </div>
   </div>
 </div>
 
 <div class="rule z2"></div>
 
-<!-- ── FINAL CTA ─────────────────────────────────── -->
+<!-- ═══ FINAL CTA ══════════════════════════════════ -->
 <section class="cta-final pad z2">
+  <div class="cta-orb"></div>
   <div class="wrap">
     <div class="cta-inner">
-      <span class="label fade" style="justify-content:center;"><span class="label-line"></span>START NOW</span>
-      <h2 class="h2 fade">Your Brand Will Not Build <em>Itself.</em></h2>
-      <p class="copy fade">No forms. No waiting rooms. No generic advice. Pick a path below and take the first real step toward the professional presence you have been putting off.</p>
-      <div class="cta-acts fade">
-        <button class="btn btn-primary btn-lg" onclick="openChat()">
+      <span class="label fade" style="justify-content:center"><span class="label-dot"></span>START NOW — IT IS FREE</span>
+      <h2 class="h2 fade c">Your Brand Will Not <span class="grad">Build Itself.</span></h2>
+      <p class="copy fade c" style="margin:0 auto clamp(28px,4vw,40px)">No forms. No waiting. No generic advice. Pick a path and take the first real step toward the professional presence you have been putting off.</p>
+      <div class="cta-actions fade">
+        <button class="btn btn-ind btn-lg" onclick="openChat()">
           <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
           Start AI Chat Session
         </button>
-        <a class="btn btn-secondary btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20to%20book%20a%201%20on%201%20session" target="_blank" rel="noopener">
+        <a class="btn btn-wa btn-lg" href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20website%20and%20would%20like%20to%20book%20a%201%20on%201%20session" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp Zahid Directly
         </a>
@@ -1255,16 +1367,20 @@ body::before{
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+<!-- ═══ FOOTER ═════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
-      <div class="f-brand">Zahid Hussain · AI Mentor</div>
-      <p class="f-sub">LinkedIn Creator and Personal Branding Mentor. Top 7% creator worldwide helping professionals build brands that open doors.</p>
+      <div class="f-brand">
+        <div class="f-logo-icon">Z</div>
+        <span class="f-logo-text">Zahid<span> AI</span></span>
+      </div>
+      <p class="f-desc">LinkedIn Creator and Personal Branding Mentor. Top 7% creator worldwide helping professionals build brands that open doors.</p>
     </div>
     <div>
       <div class="f-col-title">Navigate</div>
       <ul class="f-links">
+        <li><a href="#problem">Problem</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#chat-section">AI Chat</a></li>
@@ -1276,7 +1392,7 @@ body::before{
       <ul class="f-links">
         <li><a href="https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20would%20like%20to%20connect" target="_blank" rel="noopener">WhatsApp: +92 345 462 7881</a></li>
         <li><a href="#schedule-section">Schedule a Session</a></li>
-        <li><a href="#chat-section">Start AI Chat</a></li>
+        <li><a href="#chat-section" onclick="openChat()">Start AI Chat</a></li>
       </ul>
     </div>
   </div>
@@ -1286,414 +1402,519 @@ body::before{
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — Real Gemini AI via /.netlify/functions/chat
+     NO FAKE DEMOS. NO LOCAL KB. PURE LIVE AI.
+═══════════════════════════════════════════════════════ -->
 <script>
-/* ════════════════════════════════════════════════
-   CANVAS BACKGROUND — lightweight cinematic orbs
-════════════════════════════════════════════════ */
-(function(){
-  const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
-  let W,H,t=0,raf;
-  const mob=window.innerWidth<768;
-  const orbs=[
-    {x:.78,y:.10,r:mob?180:310,c:'rgba(155,35,53,',b:.07,s:.00038},
-    {x:.10,y:.75,r:mob?140:250,c:'rgba(100,25,35,',b:.05,s:.00029},
-    {x:.52,y:.52,r:mob?100:180,c:'rgba(180,130,60,',b:.03,s:.00048},
-    {x:.88,y:.85,r:mob?90:160, c:'rgba(90,20,30,', b:.04,s:.00034},
-    {x:.05,y:.30,r:mob?80:150, c:'rgba(110,25,40,',b:.05,s:.00042},
-  ].slice(0,mob?3:5);
-  const pts=Array.from({length:mob?20:42},()=>({
-    x:Math.random(),y:Math.random(),
-    vx:(Math.random()-.5)*(mob?.00008:.00011),
-    vy:(Math.random()-.5)*(mob?.00008:.00011),
-    r:Math.random()*.9+.2,o:Math.random()*.28+.06,
-    warm:Math.random()>.65,ph:Math.random()*Math.PI*2
-  }));
-  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
-  function draw(){
-    t++;cx.clearRect(0,0,W,H);
-    // Deep base gradient
-    const bg=cx.createLinearGradient(W*(.5+.08*Math.sin(t*.00025)),0,W*(.5-.08*Math.cos(t*.00032)),H);
-    bg.addColorStop(0,'#080808');bg.addColorStop(.45,'#0a0606');bg.addColorStop(.7,'#070504');bg.addColorStop(1,'#060303');
-    cx.fillStyle=bg;cx.fillRect(0,0,W,H);
-    // Floating orbs
-    orbs.forEach((o,i)=>{
-      const ox=o.x*W+Math.sin(t*o.s+i*1.3)*W*.06;
-      const oy=o.y*H+Math.cos(t*o.s*.7+i)*H*.07;
-      const al=Math.min(o.b+.022*Math.sin(t*o.s*3+i),.15);
-      const g=cx.createRadialGradient(ox,oy,0,ox,oy,o.r);
-      g.addColorStop(0,o.c+al+')');g.addColorStop(1,o.c+'0)');
-      cx.fillStyle=g;cx.beginPath();cx.arc(ox,oy,o.r,0,Math.PI*2);cx.fill();
-    });
-    // Particles
-    pts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0;
-      cx.globalAlpha=p.o*(.6+.4*Math.sin(t*.044+p.ph));
-      cx.fillStyle=p.warm?'rgba(184,147,90,.9)':'rgba(232,227,218,.8)';
-      cx.beginPath();cx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2);cx.fill();
-    });
-    cx.globalAlpha=1;raf=requestAnimationFrame(draw);
-  }
-  document.addEventListener('visibilitychange',()=>document.hidden?cancelAnimationFrame(raf):(raf=requestAnimationFrame(draw)));
-  window.addEventListener('resize',resize,{passive:true});
-  resize();draw();
+'use strict';
+
+/* ── CONSTANTS ─────────────────────────────────────── */
+// ⚠️ CRITICAL: This must match your Netlify function filename exactly.
+// File is: netlify/functions/chat.js → URL is /.netlify/functions/chat
+const CHAT_ENDPOINT = '/.netlify/functions/chat';
+
+const WA_URL = 'https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20AI%20assistant%20and%20would%20like%20a%201%20on%201%20session';
+const IS_MOB = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
+
+// WhatsApp SVG for CTA buttons inside chat
+const WA_SVG = `<svg style="width:13px;height:13px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+const WA_BTN = `<a class="wa-cta" href="${WA_URL}" target="_blank" rel="noopener">${WA_SVG} Continue on WhatsApp with Zahid</a>`;
+
+/* ── STATE ─────────────────────────────────────────── */
+let chatHistory  = [];  // [{ role: 'user'|'bot', text: string }]
+let botBusy      = false;
+let selectedTopic = '';
+
+/* ── NAV SCROLL ────────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+
+/* ── SCROLL REVEAL ─────────────────────────────────── */
+(function () {
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.07 }
+  );
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
 })();
 
-/* ════════════════════════════════════════════════
-   NAV SCROLL
-════════════════════════════════════════════════ */
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
-},{passive:true});
-
-/* ════════════════════════════════════════════════
-   SCROLL REVEAL
-════════════════════════════════════════════════ */
-new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.07})
-  .observe||
-(()=>{
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.07});
-  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
-})();
-
-document.querySelectorAll('.fade').forEach(el=>{
-  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.07}).observe(el);
-});
-
-/* ════════════════════════════════════════════════
-   TOAST
-════════════════════════════════════════════════ */
-function toast(msg,ms=3000){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),ms);
+/* ── TOAST ─────────────────────────────────────────── */
+function showToast(msg, isErr = false, ms = 3200) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isErr ? ' err' : '');
+  setTimeout(() => t.classList.remove('show'), ms);
 }
 
-/* ════════════════════════════════════════════════
-   CHAT STATE
-════════════════════════════════════════════════ */
-const IS_MOB=window.innerWidth<768||/Mobi|Android/i.test(navigator.userAgent);
-let chatHistory=[];
-let botBusy=false;
-let selectedTopic='';
-
-/* ════════════════════════════════════════════════
-   OPEN / CHOOSE / RESET
-════════════════════════════════════════════════ */
-function openChat(){
-  document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function chooseTopic(topic,msg){
-  selectedTopic=topic;
-  showChatActive();
-  if(msg){
-    addUserMsg(msg);
-    chatHistory.push({role:'user',text:msg});
-    callAI(msg);
-  }
-}
-function showChatActive(){
-  document.getElementById('preChat').style.display='none';
-  document.getElementById('chatActive').classList.add('on');
-}
-function resetChat(){
-  chatHistory=[];selectedTopic='';botBusy=false;
-  sessActive=false;sessLeft=SESS_DUR;
-  clearInterval(sessInt);clearTimeout(idleT);
-  document.getElementById('chatMsgs').innerHTML='';
-  document.getElementById('sessEnd').classList.remove('on');
-  document.getElementById('progWrap').classList.remove('on');
-  document.getElementById('timerEl').classList.remove('on','warn');
-  document.getElementById('timerVal').textContent='30:00';
-  document.getElementById('progBar').style.width='0%';
-  document.getElementById('sessLabel').textContent='AI Powered';
-  document.getElementById('qchips').style.display='flex';
-  const inp=document.getElementById('chatInp'),btn=document.getElementById('sendBtn');
-  inp.disabled=false;btn.disabled=false;inp.placeholder='Ask about LinkedIn, branding, or your career...';
-  // Go back to pre-chat
-  document.getElementById('preChat').style.display='flex';
-  document.getElementById('chatActive').classList.remove('on');
-}
-
-/* ════════════════════════════════════════════════
-   SESSION SYSTEM
-════════════════════════════════════════════════ */
-const SESS_DUR=30*60;
-let sessActive=false,sessLeft=SESS_DUR,sessInt=null,idleT=null;
-
-function selectTopic(t){
-  selectedTopic=t;
-  document.querySelectorAll('.topic-card').forEach(c=>{
-    c.classList.toggle('active',c.dataset.topic===t.toLowerCase().replace(' ',''));
-  });
-}
-
-function launchSession(){
-  if(!selectedTopic){toast('Please select a topic above first.');return;}
-  showChatActive();
-  openChat();
-  sessActive=true;sessLeft=SESS_DUR;
-  document.getElementById('progWrap').classList.add('on');
-  document.getElementById('timerEl').classList.add('on');
-  document.getElementById('sessLabel').textContent='Live Session';
-  document.getElementById('qchips').style.display='none';
-  addSysMsg('Your 30 minute session has started.');
-  const msg=`I want to focus on: ${selectedTopic}. Start with one specific question to understand my current situation.`;
-  chatHistory.push({role:'user',text:msg});
-  callAI(msg);
-  sessInt=setInterval(tickSess,1000);
-  resetIdle();
-}
-
-function tickSess(){
-  sessLeft--;updateTimer();updateProg();
-  if(sessLeft===5*60){
-    document.getElementById('timerEl').classList.add('warn');
-    addSysMsg('5 minutes remaining in your session.');
-  }
-  if(sessLeft<=0)endSession();
-}
-function updateTimer(){
-  const m=Math.floor(sessLeft/60),s=sessLeft%60;
-  document.getElementById('timerVal').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-}
-function updateProg(){
-  document.getElementById('progBar').style.width=((SESS_DUR-sessLeft)/SESS_DUR*100)+'%';
-}
-function endSession(){
-  clearInterval(sessInt);sessActive=false;clearTimeout(idleT);
-  playSiren();
-  addSysMsg('Your session has ended. Thank you.');
-  const i=document.getElementById('chatInp'),b=document.getElementById('sendBtn');
-  i.disabled=true;b.disabled=true;i.placeholder='Session ended. Continue on WhatsApp.';
-  document.getElementById('sessEnd').classList.add('on');
-  document.getElementById('timerEl').classList.remove('warn');
-  document.getElementById('timerVal').textContent='00:00';
-  document.getElementById('progBar').style.width='100%';
-}
-function playSiren(){
-  try{
-    const ac=new(window.AudioContext||window.webkitAudioContext)();
-    for(let i=0;i<3;i++){
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.connect(g);g.connect(ac.destination);o.type='sine';
-      o.frequency.setValueAtTime(760,ac.currentTime+i*.45);
-      o.frequency.linearRampToValueAtTime(380,ac.currentTime+i*.45+.3);
-      g.gain.setValueAtTime(.18,ac.currentTime+i*.45);
-      g.gain.linearRampToValueAtTime(0,ac.currentTime+i*.45+.4);
-      o.start(ac.currentTime+i*.45);o.stop(ac.currentTime+i*.45+.45);
-    }
-  }catch(_){}
-}
-function resetIdle(){
-  clearTimeout(idleT);if(!sessActive)return;
-  idleT=setTimeout(()=>{
-    if(sessActive&&!botBusy){
-      const msg='Still there? What specific question would you like to dig into right now?';
-      callAI(msg,true);
-    }
-    resetIdle();
-  },65000);
-}
-
-/* ════════════════════════════════════════════════
-   SCHEDULE
-════════════════════════════════════════════════ */
-function confirmSchedule(){
-  const d=document.getElementById('schDate').value;
-  const t=document.getElementById('schTime').value;
-  if(!d&&!t){toast('Please pick a date and time first.');return;}
-  const dt=d?new Date(d).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}):'';
-  const tm=t?fmt12(t):'';
-  showChatActive();
-  const msg=`The user just booked a session${dt?' on '+dt:''}${tm?' at '+tm:''}. Acknowledge this warmly in one sentence, confirm Zahid will reach out on WhatsApp to confirm, and ask what they want to focus on.`;
-  chatHistory.push({role:'user',text:msg});
-  callAI(msg);
-  toast('Session time noted. Zahid will confirm on WhatsApp.');
-  openChat();
-}
-function fmt12(v){const[h,m]=v.split(':').map(Number);const a=h>=12?'PM':'AM';return((h%12)||12)+':'+String(m).padStart(2,'0')+' '+a;}
-
-/* ════════════════════════════════════════════════
-   MESSAGE RENDERING
-════════════════════════════════════════════════ */
-const WA_URL='https://wa.me/923454627881?text=Hi%20Zahid%20Hussain%2C%20I%20came%20from%20your%20AI%20assistant%20and%20would%20like%20a%201%20on%201%20session';
-const WA_SVG=`<svg style="width:13px;height:13px;fill:currentColor;flex-shrink:0;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
-const WA_BTN=`<a class="wa-cta" href="${WA_URL}" target="_blank" rel="noopener">${WA_SVG} Continue on WhatsApp with Zahid</a>`;
-
-function getTime(){return new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});}
-
-function addUserMsg(text){
-  const c=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='msg user';
-  d.innerHTML=`<div class="msg-av u">Y</div><div><div class="msg-bubble">${escHtml(text)}</div><span class="msg-time">${getTime()}</span></div>`;
-  c.appendChild(d);scroll(c);
-}
-
-function addBotMsg(html,showWa=false){
-  const c=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='msg bot';
-  const full=showWa?`${html}<br><br>${WA_BTN}`:html;
-  d.innerHTML=`<div class="msg-av b">Z</div><div><div class="msg-bubble">${full}</div><span class="msg-time">${getTime()}</span></div>`;
-  c.appendChild(d);scroll(c);
-  if(sessActive)resetIdle();
-}
-
-function addSysMsg(text){
-  const c=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='msg sys';
-  d.innerHTML=`<div class="msg-bubble">${text}</div>`;
-  c.appendChild(d);scroll(c);
-}
-
-function scroll(el){requestAnimationFrame(()=>{el.scrollTop=el.scrollHeight;});}
-function escHtml(t){const d=document.createElement('div');d.textContent=t;return d.innerHTML;}
-
-/* ════════════════════════════════════════════════
-   AI TEXT FORMATTER — markdown → HTML
-════════════════════════════════════════════════ */
-function formatAI(text){
-  // Bold
-  text=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/__(.*?)__/g,'<strong>$1</strong>');
-  // Italic (after bold)
-  text=text.replace(/\*([^*\n]+)\*/g,'<em>$1</em>');
-  // Numbered lists
-  text=text.replace(/^(\d+)\.\s(.+)$/gm,'<div class="ai-li"><span class="ai-num">$1.</span><span>$2</span></div>');
-  // Bullet lists
-  text=text.replace(/^[-•]\s(.+)$/gm,'<div class="ai-li"><span class="ai-bullet">•</span><span>$1</span></div>');
-  // Paragraph breaks
-  text=text.replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
-  return text;
-}
-
-/* ════════════════════════════════════════════════
-   WHATSAPP CTA TRIGGER
-════════════════════════════════════════════════ */
-function shouldShowWA(text){
-  const kw=['whatsapp','book','session','1 on 1','pricing','cost','how much','connect with zahid','speak with zahid','talk to zahid','contact','personal conversation'];
-  return kw.some(k=>text.toLowerCase().includes(k));
-}
-
-/* ════════════════════════════════════════════════
-   TYPING STATE
-════════════════════════════════════════════════ */
-function setTyping(on){
-  const ty=document.getElementById('typingEl');
-  const inp=document.getElementById('chatInp');
-  const btn=document.getElementById('sendBtn');
-  botBusy=on;
-  ty.classList.toggle('on',on);
-  inp.disabled=on;btn.disabled=on;
-  inp.placeholder=on?'Zahid AI is thinking...':'Ask about LinkedIn, branding, or your career...';
-  if(on){const c=document.getElementById('chatMsgs');c.scrollTop=c.scrollHeight;}
-}
-
-/* ════════════════════════════════════════════════
-   GEMINI API CALL
-   POST to /.netlify/functions/chatbot
-   NEVER sends GET — always POST
-════════════════════════════════════════════════ */
-async function callAI(userMessage,systemOnly=false){
-  setTyping(true);
-
-  const histPayload=chatHistory.slice(-16).map(h=>({role:h.role,text:h.text}));
-
-  try{
-    const res=await fetch('/.netlify/functions/chatbot',{
-      method:'POST',             // Always POST — never GET
-      headers:{
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-      },
-      body:JSON.stringify({
-        message:userMessage.trim(),
-        history:histPayload,
-        topic:selectedTopic||'',
-      }),
+/* ── CHAR COUNTER ──────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const inp = document.getElementById('chatInp');
+  const cc  = document.getElementById('charCounter');
+  if (inp && cc) {
+    inp.addEventListener('input', () => {
+      const len = inp.value.length;
+      cc.textContent = `${len}/3000`;
+      cc.className = 'char-counter' + (len > 0 ? ' visible' : '') + (len > 2500 ? ' warn' : '');
     });
-
-    if(!res.ok){
-      let errMsg='Something went wrong. Please try again.';
-      try{const e=await res.json();if(e.error)errMsg=e.error;}catch(_){}
-      if(res.status===429)errMsg='The AI is handling many requests right now. Please wait a moment.';
-      if(res.status===405){console.error('[chat] 405 — check fetch URL and method');errMsg='Connection issue. Please refresh the page.';}
-      setTyping(false);
-      addBotMsg(`<em style="opacity:0.55;">${errMsg}</em>`);
-      return;
-    }
-
-    let data;
-    try{data=await res.json();}
-    catch(je){
-      setTyping(false);
-      addBotMsg('<em style="opacity:0.55;">Could not read the response. Please try again.</em>');
-      return;
-    }
-
-    const reply=(data.reply||'').trim();
-    if(!reply){
-      setTyping(false);
-      addBotMsg('<em style="opacity:0.55;">Did not get a response there. Could you rephrase?</em>');
-      return;
-    }
-
-    setTyping(false);
-    const html=formatAI(reply);
-    const showWA=shouldShowWA(reply);
-    addBotMsg(html,showWA);
-
-    // Store in history only for user-initiated messages
-    if(!systemOnly)chatHistory.push({role:'bot',text:reply});
-
-  }catch(netErr){
-    setTyping(false);
-    const msg=!navigator.onLine
-      ?'You appear to be offline. Please check your connection.'
-      :'Could not reach the AI right now. Please try again.';
-    addBotMsg(`<em style="opacity:0.55;">${msg}</em>`);
-  }
-}
-
-/* ════════════════════════════════════════════════
-   SEND HANDLERS
-════════════════════════════════════════════════ */
-function handleSend(){
-  if(botBusy)return;
-  const inp=document.getElementById('chatInp');
-  const text=inp.value.trim();if(!text)return;
-  showChatActive();
-  addUserMsg(text);inp.value='';
-  document.getElementById('qchips').style.display='none';
-  chatHistory.push({role:'user',text});
-  callAI(text);
-}
-function qsend(text){
-  if(botBusy)return;
-  showChatActive();
-  addUserMsg(text);
-  document.getElementById('qchips').style.display='none';
-  chatHistory.push({role:'user',text});
-  callAI(text);
-}
-
-/* ════════════════════════════════════════════════
-   DOM READY
-════════════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded',()=>{
-  const inp=document.getElementById('chatInp');
-  if(inp){
-    inp.addEventListener('keydown',e=>{
-      if(e.key==='Enter'&&!e.shiftKey&&!botBusy){e.preventDefault();handleSend();}
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey && !botBusy) { e.preventDefault(); handleSend(); }
     });
-    if(IS_MOB){
-      inp.addEventListener('focus',()=>{
-        setTimeout(()=>document.getElementById('chat-section').scrollIntoView({behavior:'smooth',block:'end'}),320);
+    if (IS_MOB) {
+      inp.addEventListener('focus', () => {
+        setTimeout(() => document.getElementById('chat-section').scrollIntoView({ behavior: 'smooth', block: 'end' }), 320);
       });
     }
   }
-  const today=new Date().toISOString().split('T')[0];
-  const sd=document.getElementById('schDate');if(sd)sd.min=today;
+
+  // Date picker min = today
+  const sd = document.getElementById('schDate');
+  if (sd) sd.min = new Date().toISOString().split('T')[0];
 });
+
+/* ── CHAT OPEN / CLOSE ─────────────────────────────── */
+function openChat() {
+  document.getElementById('chat-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showChatActive() {
+  document.getElementById('preChat').style.display = 'none';
+  document.getElementById('chatActive').classList.add('on');
+}
+
+function chooseTopic(topic, openMsg) {
+  selectedTopic = topic;
+  showChatActive();
+  openChat();
+  if (openMsg) {
+    addUserBubble(openMsg);
+    chatHistory.push({ role: 'user', text: openMsg });
+    callAI(openMsg);
+  }
+}
+
+function resetChat() {
+  chatHistory = []; selectedTopic = ''; botBusy = false;
+  sessActive = false; sessLeft = SESS_DUR;
+  clearInterval(sessInt); clearTimeout(idleT);
+
+  document.getElementById('chatMsgs').innerHTML = '';
+  document.getElementById('sessEnd').classList.remove('on');
+  document.getElementById('progWrap').classList.remove('on');
+  document.getElementById('timerEl').classList.remove('on', 'warn');
+  document.getElementById('timerVal').textContent = '30:00';
+  document.getElementById('progBar').style.width = '0%';
+  document.getElementById('sessLabel').textContent = 'AI Powered';
+  document.getElementById('qchips').style.display = 'flex';
+
+  const inp = document.getElementById('chatInp');
+  const btn = document.getElementById('sendBtn');
+  inp.disabled = false; btn.disabled = false;
+  inp.placeholder = 'Ask about LinkedIn, branding, or your career...';
+
+  document.getElementById('preChat').style.display = 'flex';
+  document.getElementById('chatActive').classList.remove('on');
+}
+
+/* ── SESSION SYSTEM ────────────────────────────────── */
+const SESS_DUR = 30 * 60;
+let sessActive = false, sessLeft = SESS_DUR, sessInt = null, idleT = null;
+
+function selectTopic(t) {
+  selectedTopic = t;
+  document.querySelectorAll('.topic-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.topic === t.toLowerCase().replace(/\s+/g, ''));
+  });
+}
+
+function launchSession() {
+  if (!selectedTopic) { showToast('Please select a topic card above first.'); return; }
+  showChatActive();
+  openChat();
+
+  sessActive = true; sessLeft = SESS_DUR;
+  document.getElementById('progWrap').classList.add('on');
+  document.getElementById('timerEl').classList.add('on');
+  document.getElementById('sessLabel').textContent = 'Live Session';
+  document.getElementById('qchips').style.display = 'none';
+
+  addSysBubble(`Your 30 minute session has started. Topic: ${selectedTopic}.`);
+
+  const kickoff = `I want to focus on: ${selectedTopic}. Start our session with one targeted question to understand my current situation and where I want to be.`;
+  chatHistory.push({ role: 'user', text: kickoff });
+  callAI(kickoff);
+
+  sessInt = setInterval(tickSess, 1000);
+  resetIdle();
+}
+
+function tickSess() {
+  sessLeft--;
+  updateTimer(); updateProg();
+  if (sessLeft === 5 * 60) {
+    document.getElementById('timerEl').classList.add('warn');
+    addSysBubble('5 minutes remaining in your session.');
+  }
+  if (sessLeft <= 0) endSession();
+}
+
+function updateTimer() {
+  const m = Math.floor(sessLeft / 60), s = sessLeft % 60;
+  document.getElementById('timerVal').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+function updateProg() {
+  document.getElementById('progBar').style.width = ((SESS_DUR - sessLeft) / SESS_DUR * 100) + '%';
+}
+
+function endSession() {
+  clearInterval(sessInt); sessActive = false; clearTimeout(idleT);
+  playSiren();
+  addSysBubble('Your session has ended. Great conversation — let us keep the momentum going.');
+  const inp = document.getElementById('chatInp'), btn = document.getElementById('sendBtn');
+  inp.disabled = true; btn.disabled = true;
+  inp.placeholder = 'Session ended. Continue on WhatsApp.';
+  document.getElementById('sessEnd').classList.add('on');
+  document.getElementById('timerEl').classList.remove('warn');
+  document.getElementById('timerVal').textContent = '00:00';
+  document.getElementById('progBar').style.width = '100%';
+}
+
+function playSiren() {
+  try {
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    for (let i = 0; i < 3; i++) {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.connect(g); g.connect(ac.destination); o.type = 'sine';
+      o.frequency.setValueAtTime(660, ac.currentTime + i * .45);
+      o.frequency.linearRampToValueAtTime(330, ac.currentTime + i * .45 + .3);
+      g.gain.setValueAtTime(.16, ac.currentTime + i * .45);
+      g.gain.linearRampToValueAtTime(0, ac.currentTime + i * .45 + .4);
+      o.start(ac.currentTime + i * .45); o.stop(ac.currentTime + i * .45 + .45);
+    }
+  } catch (_) {}
+}
+
+function resetIdle() {
+  clearTimeout(idleT); if (!sessActive) return;
+  idleT = setTimeout(() => {
+    if (sessActive && !botBusy) {
+      callAI('The user has been idle. Gently ask a specific follow-up question to re-engage them in our session topic.', true);
+    }
+    resetIdle();
+  }, 65000);
+}
+
+/* ── SCHEDULE ──────────────────────────────────────── */
+function confirmSchedule() {
+  const d = document.getElementById('schDate').value;
+  const t = document.getElementById('schTime').value;
+  if (!d && !t) { showToast('Please pick a date and time first.'); return; }
+  const dtStr = d ? new Date(d).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }) : '';
+  const tmStr = t ? fmt12(t) : '';
+  showChatActive();
+  openChat();
+  const msg = `Schedule confirmed${dtStr ? ' for ' + dtStr : ''}${tmStr ? ' at ' + tmStr : ''}. Acknowledge warmly in one sentence, confirm Zahid will reach out on WhatsApp, and ask what they want to focus on so the session is well prepared.`;
+  chatHistory.push({ role: 'user', text: msg });
+  callAI(msg);
+  showToast('Session time noted. Zahid will confirm on WhatsApp.');
+}
+
+function fmt12(v) {
+  const [h, m] = v.split(':').map(Number);
+  const a = h >= 12 ? 'PM' : 'AM';
+  return ((h % 12) || 12) + ':' + String(m).padStart(2, '0') + ' ' + a;
+}
+
+/* ── MESSAGE RENDERING ─────────────────────────────── */
+function getTime() {
+  return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
+
+function escHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function addUserBubble(text) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg user';
+  d.innerHTML = `
+    <div class="msg-av u">U</div>
+    <div class="msg-inner">
+      <div class="msg-bubble">${escHtml(text)}</div>
+      <span class="msg-time">${getTime()}</span>
+    </div>`;
+  c.appendChild(d);
+  scrollChat(c);
+  if (sessActive) resetIdle();
+}
+
+function addBotBubble(html, showWa = false) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg bot';
+  const waHtml = showWa ? `<br>${WA_BTN}` : '';
+  // Upgrade 9: Copy button per bot message
+  const textContent = html.replace(/<[^>]+>/g, ' ').trim();
+  d.innerHTML = `
+    <div class="msg-av b">Z</div>
+    <div class="msg-inner">
+      <div class="msg-bubble">${html}${waHtml}</div>
+      <span class="msg-time">${getTime()}</span>
+      <div class="msg-actions">
+        <button class="msg-copy" onclick="copyMsg(this, \`${textContent.replace(/`/g, "'")}\`)" title="Copy message">copy</button>
+      </div>
+    </div>`;
+  c.appendChild(d);
+  scrollChat(c);
+  if (sessActive) resetIdle();
+}
+
+function addSysBubble(text) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg sys';
+  d.innerHTML = `<div class="msg-bubble">🔔 ${escHtml(text)}</div>`;
+  c.appendChild(d);
+  scrollChat(c);
+}
+
+function addErrorBubble(msg) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg bot';
+  d.innerHTML = `
+    <div class="msg-av b">Z</div>
+    <div class="msg-inner">
+      <div class="msg-bubble" style="border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.06);">
+        <span style="color:#f87171;">⚠</span> ${escHtml(msg)}
+      </div>
+      <span class="msg-time">${getTime()}</span>
+    </div>`;
+  c.appendChild(d);
+  scrollChat(c);
+}
+
+function scrollChat(el) {
+  requestAnimationFrame(() => { el.scrollTop = el.scrollHeight; });
+}
+
+// Upgrade 9: Copy to clipboard
+function copyMsg(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'copied!';
+    setTimeout(() => { btn.textContent = 'copy'; }, 1800);
+  }).catch(() => {});
+}
+
+/* ── AI TEXT FORMATTER ─────────────────────────────── */
+// Converts Gemini's markdown-style output to clean HTML
+function formatAI(raw) {
+  let t = raw
+    // Bold
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.*?)__/g, '<strong>$1</strong>')
+    // Italic (after bold)
+    .replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+
+  // Numbered list
+  t = t.replace(/^(\d+)\.\s(.+)$/gm,
+    '<div class="ai-li"><span class="ai-num">$1.</span><span>$2</span></div>');
+  // Bullet list
+  t = t.replace(/^[-•]\s(.+)$/gm,
+    '<div class="ai-li"><span class="ai-bullet">•</span><span>$1</span></div>');
+
+  // Paragraph breaks
+  t = t.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+  return t;
+}
+
+/* ── WHATSAPP CTA TRIGGER ──────────────────────────── */
+function shouldShowWA(text) {
+  const kw = ['whatsapp','book','session','1 on 1','pricing','cost','how much',
+    'connect with zahid','speak with zahid','talk to zahid','contact','directly'];
+  return kw.some(k => text.toLowerCase().includes(k));
+}
+
+/* ── TYPING STATE ──────────────────────────────────── */
+function setTyping(on) {
+  const ty  = document.getElementById('typingEl');
+  const inp = document.getElementById('chatInp');
+  const btn = document.getElementById('sendBtn');
+  botBusy = on;
+  ty.classList.toggle('on', on);
+  inp.disabled = on;
+  btn.disabled = on;
+  inp.placeholder = on
+    ? 'Zahid AI is thinking...'
+    : 'Ask about LinkedIn, branding, or your career...';
+  if (on) scrollChat(document.getElementById('chatMsgs'));
+}
+
+/* ── GEMINI API CALL ───────────────────────────────────
+   This is the ONLY place a network request is made.
+   Method is always POST.
+   Body always includes: message, history, topic.
+   Endpoint: /.netlify/functions/chat (matches chat.js filename)
+═══════════════════════════════════════════════════ */
+async function callAI(userMessage, systemOnly = false) {
+  setTyping(true);
+
+  // Send last 16 turns of history for context
+  const histPayload = chatHistory.slice(-16).map(h => ({ role: h.role, text: h.text }));
+
+  let response;
+
+  try {
+    // ── THE FETCH ─────────────────────────────────
+    // Always POST. Content-Type always application/json.
+    // Relative URL works on any Netlify domain or preview URL.
+    response = await fetch(CHAT_ENDPOINT, {
+      method:  'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':        'application/json',
+      },
+      body: JSON.stringify({
+        message: userMessage.trim(),
+        history: histPayload,
+        topic:   selectedTopic || '',
+      }),
+    });
+  } catch (netErr) {
+    // fetch() itself threw — user is offline or DNS failed
+    setTyping(false);
+    const msg = !navigator.onLine
+      ? 'You appear to be offline. Please check your connection and try again.'
+      : 'Could not connect to the AI service. Please try again in a moment.';
+    addErrorBubble(msg);
+    showToast(msg, true);
+    return;
+  }
+
+  // ── HTTP ERROR HANDLING ───────────────────────
+  if (!response.ok) {
+    let errMsg = 'Something went wrong. Please try again.';
+    try {
+      const errData = await response.json();
+      if (errData && typeof errData.error === 'string') errMsg = errData.error;
+    } catch (_) {}
+
+    // Special cases
+    if (response.status === 429) errMsg = 'The AI is handling many requests right now. Please wait a moment and try again.';
+    if (response.status === 405) {
+      // This means the endpoint URL is wrong or method was rejected
+      console.error('[chat] 405 Method Not Allowed. Check CHAT_ENDPOINT URL and POST method.');
+      errMsg = 'Connection configuration issue. Please refresh the page and try again.';
+    }
+    if (response.status === 500) errMsg = 'The AI service encountered an issue. If this persists, please contact support.';
+
+    setTyping(false);
+    addErrorBubble(errMsg);
+    showToast(errMsg, true);
+    return;
+  }
+
+  // ── PARSE JSON ───────────────────────────────
+  let data;
+  try {
+    data = await response.json();
+  } catch (jsonErr) {
+    console.error('[chat] Failed to parse JSON response:', jsonErr);
+    setTyping(false);
+    addErrorBubble('Got an unexpected response format. Please try again.');
+    return;
+  }
+
+  const reply = (data.reply || '').trim();
+
+  if (!reply) {
+    setTyping(false);
+    addErrorBubble('Did not get a response there. Could you rephrase your question?');
+    return;
+  }
+
+  // ── RENDER REPLY ─────────────────────────────
+  setTyping(false);
+  const html    = formatAI(reply);
+  const showWA  = shouldShowWA(reply);
+  addBotBubble(html, showWA);
+
+  // Store in history only for user-initiated messages
+  if (!systemOnly) chatHistory.push({ role: 'bot', text: reply });
+}
+
+/* ── SEND HANDLERS ─────────────────────────────────── */
+function handleSend() {
+  if (botBusy) return;
+  const inp  = document.getElementById('chatInp');
+  const text = inp.value.trim();
+  if (!text) return;
+
+  showChatActive();
+  addUserBubble(text);
+  inp.value = '';
+  document.getElementById('qchips').style.display = 'none';
+  chatHistory.push({ role: 'user', text });
+  callAI(text);
+}
+
+function qsend(text) {
+  if (botBusy) return;
+  showChatActive();
+  addUserBubble(text);
+  document.getElementById('qchips').style.display = 'none';
+  chatHistory.push({ role: 'user', text });
+  callAI(text);
+}
 </script>
+
+<!-- ═══════════════════════════════════════════════════
+     DEPLOYMENT GUIDE (kept as HTML comment — not visible)
+
+  FILE STRUCTURE IN GITHUB REPO:
+  ├── index.html                          ← this file
+  ├── netlify/
+  │   └── functions/
+  │       └── chat.js                    ← backend function
+  └── netlify.toml                       ← optional config
+
+  NETLIFY DEPLOYMENT STEPS:
+  1. Push both files to GitHub
+  2. Go to netlify.com → Add new site → Import from GitHub
+  3. Select your repo → Build settings:
+     - Build command: (leave blank)
+     - Publish directory: . (period = root)
+  4. Click Deploy
+
+  ENVIRONMENT VARIABLE SETUP:
+  1. Netlify Dashboard → Your Site → Site Configuration
+  2. Click "Environment Variables" in left sidebar
+  3. Click "Add a variable"
+  4. Key:   GEMINI_API_KEY
+     Value: your key from https://aistudio.google.com/app/apikey
+  5. Click "Save"
+  6. Go to Deploys → Trigger deploy (redeploy after adding the key)
+
+  OPTIONAL netlify.toml (place in repo root):
+  [functions]
+    directory = "netlify/functions"
+
+  ROOT CAUSE ANALYSIS — "AI service temporarily unavailable":
+  1. GEMINI_API_KEY missing → Check Netlify Environment Variables
+  2. API key has spaces → Copy-paste carefully, no leading/trailing spaces
+  3. Wrong function filename → File must be chat.js, called at /functions/chat
+  4. Function not deployed → Redeploy after any config change
+  5. Wrong Gemini endpoint → Must be gemini-1.5-flash:generateContent
+  6. Rate limit (429) → Google free tier has RPM limits; wait and retry
+  7. Bad request body → Must be valid JSON with non-empty "message" field
+  8. Contents alternation error → user/model roles must strictly alternate
+  9. CORS mismatch → Handled automatically by resolveOrigin() in chat.js
+  10. Network error in function → Check Netlify function logs for details
+═══════════════════════════════════════════════════ -->
 </body>
 </html>
